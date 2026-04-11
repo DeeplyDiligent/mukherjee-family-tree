@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mukherjee Family Tree</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d9a0;
+      --bg: #faf8f2;
+      --text: #2c2417;
+      --border: #b8962e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 24px 32px;
+      border: 3px double var(--border);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fffdf5 0%, #f5eed6 100%);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    header::before,
+    header::after {
+      content: '\2726';
+      position: absolute;
+      top: 12px;
+      font-size: 18px;
+      color: var(--gold);
+    }
+    header::before { left: 20px; }
+    header::after { right: 20px; }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    h1 .sub {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #7a6b3a;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #8a7b4a;
+      font-style: italic;
+    }
+
+    .divider {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 16px auto;
+    }
+
+    .controls-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: #6b5d3a;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+    }
+
+    .zoom-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .zoom-controls button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold-light);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .zoom-controls button:hover {
+      background: var(--gold-light);
+    }
+
+    .zoom-hint {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaa;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .tree-section {
+      border: 2px solid var(--gold-light);
+      border-radius: 10px;
+      margin-bottom: 32px;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tree-section h2 {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin: 0;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--gold-light);
+      background: linear-gradient(135deg, #fffdf5 0%, #f5eed6 100%);
+    }
+
+    #main-tree-container {
+      width: 100%;
+      cursor: grab;
+    }
+
+    #main-tree-container:active {
+      cursor: grabbing;
+    }
+
+    #main-tree-container svg {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .small-tree { padding: 16px; }
+
+    .outline-section {
+      border: 2px solid var(--gold-light);
+      border-radius: 10px;
+      padding: 32px;
+      background: #fff;
+      margin-bottom: 32px;
+    }
+
+    .outline-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 8px;
+    }
+
+    .outline {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      color: #3d3220;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      padding: 24px 0 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <header>
+      <h1>
+        The Mukherjee &amp; Banerjee Family
+        <span class="sub">&#2476;&#2434;&#2486; &#2474;&#2480;&#2495;&#2458;&#2479;&#2492; &#8226; Family Tree</span>
+      </h1>
+      <div class="divider"></div>
+      <p class="subtitle">Siblings Smt. Suhasini (Branch F) &amp; Smt. Labanya (Branch G) &mdash; and their descendants</p>
+    </header>
+
+    <div class="controls-bar">
+      <div class="legend">
+        <div class="legend-item"><div class="legend-swatch" style="background:#f3e5c0;border-color:#b8962e"></div> Common parents</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#fff3cd;border-color:#c9a84c"></div> Siblings (Suhasini &amp; Labanya)</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#e8f0fe"></div> Couple</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#e6f4ea"></div> Children / Grandchildren</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#f0f0f0;border-style:dashed"></div> Closed branch</div>
+      </div>
+      <div class="zoom-controls">
+        <button id="zoom-in" title="Zoom in">+</button>
+        <button id="zoom-out" title="Zoom out">&minus;</button>
+        <button id="zoom-reset" title="Fit to screen">&#8865;</button>
+      </div>
+    </div>
+    <p class="zoom-hint">Scroll to zoom &middot; Click &amp; drag to pan &middot; Double-click to reset</p>
+
+    <!-- ============ COMBINED TREE ============ -->
+    <div class="tree-section">
+      <h2>Complete Family Tree</h2>
+      <div id="main-tree-container">
+        <div class="mermaid" id="combined-tree">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#e8f0fe','primaryTextColor':'#1a1a2e','primaryBorderColor':'#7a8bb5','lineColor':'#9a8b5a','secondaryColor':'#fce8e6','tertiaryColor':'#e6f4ea','fontSize':'13px'},'flowchart':{'nodeSpacing':25,'rankSpacing':55,'curve':'basis'}}}%%
+graph LR
+  PARENT["&lt;b&gt;Parents&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(Banerjee)&lt;/i&gt;"]
+
+  PARENT -->|"sister"| SUHASI["&lt;b&gt;Smt. Suhasini &amp; Jogesh Ch.&lt;/b&gt;&lt;br/&gt;Mukherjee — &lt;i&gt;Branch F&lt;/i&gt;"]
+  PARENT -->|"sister"| LABANYA["&lt;b&gt;Smt. Labanya &amp; Nalini&lt;/b&gt;&lt;br/&gt;Mukherjee — &lt;i&gt;Branch G&lt;/i&gt;"]
+
+  SUHASI --> F1["&lt;b&gt;Ganesh &amp; Smt. Lila&lt;/b&gt;&lt;br/&gt;Mukherjee — F/1"]
+  SUHASI --> F2["&lt;b&gt;Bhabesh &amp; Smt. Lina&lt;/b&gt;&lt;br/&gt;Mukherjee — F/2"]
+  SUHASI --> F3["&lt;b&gt;Manik Mukherjee&lt;/b&gt;&lt;br/&gt;F/3 — &lt;i&gt;Closed&lt;/i&gt;"]
+  SUHASI --> F4["&lt;b&gt;Smt. Prativa &amp; Sudhir&lt;/b&gt;&lt;br/&gt;Chatterjee — F/4"]
+  SUHASI --> F5["&lt;b&gt;Smt. Putul &amp; Durga&lt;/b&gt;&lt;br/&gt;Chatterjee — F/5"]
+  SUHASI --> F6["&lt;b&gt;Smt. Pakhi Mukherjee&lt;/b&gt;&lt;br/&gt;F/6 — &lt;i&gt;Closed&lt;/i&gt;"]
+
+  F1 --> F1_1["&lt;b&gt;Debesh &amp; Bulla&lt;/b&gt;&lt;br/&gt;Mukherjee — F/1-I"]
+  F1 --> F1_2["&lt;b&gt;Smt. Maya &amp; Mrinal&lt;/b&gt;&lt;br/&gt;Sarkar — F/1-II"]
+  F1 --> F1_3["&lt;b&gt;Smt. Mamata &amp; Chandra Sekhar&lt;/b&gt;&lt;br/&gt;F/1-III"]
+  F1 --> F1_4["&lt;b&gt;Smt. Uma &amp; Jiban&lt;/b&gt;&lt;br/&gt;Chatterjee — F/1-IV"]
+
+  F1_1 --> F1_1a["&lt;b&gt;Minakshi &amp; Tilak&lt;/b&gt;&lt;br/&gt;Mukherjee"]
+  F1_1 --> F1_1b["&lt;b&gt;Debankur &amp; Swagata&lt;/b&gt;&lt;br/&gt;Mukherjee"]
+  F1_1b --> F1_1b1["Kathakoli Mukherjee"]
+  F1_2 --> F1_2a["Somnath Sarkar"]
+  F1_2 --> F1_2b["Miss Mon Sarkar"]
+  F1_4 --> F1_4a["Mitu Chatterjee"]
+  F1_4 --> F1_4b["&lt;b&gt;Elora &amp; Partha&lt;/b&gt;&lt;br/&gt;Chakraborty"]
+  F1_4b --> F1_4b1["Adrija Chakraborty"]
+
+  F2 --> F2_1["&lt;b&gt;Samaresh &amp; Smt.&lt;/b&gt;&lt;br/&gt;Mukherjee — F/2-I"]
+  F2 --> F2_2["&lt;b&gt;Vikram &amp; Sraboni&lt;/b&gt;&lt;br/&gt;Mukherjee"]
+  F2 --> F2_3["&lt;b&gt;Jayanta &amp; Krishnakoli&lt;/b&gt;&lt;br/&gt;Mukherjee"]
+
+  F2_2 --> F2_2a["&lt;b&gt;Upasana &amp; Kaushik&lt;/b&gt;&lt;br/&gt;Mitra"]
+  F2_1 --> F2_1a["&lt;b&gt;Shabarna &amp; Supriyo&lt;/b&gt;&lt;br/&gt;Mukherjee"]
+  F2_1 --> F2_1b["&lt;b&gt;Srijata &amp; Arijit&lt;/b&gt;&lt;br/&gt;Chowdhury"]
+  F2_1a --> F2_1a1["Sreeja Mukherjee"]
+  F2_1b --> F2_1b1["Anya Chowdhury"]
+  F2_1b --> F2_1b2["Anika Chowdhury"]
+  F2_3 --> F2_3a["&lt;b&gt;Bedatrayee &amp; Nitin&lt;/b&gt;&lt;br/&gt;Kurian"]
+  F2_3 --> F2_3b["Aritri Mukherjee"]
+  F2_3a --> F2_3a1["Viyomi Kurian"]
+
+  F4 --> F4_1["&lt;b&gt;Sankar &amp; Smt. Sumita&lt;/b&gt;&lt;br/&gt;Chatterjee — F/4-I"]
+  F4 --> F4_2["&lt;b&gt;Smt. Roma &amp; Kumud&lt;/b&gt;&lt;br/&gt;Ghoshal — F/4-II"]
+  F4 --> F4_3["&lt;b&gt;Smt. Ratna &amp; Chitranjan&lt;/b&gt;&lt;br/&gt;Mukherjee — F/4-III"]
+  F4 --> F4_4["&lt;b&gt;Smt. Khuku &amp; Samir&lt;/b&gt;&lt;br/&gt;Mukherjee — F/4-IV"]
+
+  F4_1 --> F4_1a["&lt;b&gt;Somdev &amp; Priyanka&lt;/b&gt;&lt;br/&gt;Chattopadhyay"]
+  F4_1a --> F4_1a1["Rudra Pratap Chattopadhyay"]
+  F4_2 --> F4_2a["Miss Babli Ghoshal"]
+  F4_2 --> F4_2b["Piku Ghoshal"]
+  F4_2 --> F4_2c["Daku Ghoshal"]
+  F4_3 --> F4_3a["Bappa Mukherjee"]
+  F4_4 --> F4_4a["Papu Mukherjee"]
+  F4_4 --> F4_4b["Dola"]
+
+  F5 --> F5_1["&lt;b&gt;Goutam &amp; Suparna&lt;/b&gt;&lt;br/&gt;Chatterjee"]
+  F5 --> F5_2["&lt;b&gt;Smt. Bharati &amp; Pranab&lt;/b&gt;&lt;br/&gt;Roychowdhury — F/5-II"]
+  F5_1 --> F5_1a["&lt;b&gt;Ria &amp; Deep&lt;/b&gt;&lt;br/&gt;Bhattacharyya"]
+  F5_2 --> F5_2a["Pallab Roychowdhury"]
+  F5_2 --> F5_2b["Arnab"]
+
+  LABANYA --> G1["&lt;b&gt;Smt. Asha &amp; Chuni&lt;/b&gt;&lt;br/&gt;Banerjee — G/1"]
+  LABANYA --> G2["&lt;b&gt;Smt. Bela &amp; Sunil&lt;/b&gt;&lt;br/&gt;Banerjee — G/2"]
+
+  G1 --> G1_1["Amal Banerjee — G/1-I"]
+  G1 --> G1_1b["Kalpna / Ruby"]
+  G1 --> G1_2["Shaymal — G/1-II"]
+  G1 --> G1_2b["Rina / Chabi — G/1-II"]
+  G1 --> G1_3["&lt;b&gt;Rita / Tushi &amp; Kamalesh&lt;/b&gt;&lt;br/&gt;Mukherjee — G/1-III"]
+
+  G2 --> G2_1["Sankar Banerjee"]
+  G2 --> G2_2["Dipankar Banerjee"]
+  G2 --> G2_3["Shuvankar Banerjee"]
+  G2 --> G2_4["&lt;b&gt;Smt. Mira &amp; Narayn Ch.&lt;/b&gt;&lt;br/&gt;Mukherjee — G/2-II"]
+
+  style PARENT fill:#f3e5c0,stroke:#b8962e,stroke-width:3px,color:#2c2417
+  style SUHASI fill:#fff3cd,stroke:#c9a84c,stroke-width:2px,color:#2c2417
+  style LABANYA fill:#fff3cd,stroke:#c9a84c,stroke-width:2px,color:#2c2417
+  style F3 fill:#f0f0f0,stroke:#999,stroke-dasharray:5
+  style F6 fill:#f0f0f0,stroke:#999,stroke-dasharray:5
+  style F1_1a fill:#e8f0fe,stroke:#7a8bb5
+  style F1_1b1 fill:#e6f4ea,stroke:#81c995
+  style F1_2a fill:#e6f4ea,stroke:#81c995
+  style F1_2b fill:#e6f4ea,stroke:#81c995
+  style F1_4a fill:#e6f4ea,stroke:#81c995
+  style F1_4b1 fill:#e6f4ea,stroke:#81c995
+  style F4_1a1 fill:#e6f4ea,stroke:#81c995
+  style F4_2a fill:#e6f4ea,stroke:#81c995
+  style F4_2b fill:#e6f4ea,stroke:#81c995
+  style F4_2c fill:#e6f4ea,stroke:#81c995
+  style F4_3a fill:#e6f4ea,stroke:#81c995
+  style F4_4a fill:#e6f4ea,stroke:#81c995
+  style F4_4b fill:#e6f4ea,stroke:#81c995
+  style F5_2a fill:#e6f4ea,stroke:#81c995
+  style F5_2b fill:#e6f4ea,stroke:#81c995
+  style F2_3b fill:#e6f4ea,stroke:#81c995
+  style F2_3a1 fill:#e6f4ea,stroke:#81c995
+  style F2_1a1 fill:#e6f4ea,stroke:#81c995
+  style F2_1b1 fill:#e6f4ea,stroke:#81c995
+  style F2_1b2 fill:#e6f4ea,stroke:#81c995
+  style F5_1a fill:#e8f0fe,stroke:#7a8bb5
+  style G1_1 fill:#e6f4ea,stroke:#81c995
+  style G1_1b fill:#e6f4ea,stroke:#81c995
+  style G1_2 fill:#e6f4ea,stroke:#81c995
+  style G1_2b fill:#e6f4ea,stroke:#81c995
+  style G2_1 fill:#e6f4ea,stroke:#81c995
+  style G2_2 fill:#e6f4ea,stroke:#81c995
+  style G2_3 fill:#e6f4ea,stroke:#81c995
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PARTIAL E-BRANCH ============ -->
+    <div class="tree-section" style="max-width:700px;margin-left:auto;margin-right:auto">
+      <h2>Partial &mdash; E Branch (from adjacent pages)</h2>
+      <div class="small-tree">
+        <div class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#e8f0fe','primaryTextColor':'#1a1a2e','primaryBorderColor':'#7a8bb5','lineColor':'#9a8b5a','fontSize':'13px'}}}%%
+graph LR
+  E2_III["&lt;b&gt;Mihir &amp; Arundhuti&lt;/b&gt;&lt;br/&gt;Mukherjee — E/2-III"]
+  E2_III --> E2_IIIa["Miss Anuska Mukherjee"]
+  E2_V["&lt;b&gt;Smt. Santa &amp; Kalipada&lt;/b&gt;&lt;br/&gt;Bhattacherjee — E/2-V"]
+  E2_V --> E2_Va["Nilanjan / Diltoo&lt;br/&gt;Bhattacherjee"]
+  style E2_IIIa fill:#e6f4ea,stroke:#81c995
+  style E2_Va fill:#e6f4ea,stroke:#81c995
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ TEXT OUTLINE ============ -->
+    <div class="outline-section">
+      <h2>Family Tree &mdash; Text Outline</h2>
+      <div class="outline"><b>Parents (Banerjee)</b>
+&#9500;&#9472;&#9472; <b>Smt. Suhasini</b> (sister)
+&#9492;&#9472;&#9472; <b>Smt. Labanya</b> (sister)
+
+&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;
+
+<b>Smt. Suhasini &amp; Jogesh Ch. Mukherjee (Branch F)</b>
+&#9474;
+&#9500;&#9472;&#9472; <b>F/1</b>  Ganesh &amp; Smt. Lila Mukherjee
+&#9474;   &#9500;&#9472;&#9472; F/1-I    Debesh &amp; Bulla Mukherjee
+&#9474;   &#9474;   &#9500;&#9472;&#9472; Minakshi &amp; Tilak Mukherjee
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Debankur &amp; Swagata Mukherjee
+&#9474;   &#9474;       &#9492;&#9472;&#9472; Kathakoli Mukherjee
+&#9474;   &#9500;&#9472;&#9472; F/1-II   Smt. Maya &amp; Mrinal Sarkar
+&#9474;   &#9474;   &#9500;&#9472;&#9472; Somnath Sarkar
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Miss Mon Sarkar
+&#9474;   &#9500;&#9472;&#9472; F/1-III  Smt. Mamata &amp; Chandra Sekhar
+&#9474;   &#9492;&#9472;&#9472; F/1-IV   Smt. Uma &amp; Jiban Chatterjee
+&#9474;       &#9500;&#9472;&#9472; Mitu Chatterjee
+&#9474;       &#9492;&#9472;&#9472; Elora &amp; Partha Chakraborty
+&#9474;           &#9492;&#9472;&#9472; Adrija Chakraborty
+&#9474;
+&#9500;&#9472;&#9472; <b>F/2</b>  Bhabesh &amp; Smt. Lina Mukherjee
+&#9474;   &#9500;&#9472;&#9472; F/2-I    Samaresh &amp; Smt. Mukherjee
+&#9474;   &#9474;   &#9500;&#9472;&#9472; Shabarna &amp; Supriyo Mukherjee
+&#9474;   &#9474;   &#9474;   &#9492;&#9472;&#9472; Sreeja Mukherjee
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Srijata &amp; Arijit Chowdhury
+&#9474;   &#9474;       &#9500;&#9472;&#9472; Anya Chowdhury
+&#9474;   &#9474;       &#9492;&#9472;&#9472; Anika Chowdhury
+&#9474;   &#9500;&#9472;&#9472; Vikram &amp; Sraboni Mukherjee
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Upasana &amp; Kaushik Mitra
+&#9474;   &#9492;&#9472;&#9472; Jayanta &amp; Krishnakoli Mukherjee
+&#9474;       &#9500;&#9472;&#9472; Bedatrayee &amp; Nitin Kurian
+&#9474;       &#9474;   &#9492;&#9472;&#9472; Viyomi Kurian
+&#9474;       &#9492;&#9472;&#9472; Aritri Mukherjee
+&#9474;
+&#9500;&#9472;&#9472; <b>F/3</b>  Manik Mukherjee &mdash; <i>(Closed)</i>
+&#9474;
+&#9500;&#9472;&#9472; <b>F/4</b>  Smt. Prativa &amp; Sudhir Chatterjee
+&#9474;   &#9500;&#9472;&#9472; F/4-I    Sankar &amp; Smt. Sumita Chatterjee
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Somdev &amp; Priyanka Chattopadhyay
+&#9474;   &#9474;       &#9492;&#9472;&#9472; Rudra Pratap Chattopadhyay
+&#9474;   &#9500;&#9472;&#9472; F/4-II   Smt. Roma &amp; Kumud Ghoshal
+&#9474;   &#9474;   &#9500;&#9472;&#9472; Miss Babli Ghoshal
+&#9474;   &#9474;   &#9500;&#9472;&#9472; Piku
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Daku
+&#9474;   &#9500;&#9472;&#9472; F/4-III  Smt. Ratna &amp; Chitranjan Mukherjee
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Bappa Mukherjee
+&#9474;   &#9492;&#9472;&#9472; F/4-IV   Smt. Khuku &amp; Samir Mukherjee
+&#9474;       &#9500;&#9472;&#9472; Papu Mukherjee
+&#9474;       &#9492;&#9472;&#9472; Dola
+&#9474;
+&#9500;&#9472;&#9472; <b>F/5</b>  Smt. Putul &amp; Durga Chatterjee
+&#9474;   &#9500;&#9472;&#9472; Goutam &amp; Suparna Chatterjee
+&#9474;   &#9474;   &#9492;&#9472;&#9472; Ria &amp; Deep Bhattacharyya
+&#9474;   &#9492;&#9472;&#9472; F/5-II   Smt. Bharati &amp; Pranab Roychowdhury
+&#9474;       &#9500;&#9472;&#9472; Pallab Roychowdhury
+&#9474;       &#9492;&#9472;&#9472; Arnab
+&#9474;
+&#9492;&#9472;&#9472; <b>F/6</b>  Smt. Pakhi Mukherjee &mdash; <i>(Closed)</i>
+
+
+<b>Smt. Labanya &amp; Nalini Mukherjee (Branch G)</b>
+&#9474;
+&#9500;&#9472;&#9472; <b>G/1</b>  Smt. Asha &amp; Chuni Banerjee
+&#9474;   &#9500;&#9472;&#9472; G/1-I    Amal Banerjee
+&#9474;   &#9500;&#9472;&#9472; Kalpna / Ruby
+&#9474;   &#9500;&#9472;&#9472; G/1-II   Shaymal
+&#9474;   &#9500;&#9472;&#9472; G/1-II   Rina / Chabi
+&#9474;   &#9492;&#9472;&#9472; G/1-III  Rita / Tushi &amp; Kamalesh Mukherjee
+&#9474;
+&#9492;&#9472;&#9472; <b>G/2</b>  Smt. Bela &amp; Sunil Banerjee
+    &#9500;&#9472;&#9472; Sankar Banerjee
+    &#9500;&#9472;&#9472; Dipankar
+    &#9500;&#9472;&#9472; Shuvankar
+    &#9492;&#9472;&#9472; G/2-II   Smt. Mira &amp; Narayn Ch. Mukherjee
+
+
+&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;
+
+<b>Partial &mdash; E Branch (adjacent pages)</b>
+&#9500;&#9472;&#9472; E/2-III  Mihir &amp; Arundhuti Mukherjee
+&#9474;   &#9492;&#9472;&#9472; Miss Anuska Mukherjee
+&#9492;&#9472;&#9472; E/2-V    Smt. Santa &amp; Kalipada Bhattacherjee
+    &#9492;&#9472;&#9472; Nilanjan / Diltoo Bhattacherjee</div>
+    </div>
+
+    <footer>
+      OCR transcribed from printed family register &bull; Some names may have variant spellings
+    </footer>
+
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: 'loose',
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: 'basis',
+        nodeSpacing: 25,
+        rankSpacing: 55
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new MutationObserver(function() {
+        var container = document.getElementById('main-tree-container');
+        var svg = container ? container.querySelector('svg') : null;
+        if (svg) {
+          observer.disconnect();
+          svg.style.maxWidth = 'none';
+          svg.setAttribute('width', '100%');
+          svg.setAttribute('height', '100%');
+
+          var panZoom = svgPanZoom(svg, {
+            zoomEnabled: true,
+            controlIconsEnabled: false,
+            fit: true,
+            center: true,
+            minZoom: 0.1,
+            maxZoom: 12,
+            zoomScaleSensitivity: 0.3,
+            panEnabled: true,
+            dblClickZoomEnabled: false
+          });
+
+          document.getElementById('zoom-in').addEventListener('click', function() { panZoom.zoomIn(); });
+          document.getElementById('zoom-out').addEventListener('click', function() { panZoom.zoomOut(); });
+          document.getElementById('zoom-reset').addEventListener('click', function() {
+            panZoom.resetZoom();
+            panZoom.resetPan();
+            panZoom.fit();
+            panZoom.center();
+          });
+
+          container.addEventListener('dblclick', function() {
+            panZoom.resetZoom();
+            panZoom.resetPan();
+            panZoom.fit();
+            panZoom.center();
+          });
+
+          window.addEventListener('resize', function() {
+            panZoom.resize();
+            panZoom.fit();
+            panZoom.center();
+          });
+        }
+      });
+
+      observer.observe(document.getElementById('main-tree-container'), {
+        childList: true,
+        subtree: true
+      });
+    });
+  </script>
+</body>
+</html>
