@@ -77,7 +77,7 @@
     },
     {
       "id": "F1_1",
-      "couple": ["Debesh", "Bulla"],
+      "couple": ["Smt. Bulla", "Debesh"],
       "surname": "Mukherjee",
       "branchCode": "F/1-I",
       "styleKey": "default",
@@ -152,6 +152,7 @@
     },
     {
       "id": "F2_1",
+      "note": "Wife's name not recorded in source register — only honorific known",
       "couple": ["Smt.", "Samaresh"],
       "surname": "Mukherjee",
       "branchCode": "F/2-I",
