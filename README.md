@@ -27,7 +27,7 @@ The JSON contains family names and relationships. Anyone with access to a hosted
 - Search results offer **Show in tree**. Detail panels can copy a link such as `index.html#entry=F4_1`.
 - Unattached entries appear under **Other family entries** and remain searchable. They are not attached to guessed parents.
 
-Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards use small monochrome ♂/♀ badges with accessible labels; detail panels show Male/Female. Entries without a recorded gender have no badge.
+Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards use small monochrome ♂/♀ badges with accessible labels; detail panels show Male/Female. The current data includes family-recorded markers and reviewed best-guess markers based on names and family context. The 22 ambiguous names remain unmarked and have no badge.
 
 ## Maintaining the data
 
@@ -41,7 +41,7 @@ The schema-v3 JSON contains:
 - Member names, nickname and alternate-name arrays, plus optional gender.
 - Optional `lineageMemberIndex` and `childrenStatus`. `childrenStatus: "none"` records an explicit statement of no children; an empty child list alone does not make that claim.
 
-Preserve established spellings, surnames and family-line-first member ordering unless a correction is confirmed. Do not merge namesakes automatically, infer gender from a name or partner, or change neutral groups into couples without confirmation. New entries need unique, stable IDs and must be connected to the graph or listed in `unplacedIds`.
+Preserve established spellings, surnames and family-line-first member ordering unless a correction is confirmed. Do not merge namesakes automatically or change neutral groups into couples without confirmation. Treat gender markers as reviewable family-tree data: leave ambiguous names unmarked rather than forcing a guess, and replace best-guess markers when the family confirms them. New entries need unique, stable IDs and must be connected to the graph or listed in `unplacedIds`.
 
 Private questions are kept locally in git-ignored `FOLLOW-UP-QUESTIONS.md`, never embedded in the public JSON or linked from the page. The preview server does not serve this file or repository internals.
 
