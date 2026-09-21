@@ -235,7 +235,7 @@ try {
       );
     }
     await accessible();
-    // Nicknames and evidence-based gender badges replace display honorifics.
+    // Nicknames and gender badges replace display honorifics.
     await page.locator("#search").fill("Keya");
     assert.equal(await page.locator(".results .family-card").count(), 1);
     assert.equal(
@@ -316,7 +316,11 @@ try {
       false,
     );
     await page.locator("#search").fill("Pankoj");
-    assert.equal(await page.locator(".results .gender-badge").count(), 0);
+    assert.equal(await page.locator(".results .gender-badge").count(), 1);
+    assert.equal(
+      await page.locator(".results .gender-badge").getAttribute("aria-label"),
+      "Male",
+    );
     await page.locator("#search").fill("Upasana");
     await page.locator(".results .card-main").click();
     assert.match(
@@ -592,7 +596,7 @@ try {
       `PASS ${width}px: search, nickname, preservation, expand/collapse, filtering, overflow, diagram, gestures, deep links, modal keyboard, no external requests`,
     );
   }
-  // Every entry opens without source fields, including entries with no gender.
+  // Every entry opens without source fields, including unsure entries with no gender.
   const detailsPage = await browser.newPage();
   await detailsPage.goto(`${url}index.html`);
   await detailsPage.waitForSelector("#toolbar:not([hidden])");

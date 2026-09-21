@@ -123,8 +123,9 @@ class FamilyDataTests(unittest.TestCase):
                 self.assertEqual(n['code'], '')
         self.assertEqual(self.nodes['CSV_B_2']['children'][:3], ['CSV_B_2_1', 'CSV_B_2_2', 'CSV_B_2_3'])
         self.assertEqual(self.person('FAMILY_B_2_3_ORKOJEET', 'Orkojeet Banerjee')['gender'], 'male')
-        for nid in ['FAMILY_B_2_1_ARJIT_JAI', 'FAMILY_B_2_1_ARJIT_MAYA', 'FAMILY_B_2_1_ANUSHKA']:
-            self.assertNotIn('gender', self.nodes[nid]['members'][0])
+        self.assertNotIn('gender', self.nodes['FAMILY_B_2_1_ARJIT_JAI']['members'][0])
+        self.assertEqual(self.nodes['FAMILY_B_2_1_ARJIT_MAYA']['members'][0]['gender'], 'female')
+        self.assertEqual(self.nodes['FAMILY_B_2_1_ANUSHKA']['members'][0]['gender'], 'female')
         self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 322)
         self.assertEqual(len(self.nodes), 209)
         # The new Malabika is not merged with the namesake married to Bibek.
@@ -181,12 +182,28 @@ class FamilyDataTests(unittest.TestCase):
         self.assertEqual(self.nodes['G2_4']['members'][1]['name'], 'Narayn Ch. Mukherjee')
         self.assertEqual(self.nodes['CSV_D_2_2']['code'], 'D/2/2')
 
-    def test_gender_uses_roles_or_titles_not_names_or_spouse_gender(self):
+    def test_gender_markers_and_unsure_review_list(self):
         self.assertEqual(self.person('F4_1', 'Sankar Chatterjee')['gender'], 'male')
         self.assertEqual(self.person('F4_1', 'Sumita Chatterjee')['gender'], 'female')
         self.assertEqual(self.person('CSV_C_1_1', 'Annya Banerjee')['gender'], 'female')
-        for nid, name in [('CSV_A_3_2', 'Pankoj'), ('CSV_E_2_4_ABHISHEK', 'Abhishek Mukherjee'), ('G1_1', 'Amal Banerjee')]:
-            self.assertNotIn('gender', self.person(nid, name))
+        self.assertEqual(self.person('CSV_A_3_2', 'Pankoj')['gender'], 'male')
+        self.assertEqual(self.person('CSV_E_2_4_ABHISHEK', 'Abhishek Mukherjee')['gender'], 'male')
+        self.assertEqual(self.person('G1_1', 'Amal Banerjee')['gender'], 'male')
+        unsure = {
+            'Mon Sarkar', 'Mitu Chatterjee', 'Viyomi Kurian', 'Piku Ghoshal',
+            'Daku Ghoshal', 'Suva Banerjee', 'Sanjhy Mukherjee',
+            'Tojo Bhattacherjee', 'Amiya Prana', 'Srya Sen',
+            'Krishnakal Banerjee', 'Santi Chatterjee', 'Bukun Chatterjee',
+            'Sonavia Mukherjee', 'Laxmi Mondal', 'Tintin Chakraborty',
+            'Rana Mukherjee', 'Biraj Mukherjee', 'Tulshi Mukherjee',
+            'Bhatu Banerjee', 'Mani Banerjee', 'Jai Banerjee',
+        }
+        unmarked = {
+            m['name'] for n in self.nodes.values() for m in n['members']
+            if 'gender' not in m
+        }
+        self.assertEqual(unmarked, unsure)
+        self.assertEqual(sum('gender' not in m for n in self.nodes.values() for m in n['members']), 22)
         self.assertEqual(self.nodes['F1_1a']['relationship'], 'group')
 
     def test_upasana_kaushik_have_no_children_as_confirmed(self):
