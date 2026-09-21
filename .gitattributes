@@ -1,0 +1,2 @@
+# Preserve the supplied register byte-for-byte, including its CRLF line endings.
+"PKM SIR FAMILY TYPING.csv" -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

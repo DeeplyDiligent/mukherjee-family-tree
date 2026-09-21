@@ -1,428 +1,7286 @@
 {
-  "eBranchRoots": ["E2_III", "E2_V"],
+  "schemaVersion": 3,
+  "rootId": "PARENT",
+  "unplacedIds": [],
+  "idRedirects": {
+    "G1_1b": "G1_1",
+    "G1_2b": "G1_2",
+    "UNPLACED_147": "UNPLACED_146"
+  },
+  "sourceFile": "PKM SIR FAMILY TYPING.csv",
+  "summary": {
+    "csvNameEntries": 289,
+    "originalNodes": 65,
+    "familyEntries": 209
+  },
   "nodes": [
     {
       "id": "PARENT",
-      "title": "Parents",
-      "subtitle": "(Banerjee)",
-      "styleKey": "header",
+      "code": "",
+      "members": [
+        {
+          "name": "Aditya Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sarla Debi",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
       "children": [
-        { "id": "SUHASI", "edgeLabel": "sister" },
-        { "id": "LABANYA", "edgeLabel": "sister" }
-      ]
+        "CSV_A",
+        "CSV_B",
+        "CSV_C",
+        "CSV_D",
+        "CSV_E",
+        "SUHASI",
+        "LABANYA"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ADITYA CH. BANERJEE",
+          "code": "",
+          "row": 3,
+          "column": 1
+        },
+        {
+          "name": "SMT. SARLA DEBI",
+          "code": "",
+          "row": 4,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": ""
     },
     {
       "id": "SUHASI",
-      "couple": ["Smt. Suhasini", "Jogesh Ch."],
-      "surname": "Mukherjee",
-      "branch": "F",
-      "styleKey": "sibling",
-      "children": ["F1", "F2", "F3", "F4", "F5", "F6"]
+      "code": "F",
+      "members": [
+        {
+          "name": "Suhasini Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Jogesh Ch. Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5",
+        "F6"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SUHASNI MUKHERJEE",
+          "code": "F",
+          "row": 248,
+          "column": 1
+        },
+        {
+          "name": "JOGESH CH. MUKHERJEE",
+          "code": "F",
+          "row": 249,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "LABANYA",
-      "couple": ["Smt. Labanya", "Nalini"],
-      "surname": "Mukherjee",
-      "branch": "G",
-      "styleKey": "sibling",
-      "children": ["G1", "G2"]
+      "code": "G",
+      "members": [
+        {
+          "name": "Labanya Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Nalini Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "G1",
+        "G2",
+        "CSV_G_3",
+        "CSV_G_4",
+        "CSV_G_5"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. LABANYA MUKHERJEE",
+          "code": "G",
+          "row": 306,
+          "column": 1
+        },
+        {
+          "name": "NALINI MUKHERJEE",
+          "code": "G",
+          "row": 307,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "F1",
-      "couple": ["Smt. Lila", "Ganesh"],
-      "surname": "Mukherjee",
-      "branchCode": "F/1",
-      "styleKey": "default",
-      "children": ["F1_1", "F1_2", "F1_3", "F1_4"]
+      "code": "F/1",
+      "members": [
+        {
+          "name": "Ganesh Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Lila Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1_1",
+        "F1_2",
+        "F1_3",
+        "F1_4"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "GANESH MUKHERJEE",
+          "code": "F/1",
+          "row": 251,
+          "column": 1
+        },
+        {
+          "name": "SMT. LILA MUKHERJEE",
+          "code": "F/1",
+          "row": 252,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2",
-      "couple": ["Smt. Lina", "Bhabesh"],
-      "surname": "Mukherjee",
-      "branchCode": "F/2",
-      "styleKey": "default",
-      "children": ["F2_1", "F2_2", "F2_3"]
+      "code": "F/2",
+      "members": [
+        {
+          "name": "Bhabesh Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Lina Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F2_1",
+        "F2_2",
+        "F2_3"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BHABESH MUKHERJEE",
+          "code": "F/2",
+          "row": 270,
+          "column": 1
+        },
+        {
+          "name": "SMT. LINA MUKHERJEE",
+          "code": "F/2",
+          "row": 271,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F3",
-      "name": "Manik Mukherjee",
-      "branchCode": "F/3",
-      "closed": true,
-      "bold": true,
-      "styleKey": "closed"
+      "code": "F/3",
+      "members": [
+        {
+          "name": "Manik Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MANIK MUKHERJEE",
+          "code": "F/3",
+          "row": 276,
+          "column": 1
+        }
+      ],
+      "notes": [
+        "Closed branch (as recorded in the original tree)."
+      ],
+      "branch": "F"
     },
     {
       "id": "F4",
-      "couple": ["Smt. Prativa", "Sudhir"],
-      "surname": "Chatterjee",
-      "branchCode": "F/4",
-      "styleKey": "default",
-      "children": ["F4_1", "F4_2", "F4_3", "F4_4"]
+      "code": "F/4",
+      "members": [
+        {
+          "name": "Prativa Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Sudhir Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F4_1",
+        "F4_2",
+        "F4_3",
+        "F4_4"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. PRATIVA CHATTERJEE",
+          "code": "F/4",
+          "row": 278,
+          "column": 1
+        },
+        {
+          "name": "SUDHIR CHATTERJEE",
+          "code": "F/4",
+          "row": 279,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F5",
-      "couple": ["Smt. Putul", "Durga"],
-      "surname": "Chatterjee",
-      "branchCode": "F/5",
-      "styleKey": "default",
-      "children": ["F5_1", "F5_2"]
+      "code": "F/5",
+      "members": [
+        {
+          "name": "Putul Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Durga Prasad Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F5_1",
+        "F5_2"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT PUTUL CHATTERJEE",
+          "code": "F/5",
+          "row": 294,
+          "column": 1
+        },
+        {
+          "name": "DURGA PRASAD CHATTERJEE",
+          "code": "F/5",
+          "row": 295,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F6",
-      "name": "Smt. Pakhi Mukherjee",
-      "branchCode": "F/6",
-      "closed": true,
-      "bold": true,
-      "styleKey": "closed"
+      "code": "F/6",
+      "members": [
+        {
+          "name": "Pakhi Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. PAKHI MUKHERJEE",
+          "code": "F/6",
+          "row": 304,
+          "column": 1
+        }
+      ],
+      "notes": [
+        "Closed branch (as recorded in the original tree)."
+      ],
+      "branch": "F"
     },
     {
       "id": "F1_1",
-      "couple": ["Smt. Bulla", "Debesh"],
-      "surname": "Mukherjee",
-      "branchCode": "F/1-I",
-      "styleKey": "default",
-      "children": ["F1_1a", "F1_1b"]
+      "code": "F/1/1",
+      "members": [
+        {
+          "name": "Debesh Mukherjee",
+          "nicknames": [
+            "Debu"
+          ],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Bulla Mukherjee",
+          "nicknames": [
+            "Buli"
+          ],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1_1a",
+        "F1_1b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DEBU MUKHERJEE",
+          "code": "F/1/1",
+          "row": 253,
+          "column": 1
+        },
+        {
+          "name": "SMT. BULI MUKHERJEE",
+          "code": "F/1/1",
+          "row": 254,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F1_2",
-      "couple": ["Smt. Maya", "Mrinal"],
-      "surname": "Sarkar",
-      "branchCode": "F/1-II",
-      "styleKey": "default",
-      "children": ["F1_2a", "F1_2b"]
+      "code": "F/1/2",
+      "members": [
+        {
+          "name": "Maya Sarkar",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Mrinal Sarkar",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1_2a",
+        "F1_2b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. MAYA SARKAR",
+          "code": "F/1/2",
+          "row": 257,
+          "column": 1
+        },
+        {
+          "name": "MRINAL SARKAR",
+          "code": "F/1/2",
+          "row": 258,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_3",
-      "couple": ["Smt. Mamata", "Chandra Sekhar"],
-      "branchCode": "F/1-III",
-      "styleKey": "default"
+      "code": "F/1/3",
+      "members": [
+        {
+          "name": "Mamata Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Chandra Sekhar Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_F_1_3_1",
+        "CSV_F_1_3_2"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. MAMATA BANERJEE",
+          "code": "F/1/3",
+          "row": 261,
+          "column": 1
+        },
+        {
+          "name": "CHANDRA SEKHAR BANERJEE",
+          "code": "F/1/3",
+          "row": 262,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_4",
-      "couple": ["Smt. Uma", "Jiban"],
-      "surname": "Chatterjee",
-      "branchCode": "F/1-IV",
-      "styleKey": "default",
-      "children": ["F1_4a", "F1_4b"]
+      "code": "F/1/4",
+      "members": [
+        {
+          "name": "Uma Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Jiban Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1_4a",
+        "F1_4b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. UMA CHATTERJEE",
+          "code": "F/1/4",
+          "row": 264,
+          "column": 1
+        },
+        {
+          "name": "JIBAN CHATTERJEE",
+          "code": "F/1/4",
+          "row": 265,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_1a",
-      "couple": ["Smt. Minakshi", "Tilak"],
-      "surname": "Mukherjee",
-      "styleKey": "couple"
+      "code": "F/1/1/1 + F/1/1/2",
+      "members": [
+        {
+          "name": "Minakshi Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Tilak Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "TILAK MUKHERJEE",
+          "code": "F/1/1/1",
+          "row": 255,
+          "column": 1
+        },
+        {
+          "name": "MISS. MINAKSHI MUKHERJEE",
+          "code": "F/1/1/2",
+          "row": 256,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_1b",
-      "couple": ["Smt. Swagata", "Debankur"],
-      "surname": "Mukherjee",
-      "styleKey": "couple",
-      "children": ["F1_1b1"]
+      "code": "",
+      "members": [
+        {
+          "name": "Debankur Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Swagata Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1_1b1"
+      ],
+      "sources": [
+        "Existing tree",
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F1_1b1",
-      "name": "Kathakoli Mukherjee",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Kathakoli Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_2a",
-      "name": "Somnath Sarkar",
-      "styleKey": "leaf"
+      "code": "F/1/2/1",
+      "members": [
+        {
+          "name": "Somnath Sarkar",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SOMNATH SARKAR",
+          "code": "F/1/2/1",
+          "row": 259,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_2b",
-      "name": "Mon Sarkar",
-      "styleKey": "leaf"
+      "code": "F/1/2/2",
+      "members": [
+        {
+          "name": "Mon Sarkar",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS MON SARKAR",
+          "code": "F/1/2/2",
+          "row": 260,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_4a",
-      "name": "Mitu Chatterjee",
-      "styleKey": "leaf"
+      "code": "F/1/4/1",
+      "members": [
+        {
+          "name": "Mitu Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MITU CHATTERJEE",
+          "code": "F/1/4/1",
+          "row": 266,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_4b",
-      "couple": ["Smt. Elora", "Partha"],
-      "surname": "Chakraborty",
-      "styleKey": "couple",
-      "children": ["F1_4b1"]
+      "code": "F/1/4/2",
+      "members": [
+        {
+          "name": "Elora Chakraborty",
+          "nicknames": [
+            "Pinku"
+          ],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Partha Chakraborty",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F1_4b1"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PINKU CHATTERJEE",
+          "code": "F/1/4/2",
+          "row": 267,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F1_4b1",
-      "name": "Adrija Chakraborty",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Adrija Chakraborty",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F2_1",
-      "note": "Wife's name not recorded in source register — only honorific known",
-      "couple": ["Smt.", "Samaresh"],
-      "surname": "Mukherjee",
-      "branchCode": "F/2-I",
-      "styleKey": "default",
-      "children": ["F2_1a", "F2_1b"]
+      "code": "F/2/1",
+      "members": [
+        {
+          "name": "Samaresh Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "individual",
+      "children": [
+        "F2_1a",
+        "F2_1b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SAMARESH MUKHERJEE",
+          "code": "F/2/1",
+          "row": 272,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2_2",
-      "couple": ["Smt. Sraboni", "Vikram"],
-      "surname": "Mukherjee",
-      "styleKey": "default",
-      "children": ["F2_2a"]
+      "code": "F/2/2",
+      "members": [
+        {
+          "name": "Vikram Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Sraboni Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F2_2a"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "VIKRAM MUKHERJEE",
+          "code": "F/2/2",
+          "row": 273,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2_3",
-      "couple": ["Smt. Krishnakoli", "Jayanta"],
-      "surname": "Mukherjee",
-      "styleKey": "default",
-      "children": ["F2_3a", "F2_3b"]
+      "code": "F/2/3",
+      "members": [
+        {
+          "name": "Jayanta Mukherjee",
+          "nicknames": [
+            "Totan"
+          ],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Krishnakoli Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F2_3a",
+        "F2_3b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "TOTAN MUKHERJEE",
+          "code": "F/2/3",
+          "row": 274,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2_1a",
-      "couple": ["Smt. Shabarna", "Supriyo"],
-      "surname": "Mukherjee",
-      "styleKey": "default",
-      "children": ["F2_1a1"]
+      "code": "",
+      "members": [
+        {
+          "name": "Shabarna Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Supriyo Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F2_1a1"
+      ],
+      "sources": [
+        "Existing tree",
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2_1b",
-      "couple": ["Smt. Srijata", "Arijit"],
-      "surname": "Chowdhury",
-      "styleKey": "default",
-      "children": ["F2_1b1", "F2_1b2"]
+      "code": "",
+      "members": [
+        {
+          "name": "Srijata Chowdhury",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Arijit Chowdhury",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F2_1b1",
+        "F2_1b2"
+      ],
+      "sources": [
+        "Existing tree",
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2_1a1",
-      "name": "Sreeja Mukherjee",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Sreeja Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F2_1b1",
-      "name": "Anya Chowdhury",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Anya Chowdhury",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F2_1b2",
-      "name": "Anika Chowdhury",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Anika Chowdhury",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F2_2a",
-      "couple": ["Smt. Upasana", "Kaushik"],
-      "surname": "Mitra",
-      "styleKey": "default"
+      "code": "",
+      "members": [
+        {
+          "name": "Upasana Mitra",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Kaushik Mitra",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "childrenStatus": "none",
+      "branch": "F"
     },
     {
       "id": "F2_3a",
-      "couple": ["Smt. Bedatrayee", "Nitin"],
-      "surname": "Kurian",
-      "styleKey": "default",
-      "children": ["F2_3a1"]
+      "code": "",
+      "members": [
+        {
+          "name": "Bedatrayee Kurian",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Nitin Kurian",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F2_3a1"
+      ],
+      "sources": [
+        "Existing tree",
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F2_3b",
-      "name": "Aritri Mukherjee",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Aritri Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F2_3a1",
-      "name": "Viyomi Kurian",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Viyomi Kurian",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_1",
-      "couple": ["Smt. Sumita", "Sankar"],
-      "surname": "Chatterjee",
-      "branchCode": "F/4-I",
-      "styleKey": "default",
-      "children": ["F4_1a"]
+      "code": "F/4/1",
+      "members": [
+        {
+          "name": "Sankar Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Sumita Chatterjee",
+          "nicknames": [
+            "Keya"
+          ],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F4_1a"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANKAR CHATTERJEE",
+          "code": "F/4/1",
+          "row": 280,
+          "column": 1
+        },
+        {
+          "name": "SMT. KEYA CHATTERJEE",
+          "code": "F/4/1",
+          "row": 281,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F4_2",
-      "couple": ["Smt. Roma", "Kumud"],
-      "surname": "Ghoshal",
-      "branchCode": "F/4-II",
-      "styleKey": "default",
-      "children": ["F4_2a", "F4_2b", "F4_2c"]
+      "code": "F/4/2",
+      "members": [
+        {
+          "name": "Roma Ghoshal",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Kumud Ghoshal",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F4_2a",
+        "F4_2b",
+        "F4_2c"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. ROMA GOSHAL",
+          "code": "F/4/2",
+          "row": 282,
+          "column": 1
+        },
+        {
+          "name": "KUMUD GOSHAL",
+          "code": "F/4/2",
+          "row": 283,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_3",
-      "couple": ["Smt. Ratna", "Chitranjan"],
-      "surname": "Mukherjee",
-      "branchCode": "F/4-III",
-      "styleKey": "default",
-      "children": ["F4_3a"]
+      "code": "F/4/3",
+      "members": [
+        {
+          "name": "Ratna Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Chitranjan Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F4_3a"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. RATNA MUKHERJEE",
+          "code": "F/4/3",
+          "row": 287,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_4",
-      "couple": ["Smt. Khuku", "Samir"],
-      "surname": "Mukherjee",
-      "branchCode": "F/4-IV",
-      "styleKey": "default",
-      "children": ["F4_4a", "F4_4b"]
+      "code": "F/4/4",
+      "members": [
+        {
+          "name": "Khuku Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Samir Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F4_4a",
+        "F4_4b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. KHUKU MUKHERJEE",
+          "code": "F/4/4",
+          "row": 289,
+          "column": 1
+        },
+        {
+          "name": "SAMIR MUKHERJEE",
+          "code": "F/4/4",
+          "row": 290,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_1a",
-      "couple": ["Smt. Priyanka", "Somdev"],
-      "surname": "Chattopadhyay",
-      "styleKey": "default",
-      "children": ["F4_1a1"]
+      "code": "",
+      "members": [
+        {
+          "name": "Somdev Chattopadhyay",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Priyanka Chattopadhyay",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F4_1a1"
+      ],
+      "sources": [
+        "Existing tree",
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F4_1a1",
-      "name": "Rudra Pratap Chattopadhyay",
-      "styleKey": "leaf"
+      "code": "",
+      "members": [
+        {
+          "name": "Rudra Pratap Chattopadhyay",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_2a",
-      "name": "Babli Ghoshal",
-      "styleKey": "leaf"
+      "code": "F/4/2/1",
+      "members": [
+        {
+          "name": "Babli Ghoshal",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS BABLI GOSHAL",
+          "code": "F/4/2/1",
+          "row": 284,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_2b",
-      "name": "Piku Ghoshal",
-      "styleKey": "leaf"
+      "code": "F/4/2/2",
+      "members": [
+        {
+          "name": "Piku Ghoshal",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PIKU GOSHAL",
+          "code": "F/4/2/2",
+          "row": 285,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_2c",
-      "name": "Daku Ghoshal",
-      "styleKey": "leaf"
+      "code": "F/4/2/3",
+      "members": [
+        {
+          "name": "Daku Ghoshal",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DAKU GOSHAL",
+          "code": "F/4/2/3",
+          "row": 286,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_3a",
-      "name": "Bappa Mukherjee",
-      "styleKey": "leaf"
+      "code": "F/4/3/1",
+      "members": [
+        {
+          "name": "Bappa Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BAPPA MUKHERJEE",
+          "code": "F/4/3/1",
+          "row": 288,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_4a",
-      "name": "Papu Mukherjee",
-      "styleKey": "leaf"
+      "code": "F/4/4/1",
+      "members": [
+        {
+          "name": "Papu Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PAPU MUKHERJEE",
+          "code": "F/4/4/1",
+          "row": 291,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F4_4b",
-      "name": "Dola",
-      "styleKey": "leaf"
+      "code": "F/4/4/1",
+      "members": [
+        {
+          "name": "Dola Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DOLA MUKHERJEE",
+          "code": "F/4/4/1",
+          "row": 292,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F5_1",
-      "couple": ["Smt. Suparna", "Goutam"],
-      "surname": "Chatterjee",
-      "styleKey": "default",
-      "children": ["F5_1a"]
+      "code": "F/5/1",
+      "members": [
+        {
+          "name": "Goutam Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Suparna Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F5_1a"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "GOUTAM CHATTERJEE",
+          "code": "F/5/1",
+          "row": 296,
+          "column": 1
+        },
+        {
+          "name": "SUPARNA CHATTERJEE",
+          "code": "F/5/1",
+          "row": 297,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "F"
     },
     {
       "id": "F5_2",
-      "couple": ["Smt. Bharati", "Pranab"],
-      "surname": "Roychowdhury",
-      "branchCode": "F/5-II",
-      "styleKey": "default",
-      "children": ["F5_2a", "F5_2b"]
+      "code": "F/5/2",
+      "members": [
+        {
+          "name": "Bharati Roychowdhury",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Pranab Roychowdhury",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "F5_2a",
+        "F5_2b"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT BHARATI ROY CHOWDHURY",
+          "code": "F/5/2",
+          "row": 299,
+          "column": 1
+        },
+        {
+          "name": "PRANAB ROYCHOWDHURY",
+          "code": "F/5/2",
+          "row": 300,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F5_1a",
-      "couple": ["Smt. Ria", "Deep"],
-      "surname": "Bhattacharyya",
-      "styleKey": "couple"
+      "code": "F/5/1/1",
+      "members": [
+        {
+          "name": "Ria Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Deep Bhattacharyya",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RIAA CHATTERHEE",
+          "code": "F/5/1/1",
+          "row": 298,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F5_2a",
-      "name": "Pallab Roychowdhury",
-      "styleKey": "leaf"
+      "code": "F/5/2/1",
+      "members": [
+        {
+          "name": "Pallab Roychowdhury",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PALLAB ROYCHOWDHWRY",
+          "code": "F/5/2/1",
+          "row": 301,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "F5_2b",
-      "name": "Arnab",
-      "styleKey": "leaf"
+      "code": "F/5/2/2",
+      "members": [
+        {
+          "name": "Arnab Roychowdhury",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ARNABH ROYCHOWDHWRY",
+          "code": "F/5/2/2",
+          "row": 302,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
     },
     {
       "id": "G1",
-      "couple": ["Smt. Asha", "Chuni"],
-      "surname": "Banerjee",
-      "branchCode": "G/1",
-      "styleKey": "default",
-      "children": ["G1_1", "G1_1b", "G1_2", "G1_2b", "G1_3"]
+      "code": "G/1",
+      "members": [
+        {
+          "name": "Asha Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Chuni Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "G1_1",
+        "G1_2",
+        "G1_3"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. ASHA BANERJEE",
+          "code": "G/1",
+          "row": 309,
+          "column": 1
+        },
+        {
+          "name": "CHUNI BANERJEE",
+          "code": "G/1",
+          "row": 310,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G2",
-      "couple": ["Smt. Bela", "Sunil"],
-      "surname": "Banerjee",
-      "branchCode": "G/2",
-      "styleKey": "default",
-      "children": ["G2_1", "G2_2", "G2_3", "G2_4"]
+      "code": "G/2",
+      "members": [
+        {
+          "name": "Bela Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Sunil Kumar Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "G2_1",
+        "G2_2",
+        "G2_3",
+        "G2_4"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT BELA BANERJEE",
+          "code": "G/2",
+          "row": 322,
+          "column": 1
+        },
+        {
+          "name": "SUNIL KUMAR BANERJEE",
+          "code": "G/2",
+          "row": 323,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G1_1",
-      "name": "Amal Banerjee",
-      "branchCode": "G/1-I",
-      "styleKey": "leaf"
-    },
-    {
-      "id": "G1_1b",
-      "name": "Kalpna / Ruby",
-      "styleKey": "leaf"
+      "code": "G/1/1",
+      "members": [
+        {
+          "name": "Amal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Kalpna Banerjee",
+          "nicknames": [
+            "Ruby"
+          ],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AMAL BANERJEE",
+          "code": "G/1/1",
+          "row": 311,
+          "column": 1
+        },
+        {
+          "name": "KALPANA/ RUBY BANERJEE",
+          "code": "G/1/1",
+          "row": 312,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G1_2",
-      "name": "Shaymal",
-      "branchCode": "G/1-II",
-      "styleKey": "leaf"
-    },
-    {
-      "id": "G1_2b",
-      "name": "Rina / Chabi",
-      "branchCode": "G/1-II",
-      "styleKey": "leaf"
+      "code": "G/1/2",
+      "members": [
+        {
+          "name": "Shaymal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Rina Banerjee",
+          "nicknames": [
+            "Chabi"
+          ],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_G_1_2_1",
+        "CSV_G_1_2_2"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SHAYMAL BANERJEE",
+          "code": "G/1/2",
+          "row": 313,
+          "column": 1
+        },
+        {
+          "name": "RINA / CHABI BANERJEE",
+          "code": "G/1/2",
+          "row": 314,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G1_3",
-      "couple": ["Smt. Rita / Tushi", "Kamalesh"],
-      "surname": "Mukherjee",
-      "branchCode": "G/1-III",
-      "styleKey": "default"
+      "code": "G/1/3",
+      "members": [
+        {
+          "name": "Rita Mukherjee",
+          "nicknames": [
+            "Tushi"
+          ],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Kamalesh Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_G_1_3_1",
+        "CSV_G_1_3_2"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RITA / TUSHI MUKHERJEE",
+          "code": "G/1/3",
+          "row": 317,
+          "column": 1
+        },
+        {
+          "name": "KAMALESH MUKHERJEE",
+          "code": "G/1/3",
+          "row": 318,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G2_1",
-      "name": "Sankar Banerjee",
-      "styleKey": "leaf"
+      "code": "G/2/1",
+      "members": [
+        {
+          "name": "Sankar Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANKAR BANERJEE",
+          "code": "G/2/1",
+          "row": 324,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G2_2",
-      "name": "Dipankar Banerjee",
-      "styleKey": "leaf"
+      "code": "G/2/1",
+      "members": [
+        {
+          "name": "Dipankar Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DIPANKAR BANERJEE",
+          "code": "G/2/1",
+          "row": 325,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G2_3",
-      "name": "Shuvankar Banerjee",
-      "styleKey": "leaf"
+      "code": "G/2/1",
+      "members": [
+        {
+          "name": "Shuvankar Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SHUVANKAR BANERJEE",
+          "code": "G/2/1",
+          "row": 326,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "G2_4",
-      "couple": ["Smt. Mira", "Narayn Ch."],
-      "surname": "Mukherjee",
-      "branchCode": "G/2-II",
-      "styleKey": "default"
+      "code": "G/2/2",
+      "members": [
+        {
+          "name": "Mira Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Narayn Ch. Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. MIRA MUKHERJEE",
+          "code": "G/2/2",
+          "row": 327,
+          "column": 1
+        },
+        {
+          "name": "NARAYAN CH. MUKHERJEE",
+          "code": "G/2/2",
+          "row": 328,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
     },
     {
       "id": "E2_III",
-      "couple": ["Smt. Arundhuti", "Mihir"],
-      "surname": "Mukherjee",
-      "branchCode": "E/2-III",
-      "styleKey": "default",
-      "children": ["E2_IIIa"]
+      "code": "E/2/3",
+      "members": [
+        {
+          "name": "Mihir Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        },
+        {
+          "name": "Arundhuti Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "E2_IIIa"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MIHIR MUKHERJEE",
+          "code": "E/2/3",
+          "row": 226,
+          "column": 1
+        },
+        {
+          "name": "SMT. ARUNDHATI MUKHERJEE",
+          "code": "E/2/3",
+          "row": 227,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "E"
     },
     {
       "id": "E2_IIIa",
-      "name": "Anuska Mukherjee",
-      "styleKey": "leaf"
+      "code": "E/2/3/1",
+      "members": [
+        {
+          "name": "Anuska Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. ANUSKHA MUKHERJEE",
+          "code": "E/2/3/1",
+          "row": 228,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
     },
     {
       "id": "E2_V",
-      "couple": ["Smt. Santa", "Kalipada"],
-      "surname": "Bhattacherjee",
-      "branchCode": "E/2-V",
-      "styleKey": "default",
-      "children": ["E2_Va"]
+      "code": "E/2/5",
+      "members": [
+        {
+          "name": "Santa Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Original wife role"
+        },
+        {
+          "name": "Kalipada Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Original husband role"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "E2_Va",
+        "CSV_E_2_5_1_EXTRA"
+      ],
+      "sources": [
+        "Existing tree",
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SANTA BHATTACHERJEE",
+          "code": "E/2/5",
+          "row": 232,
+          "column": 1
+        },
+        {
+          "name": "KALIPADA BHATTACHERJEE",
+          "code": "E/2/5",
+          "row": 233,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
     },
     {
       "id": "E2_Va",
-      "name": "Nilanjan / Diltoo Bhattacherjee",
-      "styleKey": "leaf"
+      "code": "E/2/5/1",
+      "members": [
+        {
+          "name": "Nilanjan Bhattacherjee",
+          "nicknames": [
+            "Diltoo"
+          ],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "Existing tree",
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "NILANJAN / DILTOO BHATTACHERJEE",
+          "code": "E/2/5/1",
+          "row": 234,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_A",
+      "code": "A",
+      "members": [
+        {
+          "name": "Suresh Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sarat Jamini",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_1",
+        "CSV_A_2",
+        "CSV_A_3",
+        "CSV_A_4",
+        "CSV_A_5"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SURESH CH. BANERJEE",
+          "code": "A",
+          "row": 6,
+          "column": 1
+        },
+        {
+          "name": "SMT. SARAT JAMINI",
+          "code": "A",
+          "row": 7,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1",
+      "code": "A/1",
+      "members": [
+        {
+          "name": "Sudhir Chandra Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Kanak Prava Debi",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_1_1",
+        "CSV_A_1_2",
+        "CSV_A_1_3"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUDHIR CHANDRA BANERJEE",
+          "code": "A/1",
+          "row": 9,
+          "column": 1
+        },
+        {
+          "name": "SMT KANAK PRAVA DEBI",
+          "code": "A/1",
+          "row": 10,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_1",
+      "code": "A/1/1",
+      "members": [
+        {
+          "name": "Samir Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Jhuma Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_1_1_1",
+        "CSV_A_1_1_2",
+        "CSV_A_1_1_3"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SAMIR CH. BANERJEE",
+          "code": "A/1/1",
+          "row": 11,
+          "column": 1
+        },
+        {
+          "name": "SMT. JHUMA BANERJEE",
+          "code": "A/1/1",
+          "row": 12,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_1_1",
+      "code": "A/1/1/1",
+      "members": [
+        {
+          "name": "Sumana Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. SUMANA BANERJEE",
+          "code": "A/1/1/1",
+          "row": 13,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_1_2",
+      "code": "A/1/1/2",
+      "members": [
+        {
+          "name": "Dabjani Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DABJANI BANERJEE",
+          "code": "A/1/1/2",
+          "row": 14,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_1_3",
+      "code": "A/1/1/3",
+      "members": [
+        {
+          "name": "Suva Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUVA BANERJEE",
+          "code": "A/1/1/3",
+          "row": 15,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_2",
+      "code": "A/1/2",
+      "members": [
+        {
+          "name": "Bibek Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Malabika Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_1_2_1",
+        "CSV_A_1_2_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BIBEK CH. BANERJEE",
+          "code": "A/1/2",
+          "row": 16,
+          "column": 1
+        },
+        {
+          "name": "SMT. MALABIKA BANERJEE",
+          "code": "A/1/2",
+          "row": 17,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_2_1",
+      "code": "A/1/2/1",
+      "members": [
+        {
+          "name": "Srabani Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SRABANI BANERJEE",
+          "code": "A/1/2/1",
+          "row": 18,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_2_2",
+      "code": "A/1/2/2",
+      "members": [
+        {
+          "name": "Bishali Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BISHALI BANERJEE",
+          "code": "A/1/2/2",
+          "row": 19,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_3",
+      "code": "A/1/3",
+      "members": [
+        {
+          "name": "Khana Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Dakhina Ranjan Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_1_3_1",
+        "CSV_A_1_3_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. KHANA MUKHERJEE",
+          "code": "A/1/3",
+          "row": 20,
+          "column": 1
+        },
+        {
+          "name": "DAKHINA RANJAN MUKHERJEE",
+          "code": "A/1/3",
+          "row": 21,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_3_1",
+      "code": "A/1/3/1",
+      "members": [
+        {
+          "name": "Amitava Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AMITAVA MUKHERJEE",
+          "code": "A/1/3/1",
+          "row": 22,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_1_3_2",
+      "code": "A/1/3/2",
+      "members": [
+        {
+          "name": "Saswati Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS SASWATI MUKHERJEE",
+          "code": "A/1/3/2",
+          "row": 23,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_2",
+      "code": "A/2",
+      "members": [
+        {
+          "name": "Adhir Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Chabi Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_2_1",
+        "CSV_A_2_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ADHIR CH. BANERJEE",
+          "code": "A/2",
+          "row": 25,
+          "column": 1
+        },
+        {
+          "name": "SMT. CHABI BANERJEE",
+          "code": "A/2",
+          "row": 26,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_2_1",
+      "code": "A/2/1",
+      "members": [
+        {
+          "name": "Asok Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Rita Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_2_1_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ASOK BANERJEE",
+          "code": "A/2/1",
+          "row": 27,
+          "column": 1
+        },
+        {
+          "name": "SMT. RITA BANERJEE",
+          "code": "A/2/1",
+          "row": 28,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_2_1_1",
+      "code": "A/2/1/1",
+      "members": [
+        {
+          "name": "Abhishek Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ABHISHEK BANERJEE",
+          "code": "A/2/1/1",
+          "row": 29,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_2_2",
+      "code": "A/2/2",
+      "members": [
+        {
+          "name": "Swapna Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Tapan Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_2_2_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SWAPNA BHATTACHERJEE",
+          "code": "A/2/2",
+          "row": 30,
+          "column": 1
+        },
+        {
+          "name": "TAPAN BHATTACHERJEE",
+          "code": "A/2/2",
+          "row": 31,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_2_2_1",
+      "code": "A/2/2/1",
+      "members": [
+        {
+          "name": "Indranil Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "INDRANIL BHATTACHERJEE",
+          "code": "A/2/2/1",
+          "row": 32,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_3",
+      "code": "A/3",
+      "members": [
+        {
+          "name": "Mono Rama Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Paramesh Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_3_1",
+        "CSV_A_3_2",
+        "CSV_A_3_3"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. MONO RAMA MUKHERJEE",
+          "code": "A/3",
+          "row": 34,
+          "column": 1
+        },
+        {
+          "name": "PARAMESH MUKHERJEE",
+          "code": "A/3",
+          "row": 35,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_3_1",
+      "code": "A/3/1",
+      "members": [
+        {
+          "name": "Jahar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "JAHAR MUKHERJEE",
+          "code": "A/3/1",
+          "row": 36,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_3_2",
+      "code": "A/3/2",
+      "members": [
+        {
+          "name": "Pankoj",
+          "nicknames": [],
+          "alternateNames": [
+            "R. T. Martin"
+          ]
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PANKOJ ( R.T. MARTIN)",
+          "code": "A/3/2",
+          "row": 37,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_3_3",
+      "code": "A/3/3",
+      "members": [
+        {
+          "name": "Sepali Schoefield",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Anthony Schoefield",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SEPALI SCHOEFIELD",
+          "code": "A/3/3",
+          "row": 38,
+          "column": 1
+        },
+        {
+          "name": "ANTHONY SCHOEFIELD",
+          "code": "A/3/3",
+          "row": 39,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4",
+      "code": "A/4",
+      "members": [
+        {
+          "name": "Anupama Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Bisheswar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_4_1",
+        "CSV_A_4_2",
+        "CSV_A_4_3",
+        "CSV_A_4_4"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. ANUPAMA MUKHERJEE",
+          "code": "A/4",
+          "row": 41,
+          "column": 1
+        },
+        {
+          "name": "BISHESWAR MUKHERJEE",
+          "code": "A/4",
+          "row": 42,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_1",
+      "code": "A/4/1",
+      "members": [
+        {
+          "name": "Sanjhy Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Subha Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_4_1_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANJHY MUKHERJEE",
+          "code": "A/4/1",
+          "row": 43,
+          "column": 1
+        },
+        {
+          "name": "SMT. SUBHA MUKHERJEE",
+          "code": "A/4/1",
+          "row": 44,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_1_1",
+      "code": "A/4/1/1",
+      "members": [
+        {
+          "name": "Nayna Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. NAYNA MUKHERJEE",
+          "code": "A/4/1/1",
+          "row": 45,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_2",
+      "code": "A/4/2",
+      "members": [
+        {
+          "name": "Sujay Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Indira Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_4_2_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUJAY MUKHERJEE",
+          "code": "A/4/2",
+          "row": 46,
+          "column": 1
+        },
+        {
+          "name": "SMT. INDIRA MUKHERJEE",
+          "code": "A/4/2",
+          "row": 47,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_2_1",
+      "code": "A/4/2/1",
+      "members": [
+        {
+          "name": "Sreaya Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. SREAYA MUKHERJEE",
+          "code": "A/4/2/1",
+          "row": 48,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_3",
+      "code": "A/4/3",
+      "members": [
+        {
+          "name": "Dipali Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Monindra Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_4_3_1",
+        "CSV_A_4_3_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. DIPALI CHATTERJEE",
+          "code": "A/4/3",
+          "row": 49,
+          "column": 1
+        },
+        {
+          "name": "MONINDRA CHATTERJEE",
+          "code": "A/4/3",
+          "row": 50,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_3_1",
+      "code": "A/4/3/1",
+      "members": [
+        {
+          "name": "Manash Chatterjee",
+          "nicknames": [
+            "Munmun"
+          ],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MANASH/ MUNMUN CHATTERJEE",
+          "code": "A/4/3/1",
+          "row": 51,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_3_2",
+      "code": "A/4/3/2",
+      "members": [
+        {
+          "name": "Rupa Chatterjee",
+          "nicknames": [
+            "Tuntun"
+          ],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RUPA/TUNTUN CHATTERJEE",
+          "code": "A/4/3/2",
+          "row": 52,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_4",
+      "code": "A/4/4",
+      "members": [
+        {
+          "name": "Santa Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Samir Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_A_4_4_1",
+        "CSV_A_4_4_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SANTA BHATTACHERJEE",
+          "code": "A/4/4",
+          "row": 53,
+          "column": 1
+        },
+        {
+          "name": "SAMIR BHATTACHERJEE",
+          "code": "A/4/4",
+          "row": 54,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_4_1",
+      "code": "A/4/4/1",
+      "members": [
+        {
+          "name": "Siraj Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SIRAJ BHATTACHERJEE",
+          "code": "A/4/4/1",
+          "row": 55,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_4_4_2",
+      "code": "A/4/4/2",
+      "members": [
+        {
+          "name": "Tojo Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "TOJO BHATTACHERJEE",
+          "code": "A/4/4/2",
+          "row": 56,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_A_5",
+      "code": "A/5",
+      "members": [
+        {
+          "name": "Susuma Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Amiya Prana",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SUSUMA BANERJEE",
+          "code": "A/5",
+          "row": 58,
+          "column": 1
+        },
+        {
+          "name": "AMIYA PRANA",
+          "code": "A/5",
+          "row": 59,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "A"
+    },
+    {
+      "id": "CSV_B",
+      "code": "B",
+      "members": [
+        {
+          "name": "Hem Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Charu Bala Debi",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_1",
+        "CSV_B_2",
+        "CSV_B_3",
+        "CSV_B_4",
+        "CSV_B_5",
+        "CSV_B_6",
+        "CSV_B_7",
+        "CSV_B_8"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "HEM CH. BANERJEE",
+          "code": "B",
+          "row": 61,
+          "column": 1
+        },
+        {
+          "name": "SMT. CHARU BALA DEBI",
+          "code": "B",
+          "row": 62,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1",
+      "code": "B/1",
+      "members": [
+        {
+          "name": "Nikhil Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Laxmi Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_1_1",
+        "CSV_B_1_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "NIKHIL CH. BANERJEE",
+          "code": "B/1",
+          "row": 64,
+          "column": 1
+        },
+        {
+          "name": "SMT. LAXMI BANERJEE",
+          "code": "B/1",
+          "row": 65,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_1",
+      "code": "B/1/1",
+      "members": [
+        {
+          "name": "Jitesh Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Krishna Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_1_1_1",
+        "CSV_B_1_1_2",
+        "CSV_B_1_1_3",
+        "CSV_B_1_1_4"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "JITESH CH. BANERJEE",
+          "code": "B/1/1",
+          "row": 66,
+          "column": 1
+        },
+        {
+          "name": "SMT. KRISHNA BANERJEE",
+          "code": "B/1/1",
+          "row": 67,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_1_1",
+      "code": "B/1/1/1",
+      "members": [
+        {
+          "name": "Soumojit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SOUMOJIT BANERJEE",
+          "code": "B/1/1/1",
+          "row": 68,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_1_2",
+      "code": "B/1/1/2",
+      "members": [
+        {
+          "name": "Jaita Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "JAITA BANERJEE",
+          "code": "B/1/1/2",
+          "row": 69,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_1_3",
+      "code": "B/1/1/3",
+      "members": [
+        {
+          "name": "Sunita Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUNITA BANERJEE",
+          "code": "B/1/1/3",
+          "row": 70,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_1_4",
+      "code": "B/1/1/4",
+      "members": [
+        {
+          "name": "Sangita Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANGITA BANERJEE",
+          "code": "B/1/1/4",
+          "row": 71,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_2",
+      "code": "B/1/2",
+      "members": [
+        {
+          "name": "Biresh Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Jaya Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_1_2_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BIRESH BANERJEE",
+          "code": "B/1/2",
+          "row": 72,
+          "column": 1
+        },
+        {
+          "name": "SMT. JAYA BANERJEE",
+          "code": "B/1/2",
+          "row": 73,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_1_2_1",
+      "code": "B/1/2/1",
+      "members": [
+        {
+          "name": "Chitrita Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "CHITRITA BANERJEE",
+          "code": "B/1/2/1",
+          "row": 74,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2",
+      "code": "B/2",
+      "members": [
+        {
+          "name": "Anil Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Ila Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_2_1",
+        "CSV_B_2_2",
+        "CSV_B_2_3",
+        "CSV_B_2_4",
+        "CSV_B_2_5"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ANIL CH. BANERJEE",
+          "code": "B/2",
+          "row": 76,
+          "column": 1
+        },
+        {
+          "name": "ILA BANERJEE",
+          "code": "B/2",
+          "row": 77,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2_1",
+      "code": "B/2/1",
+      "members": [
+        {
+          "name": "Avijit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Malabika Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "FAMILY_B_2_1_ANUSHKA",
+        "FAMILY_B_2_1_ARJIT"
+      ],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AVIJIT BANERJEE",
+          "code": "B/2/1",
+          "row": 78,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2_2",
+      "code": "B/2/2",
+      "members": [
+        {
+          "name": "Anujit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ANUJIT BANERJEE",
+          "code": "B/2/2",
+          "row": 79,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2_3",
+      "code": "B/2/3",
+      "members": [
+        {
+          "name": "Amajit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Srabani Roychoudhury",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "FAMILY_B_2_3_ORKOJEET"
+      ],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AMAJIT BANERJEE",
+          "code": "B/2/3",
+          "row": 80,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2_4",
+      "code": "B/2/4",
+      "members": [
+        {
+          "name": "Chandrabali Sen",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Nirupam Sen",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_2_4_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. CHANDRABALI SEN",
+          "code": "B/2/4",
+          "row": 81,
+          "column": 1
+        },
+        {
+          "name": "NIRUPAM SEN",
+          "code": "B/2/4",
+          "row": 82,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2_4_1",
+      "code": "B/2/4/1",
+      "members": [
+        {
+          "name": "Srya Sen",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SRYA SEN",
+          "code": "B/2/4/1",
+          "row": 83,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_2_5",
+      "code": "B/2/5",
+      "members": [
+        {
+          "name": "Krishnakal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "KRISHNAKAL BANERJEE",
+          "code": "B/2/5",
+          "row": 84,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_3",
+      "code": "B/3",
+      "members": [
+        {
+          "name": "Amal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Ruby Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_3_1",
+        "CSV_B_3_2",
+        "CSV_B_3_3"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AMAL BANERJEE",
+          "code": "B/3",
+          "row": 86,
+          "column": 1
+        },
+        {
+          "name": "SMT. RUBY BANERJEE",
+          "code": "B/3",
+          "row": 87,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_3_1",
+      "code": "B/3/1",
+      "members": [
+        {
+          "name": "Arijit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ARIJIT BANERJEE",
+          "code": "B/3/1",
+          "row": 88,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_3_2",
+      "code": "B/3/2",
+      "members": [
+        {
+          "name": "Suparna Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUPARNA BANERJEE",
+          "code": "B/3/2",
+          "row": 89,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_3_3",
+      "code": "B/3/3",
+      "members": [
+        {
+          "name": "Sukanya Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUKANYA BANERJEE",
+          "code": "B/3/3",
+          "row": 90,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_4",
+      "code": "B/4",
+      "members": [
+        {
+          "name": "Kamal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "KAMAL BANERJEE",
+          "code": "B/4",
+          "row": 92,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_5",
+      "code": "B/5",
+      "members": [
+        {
+          "name": "Nlripama Ganguly",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Abani Ganguly",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. NLRIPAMA GANGULY",
+          "code": "B/5",
+          "row": 94,
+          "column": 1
+        },
+        {
+          "name": "ABANI GANGULY",
+          "code": "B/5",
+          "row": 95,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6",
+      "code": "B/6",
+      "members": [
+        {
+          "name": "Bhabani Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Bishw Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_6_1",
+        "CSV_B_6_2",
+        "CSV_B_6_3"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. BHABANI MUKHERJEE",
+          "code": "B/6",
+          "row": 97,
+          "column": 1
+        },
+        {
+          "name": "BISHW MUKHERJEE",
+          "code": "B/6",
+          "row": 98,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6_1",
+      "code": "B/6/1",
+      "members": [
+        {
+          "name": "Ranjit Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sikha Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RANJIT MUKHERJEE",
+          "code": "B/6/1",
+          "row": 99,
+          "column": 1
+        },
+        {
+          "name": "SMT. SIKHA MUKHERJEE",
+          "code": "B/6/1",
+          "row": 100,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6_2",
+      "code": "B/6/2",
+      "members": [
+        {
+          "name": "Anuradha Gupta",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Anupendu Gupta",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_6_2_1",
+        "CSV_B_6_2_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. ANURADHA GUPTA",
+          "code": "B/6/2",
+          "row": 101,
+          "column": 1
+        },
+        {
+          "name": "ANUPENDU GUPTA",
+          "code": "B/6/2",
+          "row": 102,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6_2_1",
+      "code": "B/6/2/1",
+      "members": [
+        {
+          "name": "Avikendu Gupta",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AVIKENDU GUPTA",
+          "code": "B/6/2/1",
+          "row": 103,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6_2_2",
+      "code": "B/6/2/2",
+      "members": [
+        {
+          "name": "Arupendu Gupta",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ARUPENDU GUPTA",
+          "code": "B/6/2/2",
+          "row": 104,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6_3",
+      "code": "B/6/3",
+      "members": [
+        {
+          "name": "Anusua Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Samar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_6_3_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. ANUSUA MUKHERJEE",
+          "code": "B/6/3",
+          "row": 105,
+          "column": 1
+        },
+        {
+          "name": "SAMAR MUKHERJEE",
+          "code": "B/6/3",
+          "row": 106,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_6_3_1",
+      "code": "B/6/3/1",
+      "members": [
+        {
+          "name": "Santanu Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANTANU MUKHERJEE",
+          "code": "B/6/3/1",
+          "row": 107,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_7",
+      "code": "B/7",
+      "members": [
+        {
+          "name": "Kalyani Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Satyanarayan Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_7_1",
+        "CSV_B_7_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. KALYANI CHATTERJEE",
+          "code": "B/7",
+          "row": 109,
+          "column": 1
+        },
+        {
+          "name": "SATYANARAYAN CHATTERJEE",
+          "code": "B/7",
+          "row": 110,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_7_1",
+      "code": "B/7/1",
+      "members": [
+        {
+          "name": "Debashis Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DEBASHIS CHATTERJEE",
+          "code": "B/7/1",
+          "row": 111,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_7_2",
+      "code": "B/7/2",
+      "members": [
+        {
+          "name": "Suvashis Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUVASHIS CHATTERJEE",
+          "code": "B/7/2",
+          "row": 112,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_8",
+      "code": "B/8",
+      "members": [
+        {
+          "name": "Sibani Chakraborty",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Sanat Chakraborty",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_B_8_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SIBANI CHAKRABORTY",
+          "code": "B/8",
+          "row": 114,
+          "column": 1
+        },
+        {
+          "name": "SANAT CHAKRABORTY",
+          "code": "B/8",
+          "row": 115,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_B_8_1",
+      "code": "B/8/1",
+      "members": [
+        {
+          "name": "Sankha Chakraborty",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANKHA CHAKRABORTY",
+          "code": "B/8/1",
+          "row": 116,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_C",
+      "code": "C",
+      "members": [
+        {
+          "name": "Ramesh Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Hiran Bala Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_1",
+        "CSV_C_2",
+        "CSV_C_3",
+        "CSV_C_4",
+        "CSV_C_5",
+        "CSV_C_6",
+        "CSV_C_7",
+        "CSV_C_8",
+        "CSV_C_9",
+        "CSV_C_10",
+        "CSV_C_11"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RAMESH CH. BANERJEE",
+          "code": "C",
+          "row": 118,
+          "column": 1
+        },
+        {
+          "name": "SMT. HIRAN BALA BANERJEE",
+          "code": "C",
+          "row": 119,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_1",
+      "code": "C/1",
+      "members": [
+        {
+          "name": "Sunil Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Gita Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_1_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUNIL CH. BANERJEE",
+          "code": "C/1",
+          "row": 120,
+          "column": 1
+        },
+        {
+          "name": "SMT. GITA BANERJEE",
+          "code": "C/1",
+          "row": 121,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_1_1",
+      "code": "C/1/1",
+      "members": [
+        {
+          "name": "Biswajit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Annya Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BISWAJIT BANERJEE",
+          "code": "C/1/1",
+          "row": 122,
+          "column": 1
+        },
+        {
+          "name": "MISS. ANNYA BANERJEE",
+          "code": "C/1/1",
+          "row": 123,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_2",
+      "code": "C/2",
+      "members": [
+        {
+          "name": "Ajit Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Marian Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_2_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AJIT CH. BANERJEE",
+          "code": "C/2",
+          "row": 125,
+          "column": 1
+        },
+        {
+          "name": "SMT. MARIAN BANERJEE",
+          "code": "C/2",
+          "row": 126,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_2_1",
+      "code": "C/2/1",
+      "members": [
+        {
+          "name": "Sabrina Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. SABRINA BANERJEE",
+          "code": "C/2/1",
+          "row": 127,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_3",
+      "code": "C/3",
+      "members": [
+        {
+          "name": "Asit Ch. Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sarwashti Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_3_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ASIT CH. BANERJEE",
+          "code": "C/3",
+          "row": 129,
+          "column": 1
+        },
+        {
+          "name": "SMT. SARWASHTI BANERJEE",
+          "code": "C/3",
+          "row": 130,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_3_1",
+      "code": "C/3/1",
+      "members": [
+        {
+          "name": "Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS BANERJEE",
+          "code": "C/3/1",
+          "row": 131,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_4",
+      "code": "C/4",
+      "members": [
+        {
+          "name": "Amit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Goiri Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_4_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AMIT BANERJEE",
+          "code": "C/4",
+          "row": 133,
+          "column": 1
+        },
+        {
+          "name": "GOIRI BANERJEE",
+          "code": "C/4",
+          "row": 134,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_4_1",
+      "code": "C/4/1",
+      "members": [
+        {
+          "name": "Tanmay Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "TANMAY BANERJEE",
+          "code": "C/4/1",
+          "row": 135,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_5",
+      "code": "C/5",
+      "members": [
+        {
+          "name": "Sova Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Sontosh Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_5_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SOVA MUKHERJEE",
+          "code": "C/5",
+          "row": 137,
+          "column": 1
+        },
+        {
+          "name": "SONTOSH MUKHERJEE",
+          "code": "C/5",
+          "row": 138,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_5_1",
+      "code": "C/5/1",
+      "members": [
+        {
+          "name": "Uma Sankar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sibani Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "UMA SANKAR MUKHERJEE",
+          "code": "C/5/1",
+          "row": 139,
+          "column": 1
+        },
+        {
+          "name": "MISS SIBANI MUKHERJEE",
+          "code": "C/5/1",
+          "row": 140,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_6",
+      "code": "C/6",
+      "members": [
+        {
+          "name": "Bina Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Barun Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "UNPLACED_144",
+        "UNPLACED_145",
+        "UNPLACED_146",
+        "UNPLACED_148"
+      ],
+      "sources": [
+        "CSV register",
+        "Family confirmation",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT . BINA MUKHERJEE",
+          "code": "C/6",
+          "row": 142,
+          "column": 1
+        },
+        {
+          "name": "BARUN MUKHERJEE",
+          "code": "C/6",
+          "row": 143,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "UNPLACED_144",
+      "code": "",
+      "members": [
+        {
+          "name": "Sankar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SANKAR MUKHERJEE",
+          "code": "",
+          "row": 144,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "C"
+    },
+    {
+      "id": "UNPLACED_145",
+      "code": "",
+      "members": [
+        {
+          "name": "Bapi Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BAPI MUKHERJEE",
+          "code": "",
+          "row": 145,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "C"
+    },
+    {
+      "id": "UNPLACED_146",
+      "code": "",
+      "members": [
+        {
+          "name": "Doli Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Mrinal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DOLI BANERJEE",
+          "code": "",
+          "row": 146,
+          "column": 1
+        },
+        {
+          "name": "MRINAL BANERJEE",
+          "code": "",
+          "row": 147,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "C"
+    },
+    {
+      "id": "UNPLACED_148",
+      "code": "",
+      "members": [
+        {
+          "name": "Buri Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS BURI MUKHERJEE",
+          "code": "",
+          "row": 148,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "lineageMemberIndex": 0,
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_7",
+      "code": "C/7",
+      "members": [
+        {
+          "name": "Gouri Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Santi Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_7_1",
+        "CSV_C_7_2",
+        "CSV_C_7_3"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. GOURI CHATTERJEE",
+          "code": "C/7",
+          "row": 150,
+          "column": 1
+        },
+        {
+          "name": "SANTI CHATTERJEE",
+          "code": "C/7",
+          "row": 151,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_7_1",
+      "code": "C/7/1",
+      "members": [
+        {
+          "name": "Sibu Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SIBU CHATTERJEE",
+          "code": "C/7/1",
+          "row": 152,
+          "column": 1
+        },
+        {
+          "name": "SMT. CHATTERJEE",
+          "code": "C/7/1",
+          "row": 153,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_7_2",
+      "code": "C/7/2",
+      "members": [
+        {
+          "name": "Bukun Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BUKUN CHATTERJEE",
+          "code": "C/7/2",
+          "row": 154,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_7_3",
+      "code": "C/7/3",
+      "members": [
+        {
+          "name": "Mai Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Babul Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. MAI MUKHERJEE",
+          "code": "C/7/3",
+          "row": 155,
+          "column": 1
+        },
+        {
+          "name": "BABUL MUKHERJEE",
+          "code": "C/7/3",
+          "row": 156,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_8",
+      "code": "C/8",
+      "members": [
+        {
+          "name": "Mira Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Bireswar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_8_1",
+        "CSV_C_8_2",
+        "CSV_C_8_3",
+        "CSV_C_8_4",
+        "CSV_C_8_5"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. MIRA MUKHERJEE",
+          "code": "C/8",
+          "row": 158,
+          "column": 1
+        },
+        {
+          "name": "BIRESWAR MUKHERJEE",
+          "code": "C/8",
+          "row": 159,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_8_1",
+      "code": "C/8/1",
+      "members": [
+        {
+          "name": "Tuly Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS TULY MUKHERJEE",
+          "code": "C/8/1",
+          "row": 160,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_8_2",
+      "code": "C/8/2",
+      "members": [
+        {
+          "name": "Sonavia Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SONAVIA MUKHERJEE",
+          "code": "C/8/2",
+          "row": 161,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_8_3",
+      "code": "C/8/3",
+      "members": [
+        {
+          "name": "Shopi Mondal",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Laxmi Mondal",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SHOPI MONDAL",
+          "code": "C/8/3",
+          "row": 162,
+          "column": 1
+        },
+        {
+          "name": "LAXMI MONDAL",
+          "code": "C/8/3",
+          "row": 163,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_8_4",
+      "code": "C/8/4",
+      "members": [
+        {
+          "name": "Rina",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS RINA",
+          "code": "C/8/4",
+          "row": 164,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_8_5",
+      "code": "C/8/5",
+      "members": [
+        {
+          "name": "Fully Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS FULLY MUKHERJEE",
+          "code": "C/8/5",
+          "row": 165,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_9",
+      "code": "C/9",
+      "members": [
+        {
+          "name": "Kalpana Mukaerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Rsthin Mukaerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_9_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. KALPANA MUKAERJEE",
+          "code": "C/9",
+          "row": 167,
+          "column": 1
+        },
+        {
+          "name": "RSTHIN MUKAERJEE",
+          "code": "C/9",
+          "row": 168,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_9_1",
+      "code": "C/9/1",
+      "members": [
+        {
+          "name": "Lopamudra Chakraborty",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Dipankar Chakraborty",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_9_1_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. LOPAMUDRA CHAKRABORTY",
+          "code": "C/9/1",
+          "row": 169,
+          "column": 1
+        },
+        {
+          "name": "DIPANKAR CHAKRABORTY",
+          "code": "C/9/1",
+          "row": 170,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_9_1_1",
+      "code": "C/9/1/1",
+      "members": [
+        {
+          "name": "Tintin Chakraborty",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "TINTIN CHAKRABORTY",
+          "code": "C/9/1/1",
+          "row": 171,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_10",
+      "code": "C/10",
+      "members": [
+        {
+          "name": "Khuku Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Rabin Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_10_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. KHUKU MUKHERJEE",
+          "code": "C/10",
+          "row": 173,
+          "column": 1
+        },
+        {
+          "name": "RABIN MUKHERJEE",
+          "code": "C/10",
+          "row": 174,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_10_1",
+      "code": "C/10/1",
+      "members": [
+        {
+          "name": "Somnath Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Soma Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SOMNATH MUKHERJEE",
+          "code": "C/10/1",
+          "row": 175,
+          "column": 1
+        },
+        {
+          "name": "SOMA MUKHERJEE",
+          "code": "C/10/1",
+          "row": 176,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_11",
+      "code": "C/11",
+      "members": [
+        {
+          "name": "Ruby Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Mritunjoy Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_C_11_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. RUBY MUKHERJEE",
+          "code": "C/11",
+          "row": 178,
+          "column": 1
+        },
+        {
+          "name": "MRITUNJOY MUKHERJEE",
+          "code": "C/11",
+          "row": 179,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_C_11_1",
+      "code": "C/11/1",
+      "members": [
+        {
+          "name": "Debjit Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Debjani Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DEBJIT MUKHERJEE",
+          "code": "C/11/1",
+          "row": 180,
+          "column": 1
+        },
+        {
+          "name": "MISS. DEBJANI MUKHERJEE",
+          "code": "C/11/1",
+          "row": 181,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "C"
+    },
+    {
+      "id": "CSV_D",
+      "code": "D",
+      "members": [
+        {
+          "name": "Paresh Chandra Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Kiran Bala",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_D_1",
+        "CSV_D_2",
+        "CSV_D_3",
+        "CSV_D_4",
+        "CSV_D_5",
+        "CSV_D_6"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PARESH CHANDRA BANERJEE",
+          "code": "D",
+          "row": 183,
+          "column": 1
+        },
+        {
+          "name": "SMT. KIRAN BALA",
+          "code": "D",
+          "row": 184,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_1",
+      "code": "D/1",
+      "members": [
+        {
+          "name": "Bishu Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BISHU BANERJEE",
+          "code": "D/1",
+          "row": 186,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_2",
+      "code": "D/2",
+      "members": [
+        {
+          "name": "Rama Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Probodh Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_D_2_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. RAMA CHATTERJEE",
+          "code": "D/2",
+          "row": 188,
+          "column": 1
+        },
+        {
+          "name": "PROBODH CHATTERJEE",
+          "code": "D/2",
+          "row": 189,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_2_2",
+      "code": "D/2/2",
+      "members": [
+        {
+          "name": "Aparna Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Somdeb Chatterjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_D_2_2_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family confirmation",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. APARNA CHATTERJEE",
+          "code": "D/2/2",
+          "row": 190,
+          "column": 1
+        },
+        {
+          "name": "SOMDEB CHATTERJEE",
+          "code": "D/2/2",
+          "row": 191,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_2_2_1",
+      "code": "D/2/2/1",
+      "members": [
+        {
+          "name": "Chandreya Chatterjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. CHANDREYA CHATTERJEE",
+          "code": "D/2/2/1",
+          "row": 192,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_3",
+      "code": "D/3",
+      "members": [
+        {
+          "name": "Pratima Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Haramba Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_D_3_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. PRATIMA MUKHERJEE",
+          "code": "D/3",
+          "row": 194,
+          "column": 1
+        },
+        {
+          "name": "HARAMBA MUKHERJEE",
+          "code": "D/3",
+          "row": 195,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_3_1",
+      "code": "D/3/1",
+      "members": [
+        {
+          "name": "Rana Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Rupa Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RANA MUKHERJEE",
+          "code": "D/3/1",
+          "row": 196,
+          "column": 1
+        },
+        {
+          "name": "MISS RUPA MUKHERJEE",
+          "code": "D/3/1",
+          "row": 197,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_4",
+      "code": "D/4",
+      "members": [
+        {
+          "name": "Seema Ganguly",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Ashim Ganguly",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_D_4_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SEEMA GANGULY",
+          "code": "D/4",
+          "row": 199,
+          "column": 1
+        },
+        {
+          "name": "ASHIM GANGULY",
+          "code": "D/4",
+          "row": 200,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_4_1",
+      "code": "D/4/1",
+      "members": [
+        {
+          "name": "Bikramjit Ganguly",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sarmistha Ganguly",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BIKRAMJIT GANGULY",
+          "code": "D/4/1",
+          "row": 201,
+          "column": 1
+        },
+        {
+          "name": "MISS SARMISTHA GANGULY",
+          "code": "D/4/1",
+          "row": 202,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_5",
+      "code": "D/5",
+      "members": [
+        {
+          "name": "Purnima Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Vimal Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_D_5_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PURNIMA MUKHERJEE",
+          "code": "D/5",
+          "row": 204,
+          "column": 1
+        },
+        {
+          "name": "VIMAL MUKHERJEE",
+          "code": "D/5",
+          "row": 205,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_5_1",
+      "code": "D/5/1",
+      "members": [
+        {
+          "name": "Dhrubjyoti Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Poushali Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DHRUBJYOTI MUKHERJEE",
+          "code": "D/5/1",
+          "row": 206,
+          "column": 1
+        },
+        {
+          "name": "MISS. POUSHALI MUKHERJEE",
+          "code": "D/5/1",
+          "row": 207,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_D_6",
+      "code": "D/6",
+      "members": [
+        {
+          "name": "Soma Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SOMA BANERJEE",
+          "code": "D/6",
+          "row": 209,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "D"
+    },
+    {
+      "id": "CSV_E",
+      "code": "E",
+      "members": [
+        {
+          "name": "Sarajani Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Haripada Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_1",
+        "CSV_E_2",
+        "CSV_E_3",
+        "CSV_E_4"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SARAJANI MUKHERJEE",
+          "code": "E",
+          "row": 211,
+          "column": 1
+        },
+        {
+          "name": "HARIPADA MUKHERJEE",
+          "code": "E",
+          "row": 212,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_1",
+      "code": "E/1",
+      "members": [
+        {
+          "name": "Saraj Knmar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SARAJ KNMAR MUKHERJEE",
+          "code": "E/1",
+          "row": 214,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2",
+      "code": "E/2",
+      "members": [
+        {
+          "name": "Dhiraj Kumar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Uma Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_2_1",
+        "CSV_E_2_2",
+        "E2_III",
+        "CSV_E_2_4",
+        "E2_V",
+        "CSV_E_2_6",
+        "CSV_E_2_7"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DHIRAJ KUMAR MUKHERJEE",
+          "code": "E/2",
+          "row": 216,
+          "column": 1
+        },
+        {
+          "name": "SMT. UMA MUKHERJEE",
+          "code": "E/2",
+          "row": 217,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_1",
+      "code": "E/2/1",
+      "members": [
+        {
+          "name": "Ranendra Kumar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Anjana Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_2_1_1",
+        "CSV_E_2_1_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RANENDRA KUMAR MUKHERJEE",
+          "code": "E/2/1",
+          "row": 218,
+          "column": 1
+        },
+        {
+          "name": "SMT. ANJANA MUKHERJEE",
+          "code": "E/2/1",
+          "row": 219,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_1_1",
+      "code": "E/2/1/1",
+      "members": [
+        {
+          "name": "Avik Kumar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Lopamudra Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AVIK KUMAR MUKHERJEE",
+          "code": "E/2/1/1",
+          "row": 220,
+          "column": 1
+        },
+        {
+          "name": "MISS. LOPAMUDRA MUKHERJEE",
+          "code": "E/2/1/1",
+          "row": 221,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_2",
+      "code": "E/2/2",
+      "members": [
+        {
+          "name": "Rathindra Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Sibani Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_2_2_1",
+        "CSV_E_2_2_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "RATHINDRA MUKHERJEE",
+          "code": "E/2/2",
+          "row": 222,
+          "column": 1
+        },
+        {
+          "name": "SMT. SIBANI MUKHERJEE",
+          "code": "E/2/2",
+          "row": 223,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_1_2",
+      "code": "E/2/1/2",
+      "members": [
+        {
+          "name": "Ira Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Babli Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "IRA BANERJEE",
+          "code": "E/2/1/2",
+          "row": 222,
+          "column": 3
+        },
+        {
+          "name": "BABLI BANERJEE",
+          "code": "E/2/1/2",
+          "row": 223,
+          "column": 3
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_2_1",
+      "code": "E/2/2/1",
+      "members": [
+        {
+          "name": "Rupa Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. RUPA MUKHERJEE",
+          "code": "E/2/2/1",
+          "row": 224,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_2_2",
+      "code": "E/2/2/2",
+      "members": [
+        {
+          "name": "Gopa Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. GOPA MUKHERJEE",
+          "code": "E/2/2/2",
+          "row": 225,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_4",
+      "code": "E/2/4",
+      "members": [
+        {
+          "name": "Daliip Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Dalia Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_2_4_ABHISHEK"
+      ],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DALIIP MUKHERJEE",
+          "code": "E/2/4",
+          "row": 229,
+          "column": 1
+        },
+        {
+          "name": "SMT. DALIA MUKHERJEE",
+          "code": "E/2/4",
+          "row": 230,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_5_1_EXTRA",
+      "code": "E/2/5/1",
+      "members": [
+        {
+          "name": "Debojyoty Bhattacharjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DEBOJYOTY BHATTACHARJEE",
+          "code": "E/2/5/1",
+          "row": 235,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_6",
+      "code": "E/2/6",
+      "members": [
+        {
+          "name": "Pradip Kumar Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Mandira Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_2_6_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "PRADIP KUMAR MUKHERJEE",
+          "code": "E/2/6",
+          "row": 236,
+          "column": 1
+        },
+        {
+          "name": "MANDIRA MUKHERJEE",
+          "code": "E/2/6",
+          "row": 237,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_6_1",
+      "code": "E/2/6/1",
+      "members": [
+        {
+          "name": "Adhiraj Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ADHIRAJ MUKHERJEE",
+          "code": "E/2/6/1",
+          "row": 238,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_7",
+      "code": "E/2/7",
+      "members": [
+        {
+          "name": "Sudip Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Jyotsna Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_E_2_7_1"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SUDIP MUKHERJEE",
+          "code": "E/2/7",
+          "row": 239,
+          "column": 1
+        },
+        {
+          "name": "JYOTSNA MUKHERJEE",
+          "code": "E/2/7",
+          "row": 240,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_2_7_1",
+      "code": "E/2/7/1",
+      "members": [
+        {
+          "name": "Avinava Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "AVINAVA MUKHERJEE",
+          "code": "E/2/7/1",
+          "row": 241,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_3",
+      "code": "E/3",
+      "members": [
+        {
+          "name": "Biraj Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Tulshi Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BIRAJ MUKHERJEE",
+          "code": "E/3",
+          "row": 242,
+          "column": 1
+        },
+        {
+          "name": "TULSHI MUKHERJEE",
+          "code": "E/3",
+          "row": 243,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_E_4",
+      "code": "E/4",
+      "members": [
+        {
+          "name": "Shyamaly Kukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. SHYAMALY KUKHERJEE",
+          "code": "E/4",
+          "row": 246,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
+    },
+    {
+      "id": "CSV_F_1_3_1",
+      "code": "F/1/3/1",
+      "members": [
+        {
+          "name": "Bhatu Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "BHATU BANERJEE",
+          "code": "F/1/3/1",
+          "row": 263,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
+    },
+    {
+      "id": "CSV_F_1_3_2",
+      "code": "F/1/3/2",
+      "members": [
+        {
+          "name": "Anusua Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS. ANUSUA BANERJEE",
+          "code": "F/1/3/2",
+          "row": 268,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "F"
+    },
+    {
+      "id": "CSV_G_1_2_1",
+      "code": "G/1/2/1",
+      "members": [
+        {
+          "name": "Vaskar Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "VASKAR BANERJEE",
+          "code": "G/1/2/1",
+          "row": 315,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_1_2_2",
+      "code": "G/1/2/2",
+      "members": [
+        {
+          "name": "Kunal Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "KUNAL BANERJEE",
+          "code": "G/1/2/2",
+          "row": 316,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_1_3_1",
+      "code": "G/1/3/1",
+      "members": [
+        {
+          "name": "Pompi Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS POMPI MUKHERJEE",
+          "code": "G/1/3/1",
+          "row": 319,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_1_3_2",
+      "code": "G/1/3/2",
+      "members": [
+        {
+          "name": "Jumpi Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS JUMPI MUKHERJEE",
+          "code": "G/1/3/2",
+          "row": 320,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_3",
+      "code": "G/3",
+      "members": [
+        {
+          "name": "Jyoty Rani Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Sadesh Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [
+        "CSV_G_3_1",
+        "CSV_G_3_2"
+      ],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT. JYOTY RANI BANERJEE",
+          "code": "G/3",
+          "row": 330,
+          "column": 1
+        },
+        {
+          "name": "SADESH BANERJEE",
+          "code": "G/3",
+          "row": 331,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_3_1",
+      "code": "G/3/1",
+      "members": [
+        {
+          "name": "Somnath Banerjee",
+          "nicknames": [
+            "Bappi"
+          ],
+          "alternateNames": []
+        },
+        {
+          "name": "Mani Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "group",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SOMNATH / BAPPI BANERJEE",
+          "code": "G/3/1",
+          "row": 332,
+          "column": 1
+        },
+        {
+          "name": "MANI BANERJEE",
+          "code": "G/3/1",
+          "row": 333,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_3_2",
+      "code": "G/3/2",
+      "members": [
+        {
+          "name": "Sikha Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register"
+      ],
+      "sourceRecords": [
+        {
+          "name": "MISS SIKHA BANERJEE",
+          "code": "G/3/2",
+          "row": 334,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_4",
+      "code": "G/4",
+      "members": [
+        {
+          "name": "Malati Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        },
+        {
+          "name": "Subodh Bhattacherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "SMT MALATI BHATTACHERJEE",
+          "code": "G/4",
+          "row": 336,
+          "column": 1
+        },
+        {
+          "name": "SUBODH BHATTACHERJEE",
+          "code": "G/4",
+          "row": 337,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "CSV_G_5",
+      "code": "G/5",
+      "members": [
+        {
+          "name": "Debu Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Mita Mukherjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female",
+          "genderSource": "Recorded honorific"
+        }
+      ],
+      "relationship": "couple",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family guidance on register codes"
+      ],
+      "sourceRecords": [
+        {
+          "name": "DEBU MUKHERJEE",
+          "code": "G/5",
+          "row": 339,
+          "column": 1
+        },
+        {
+          "name": "SMT MITA MUKHERJEE",
+          "code": "G/5",
+          "row": 340,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "G"
+    },
+    {
+      "id": "FAMILY_B_2_3_ORKOJEET",
+      "code": "",
+      "members": [
+        {
+          "name": "Orkojeet Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "male",
+          "genderSource": "Family confirmation"
+        }
+      ],
+      "relationship": "individual",
+      "lineageMemberIndex": 0,
+      "children": [],
+      "sources": [
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "FAMILY_B_2_1_ANUSHKA",
+      "code": "",
+      "members": [
+        {
+          "name": "Anushka Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "lineageMemberIndex": 0,
+      "children": [],
+      "sources": [
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "FAMILY_B_2_1_ARJIT",
+      "code": "",
+      "members": [
+        {
+          "name": "Arjit Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        },
+        {
+          "name": "Anusha Rajah",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "couple",
+      "lineageMemberIndex": 0,
+      "children": [
+        "FAMILY_B_2_1_ARJIT_JAI",
+        "FAMILY_B_2_1_ARJIT_MAYA"
+      ],
+      "sources": [
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "FAMILY_B_2_1_ARJIT_JAI",
+      "code": "",
+      "members": [
+        {
+          "name": "Jai Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "lineageMemberIndex": 0,
+      "children": [],
+      "sources": [
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "FAMILY_B_2_1_ARJIT_MAYA",
+      "code": "",
+      "members": [
+        {
+          "name": "Maya Banerjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "lineageMemberIndex": 0,
+      "children": [],
+      "sources": [
+        "Family confirmation"
+      ],
+      "sourceRecords": [],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "CSV_E_2_4_ABHISHEK",
+      "code": "",
+      "members": [
+        {
+          "name": "Abhishek Mukherjee",
+          "nicknames": [],
+          "alternateNames": []
+        }
+      ],
+      "relationship": "individual",
+      "children": [],
+      "sources": [
+        "CSV register",
+        "Family confirmation"
+      ],
+      "sourceRecords": [
+        {
+          "name": "ABHISHEK MUKHERJEE",
+          "code": "E/2/4",
+          "row": 231,
+          "column": 1
+        }
+      ],
+      "notes": [],
+      "branch": "E"
     }
   ]
 }

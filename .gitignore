@@ -1,0 +1,6 @@
+node_modules/
+__pycache__/
+test-results/
+
+# Local family questions must not be published to the public repository/site.
+FOLLOW-UP-QUESTIONS.md

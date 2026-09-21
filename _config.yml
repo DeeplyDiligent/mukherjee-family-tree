@@ -1,0 +1,13 @@
+# GitHub Pages builds the main branch with Jekyll. Publish the app assets,
+# not developer tools, source snapshots, or local follow-up notes.
+exclude:
+  - FOLLOW-UP-QUESTIONS.md
+  - MERGE-REVIEW.md
+  - README.md
+  - data
+  - scripts
+  - tests
+  - node_modules
+  - test-results
+  - package.json
+  - package-lock.json
