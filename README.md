@@ -27,7 +27,7 @@ The JSON contains family names and relationships. Anyone with access to a hosted
 - Search results offer **Show in tree**. Detail panels can copy a link such as `index.html#entry=F4_1`.
 - Unattached entries appear under **Other family entries** and remain searchable. They are not attached to guessed parents.
 
-Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards use small monochrome ♂/♀ badges with accessible labels; detail panels show Male/Female. The current data includes family-recorded markers and reviewed best-guess markers based on names and family context. The 22 ambiguous names remain unmarked and have no badge.
+Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards use small monochrome ♂/♀ badges with accessible labels; detail panels show Male/Female. The current data includes family-recorded markers and reviewed best-guess markers based on names and family context. The 16 ambiguous names remain unmarked and have no badge.
 
 ## Maintaining the data
 
