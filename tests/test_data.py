@@ -1,51 +1,39 @@
-import csv
-import hashlib
 import json
-import subprocess
 import unittest
-from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class MergeTests(unittest.TestCase):
+class FamilyDataTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.data = json.loads((ROOT / 'family-data.json').read_text())
         cls.nodes = {n['id']: n for n in cls.data['nodes']}
-        cls.original = json.loads((ROOT / 'data/family-data.original.json').read_text())
 
     def person(self, nid, name):
         return next(m for m in self.nodes[nid]['members'] if m['name'] == name.removeprefix('Smt. '))
 
-    def test_every_csv_record_preserved_exactly_once(self):
-        expected = []
-        with (ROOT / self.data['sourceFile']).open(newline='') as f:
-            for rownum, row in enumerate(csv.reader(f), 1):
-                for col in (0, 2):
-                    if len(row) <= col or not row[col].strip():
-                        continue
-                    name = row[col].strip()
-                    if name not in ('NAME', 'ADITYA BANERJEE & FAMILY'):
-                        expected.append((name, row[col + 1].strip(), rownum, col + 1))
-        actual = [(r['name'], r['code'], r['row'], r['column']) for n in self.nodes.values() for r in n['sourceRecords']]
-        self.assertEqual(Counter(expected), Counter(actual))
-        self.assertEqual(len(actual), 289)
-        self.assertEqual(len([r for r in actual if r[3] == 3]), 2)
+    def test_no_source_metadata_anywhere_in_data(self):
+        forbidden = {'sources', 'sourceRecords', 'sourceFile', 'genderSource',
+                     'csvNameEntries', 'originalNodes', 'row', 'column'}
 
-    def test_original_entries_and_descendants_preserved_with_redirects(self):
-        redirects = self.data['idRedirects']
-        resolve = lambda nid: redirects.get(nid, nid)
-        for old in self.original['nodes']:
-            nid = resolve(old['id'])
-            self.assertIn(nid, self.nodes)
-            if old['id'] == 'PARENT':
-                continue
-            for c in old.get('children', []):
-                child = resolve(c if isinstance(c, str) else c['id'])
-                self.assertIn(child, self.nodes[nid]['children'])
-        for old_id, target in redirects.items():
+        def check(value):
+            if isinstance(value, dict):
+                self.assertFalse(forbidden.intersection(value))
+                for child in value.values():
+                    check(child)
+            elif isinstance(value, list):
+                for child in value:
+                    check(child)
+
+        check(self.data)
+        text = json.dumps(self.data)
+        for label in ('Existing tree', 'CSV register', 'Family confirmation', 'original tree'):
+            self.assertNotIn(label, text)
+
+    def test_legacy_redirects_and_later_descendants(self):
+        for old_id, target in self.data['idRedirects'].items():
             self.assertNotIn(old_id, self.nodes)
             self.assertIn(target, self.nodes)
         for nid in ['F1_1b1', 'F2_1b1', 'F2_1b2', 'F2_3a1', 'F1_4b1', 'F4_1a1']:
@@ -106,8 +94,7 @@ class MergeTests(unittest.TestCase):
         for nid in children:
             self.assertEqual(self.nodes[nid]['branch'], 'C')
             self.assertEqual(self.nodes[nid]['lineageMemberIndex'], 0)
-            self.assertIn('Family confirmation', self.nodes[nid]['sources'])
-            self.assertTrue(all(r['code'] == '' for r in self.nodes[nid]['sourceRecords']))
+            self.assertEqual(self.nodes[nid]['code'], '')
         self.assertEqual([m['name'] for m in self.nodes['UNPLACED_146']['members']], ['Doli Banerjee', 'Mrinal Banerjee'])
         self.assertEqual(self.nodes['UNPLACED_146']['relationship'], 'couple')
         self.assertEqual(self.data['idRedirects']['UNPLACED_147'], 'UNPLACED_146')
@@ -132,9 +119,7 @@ class MergeTests(unittest.TestCase):
             self.assertEqual(n['branch'], 'B')
             self.assertEqual(n['lineageMemberIndex'], 0)
             self.assertEqual(n['relationship'], 'couple' if len(names) == 2 else 'individual')
-            self.assertIn('Family confirmation', n['sources'])
             if nid.startswith('FAMILY_'):
-                self.assertEqual(n['sourceRecords'], [])
                 self.assertEqual(n['code'], '')
         self.assertEqual(self.nodes['CSV_B_2']['children'][:3], ['CSV_B_2_1', 'CSV_B_2_2', 'CSV_B_2_3'])
         self.assertEqual(self.person('FAMILY_B_2_3_ORKOJEET', 'Orkojeet Banerjee')['gender'], 'male')
@@ -145,7 +130,7 @@ class MergeTests(unittest.TestCase):
         # The new Malabika is not merged with the namesake married to Bibek.
         self.assertIn('Malabika Banerjee', [m['name'] for m in self.nodes['CSV_A_1_2']['members']])
 
-    def test_source_identified_lineage_first(self):
+    def test_lineage_first(self):
         for nid, name in [('F1', 'Ganesh Mukherjee'), ('F2', 'Bhabesh Mukherjee'), ('F1_1', 'Debesh Mukherjee'), ('F4_1', 'Sankar Chatterjee'), ('F1_4b', 'Smt. Elora Chakraborty'), ('CSV_D_2_2', 'Smt. Aparna Chatterjee')]:
             self.assertEqual(self.nodes[nid]['members'][0]['name'], name.removeprefix('Smt. '))
 
@@ -161,7 +146,6 @@ class MergeTests(unittest.TestCase):
         for nid, parent, names, children in cases:
             self.assertEqual([m['name'] for m in self.nodes[nid]['members']], names)
             self.assertEqual(self.nodes[nid]['lineageMemberIndex'], 0)
-            self.assertIn('Family confirmation', self.nodes[nid]['sources'])
             self.assertIn(nid, self.nodes[parent]['children'])
             self.assertEqual(self.nodes[nid]['children'], children)
         self.assertEqual(self.person('F1_1b', 'Debankur Mukherjee')['gender'], 'male')
@@ -184,7 +168,6 @@ class MergeTests(unittest.TestCase):
                 self.assertFalse(m['name'].startswith(('Smt', 'Miss ')))
                 if 'gender' in m:
                     self.assertIn(m['gender'], ('male', 'female'))
-                    self.assertIn(m['genderSource'], ('Recorded honorific', 'Original wife role', 'Original husband role', 'Family confirmation'))
             for note in n['notes']:
                 self.assertTrue(note.startswith('Closed branch'))
         text = (ROOT / 'family-data.json').read_text().lower()
@@ -213,16 +196,17 @@ class MergeTests(unittest.TestCase):
         for nid in ['F1_1b', 'F2_1a', 'F2_1b', 'F2_3a', 'F4_1a']:
             self.assertTrue(self.nodes[nid]['children'])
 
-    def test_merge_is_deterministic_and_does_not_modify_sources_or_questions(self):
-        paths = ['family-data.json', 'MERGE-REVIEW.md', 'PKM SIR FAMILY TYPING.csv', 'data/family-data.original.json']
-        # The private question log is deliberately absent in public checkouts.
-        if (ROOT / 'FOLLOW-UP-QUESTIONS.md').exists():
-            paths.append('FOLLOW-UP-QUESTIONS.md')
-        def hashes():
-            return [hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in paths]
-        before = hashes()
-        subprocess.run(['python3', 'scripts/merge_family.py'], cwd=ROOT, check=True, capture_output=True)
-        self.assertEqual(before, hashes())
+    def test_retired_inputs_and_importers_are_absent(self):
+        for path in ('PKM SIR FAMILY TYPING.csv', 'data/family-data.original.json',
+                     'scripts/merge_family.py', 'scripts/family_confirmations.py',
+                     'MERGE-REVIEW.md', 'family-tree.html'):
+            self.assertFalse((ROOT / path).exists(), path)
+
+    def test_f5_people_remain_without_original_spellings(self):
+        self.assertEqual([m['name'] for m in self.nodes['F5']['members']],
+                         ['Putul Chatterjee', 'Durga Prasad Chatterjee'])
+        self.assertEqual(self.nodes['F5']['code'], 'F/5')
+        self.assertEqual(self.nodes['F5']['children'], ['F5_1', 'F5_2'])
 
 
 if __name__ == '__main__':

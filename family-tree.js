@@ -285,11 +285,11 @@ function render() {
         : `Branch ${state.branch}`;
   $("view-hint").textContent = diagram
     ? "Use + on a card to open its branch. Tap a name for details."
-    : "Open a branch with +. Tap a name card for details and source records.";
+    : "Open a branch with +. Tap a name card for family details.";
   if (searching) {
     const found = matches();
     $("status").textContent =
-      `${found.length} matching ${found.length === 1 ? "entry" : "entries"}${state.branch !== "all" ? " in this selection" : " across the register"}. Includes nicknames and original CSV spellings.`;
+      `${found.length} matching ${found.length === 1 ? "entry" : "entries"}${state.branch !== "all" ? " in this selection" : " across the register"}. Includes nicknames and alternate names.`;
     if (!found.length) {
       const empty = el("div", "empty");
       empty.append(
@@ -437,30 +437,6 @@ function openDetails(id) {
     const section = detailSection("Children", content);
     section.append(el("p", "", "No children."));
   }
-  const sources = detailSection("Sources & original spellings", content);
-  sources.append(el("p", "", n.sources.join(" · ")));
-  if (!n.sourceRecords.length)
-    sources.append(
-      el(
-        "p",
-        "",
-        n.sources.includes("Existing tree")
-          ? "Preserved from the existing tree; not present in this CSV."
-          : "Added from family confirmation.",
-      ),
-    );
-  n.sourceRecords.forEach((r) => {
-    const record = el("div", "source-record");
-    record.append(
-      el("strong", "", r.name),
-      el(
-        "span",
-        "",
-        `CSV row ${r.row}, name column ${r.column} · ${r.code || "no category code"}`,
-      ),
-    );
-    sources.append(record);
-  });
   content.append(
     action("Show this entry in the tree", () => goTo(id), "primary-action"),
   );
@@ -716,7 +692,6 @@ async function start() {
             ...m.nicknames,
             ...m.alternateNames,
           ]),
-          ...n.sourceRecords.flatMap((r) => [r.name, r.code]),
         ].join(" "),
       );
     for (const id of state.nodes.get(data.rootId).children) {
@@ -735,7 +710,7 @@ async function start() {
       $("branch").append(pending);
     }
     // Full-data counts, independent of filtering, search and collapsed branches.
-    // Each member counts once; their nicknames, aliases and source rows do not.
+    // Each member counts once; their nicknames and aliases do not.
     const totalPeople = data.nodes.reduce(
       (total, node) => total + node.members.length,
       0,

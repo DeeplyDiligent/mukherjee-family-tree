@@ -33,12 +33,17 @@ class PreviewTests(unittest.TestCase):
     def test_public_assets_are_served(self):
         with self.client.open(self.base + '/family-data.json') as response:
             self.assertEqual(json.load(response)['schemaVersion'], 3)
-        with self.client.open(self.base + '/family-tree.html') as response:
-            self.assertEqual(response.status, 200)
-            self.assertEqual(response.headers['Cache-Control'], 'no-cache')
+        for path in ('/', '/index.html', '/family-tree.css', '/family-tree.js'):
+            with self.client.open(self.base + path) as response:
+                self.assertEqual(response.status, 200)
+                self.assertEqual(response.headers['Cache-Control'], 'no-cache')
+                if path in ('/', '/index.html'):
+                    html = response.read().decode()
+                    self.assertIn('id="tree-content"', html)
+                    self.assertNotIn('http-equiv="refresh"', html)
 
     def test_questions_and_repository_files_cannot_be_downloaded(self):
-        for path in ('/FOLLOW-UP-QUESTIONS.md', '/MERGE-REVIEW.md', '/.git/config', '/data/family-data.original.json', '/scripts/serve_lan.py', '/node_modules/', '/%46OLLOW-UP-QUESTIONS.md', '/../FOLLOW-UP-QUESTIONS.md'):
+        for path in ('/FOLLOW-UP-QUESTIONS.md', '/MERGE-REVIEW.md', '/.git/config', '/data/family-data.original.json', '/PKM%20SIR%20FAMILY%20TYPING.csv', '/family-tree.html', '/scripts/serve_lan.py', '/node_modules/', '/%46OLLOW-UP-QUESTIONS.md', '/../FOLLOW-UP-QUESTIONS.md'):
             with self.assertRaises(urllib.error.HTTPError) as error:
                 self.client.open(self.base + path)
             self.assertEqual(error.exception.code, 404)
@@ -46,7 +51,7 @@ class PreviewTests(unittest.TestCase):
     def test_only_allowed_subnet_can_read(self):
         self.server.allowed_networks = [ipaddress.ip_network('192.168.1.0/24')]
         with self.assertRaises(urllib.error.HTTPError) as error:
-            self.client.open(self.base + '/family-tree.html')
+            self.client.open(self.base + '/index.html')
         self.assertEqual(error.exception.code, 403)
 
 

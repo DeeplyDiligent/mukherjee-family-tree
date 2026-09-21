@@ -584,12 +584,6 @@ select {
   font-size: 0.75rem;
   margin: 3px 6px 3px 0;
 }
-.source-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
 footer {
   text-align: center;
   font:
@@ -818,19 +812,6 @@ dialog::backdrop {
   font-weight: 400;
   padding: 6px 9px;
 }
-.source-record {
-  padding: 10px 0;
-  border-bottom: 1px solid #eceee7;
-}
-.source-record strong {
-  display: block;
-  font-size: 0.76rem;
-  overflow-wrap: anywhere;
-}
-.source-record span {
-  font-size: 0.7rem;
-  color: var(--muted);
-}
 .primary-action {
   background: var(--forest);
   color: white;
@@ -1028,7 +1009,6 @@ dialog::backdrop {
   .map-controls,
   .review-link,
   .toggle-branch,
-  .source-links,
   dialog {
     display: none !important;
   }

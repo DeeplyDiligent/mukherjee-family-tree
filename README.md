@@ -1,75 +1,60 @@
 # Mukherjee & Banerjee family tree
 
-An expandable family register covering branches A–G. It combines the original tree with all 289 name entries from `PKM SIR FAMILY TYPING.csv`, including the names in columns 3 and 4.
+An expandable family register covering branches A–G, with 322 people in 209 family entries. `family-data.json` is the sole maintained family dataset.
 
 ## Open locally
 
 No build or npm installation is needed to use the site. With Python 3 installed:
 
 ```sh
-python3 -m http.server 8000 --bind 127.0.0.1
+python3 scripts/serve_lan.py
 ```
 
-Open <http://localhost:8000/family-tree.html>. Opening the HTML directly as a `file:` URL will not load the JSON in most browsers. The root `index.html` also links to the tree.
+Open <http://localhost:8000/>. `index.html` is the family-tree page. Opening it directly as a `file:` URL will not load the JSON in most browsers. `npm run serve` starts the same preview server.
 
-For hosting, serve only the HTML, CSS, JavaScript, JSON and source CSV as static files. Keep the original snapshot, scripts and follow-up questions outside the public file set. `scripts/serve_lan.py` enforces this allowlist. There are no CDN scripts, analytics or external fonts. The repository’s existing GitHub Pages workflow deploys `main`; `_config.yml` excludes development files and notes from the published site.
+For hosting, publish only `index.html`, `family-tree.css`, `family-tree.js` and `family-data.json`. The reusable preview server enforces this allowlist and defaults to loopback-only access. There are no CDN scripts, analytics or external fonts. `_config.yml` excludes development files and local notes from GitHub Pages.
 
-**Privacy:** the JSON and CSV contain family names and relationships. Anyone with access to a hosted copy can download them. Choose the hosting audience before publishing.
+The JSON contains family names and relationships. Anyone with access to a hosted copy can download it. Choose the hosting audience before publishing.
 
 ## Exploring the tree
 
-- The summary shows **Family branches**, **Total people** and **Max. generations** across the full dataset. A person’s nicknames, alternate names and source rows are not extra people. The common ancestors are generation 1; spouses in the same entry share a generation. Filtering and collapsing do not change these totals.
-- Search names, nicknames, alternate spellings or category codes. Search is scoped to the selected branch; choose “All branches” to search everything.
+- The summary shows **Family branches**, **Total people** and **Max. generations** across the full dataset. Nicknames and alternate names are not extra people. The common ancestors are generation 1; spouses in the same entry share a generation. Filtering and collapsing do not change these totals.
+- Search names, nicknames, alternate names or register codes. Search is scoped to the selected branch; choose “All branches” to search everything.
 - Use **+ / −** on a card to expand or collapse that branch. The controls announce their state to screen readers.
-- Tap a name card to see source rows, the path to the roots and connected entries. Dialogs support keyboard navigation and Escape.
-- The **Diagram** is the default on phones and desktops, starting in **Collapse all** mode: the common roots and all seven A–G branch heads are visible, with their descendants collapsed. Open individual branches with **+**, use **Expand all**, select a branch, or search for a person. **List** remains available for easy reading. Long names wrap instead of forcing horizontal page scrolling.
-- The **Diagram** view supports background dragging, touch panning, two-finger pinch zoom, zoom buttons, Fit and Reset. Control + mouse wheel zooms around the pointer. Focus the diagram background and use arrow keys to pan, `+` / `-` to zoom, or `0` to fit. Regular wheel scrolling still scrolls the page. The dotted background moves and scales with the chart, including during pinch gestures, Fit, Reset and keyboard movement.
-- Search results offer **Show in tree**, and detail panels can copy a link such as `family-tree.html#entry=F4_1`.
-- Additional unattached records appear under **Other family entries** and remain searchable. They are not attached to guessed parents.
+- Tap a name card to see family details, the path to the roots and children. Dialogs support keyboard navigation and Escape.
+- The **Diagram** is the default on phones and desktops, starting with the common roots and all seven branch heads visible. Open individual branches, use **Expand all**, select a branch, or search for a person. **List** remains available for easy reading.
+- The diagram supports background dragging, touch panning, two-finger pinch zoom, zoom buttons, Fit and Reset. Control + mouse wheel zooms around the pointer. Focus the diagram background and use arrow keys to pan, `+` / `-` to zoom, or `0` to fit. Regular wheel scrolling still scrolls the page. The dotted background moves and scales with the chart.
+- Search results offer **Show in tree**. Detail panels can copy a link such as `index.html#entry=F4_1`.
+- Unattached entries appear under **Other family entries** and remain searchable. They are not attached to guessed parents.
 
-Confirmed nicknames appear in smaller italic text below the name. This includes Keya, Debu, Buli, Pinku, Totan and the seven confirmed slash-separated nicknames. Pankoj has **R. T. Martin** as a recorded alternate name, without claiming a legal name change. Ria’s current surname is **Chatterjee**, while Deep’s remains **Bhattacharyya**. Approved male/female symbols replace display honorifics. Cards use small monochrome ♂/♀ badges with accessible labels; detail panels show the words Male/Female. Gender is taken only from explicit family confirmation, recorded Smt./Miss titles or the original tree’s explicit wife/husband roles, never from a bare name or a partner’s gender. Entries without that evidence have no badge. Raw source records retain their titles.
+Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards use small monochrome ♂/♀ badges with accessible labels; detail panels show Male/Female. Entries without a recorded gender have no badge.
 
-## Data and merge policy
+## Maintaining the data
 
-`family-data.json` is generated by `scripts/merge_family.py`. The importer uses explicit category mappings, not fuzzy name matching. It is safe to rerun and retains every CSV name with its original spelling, row number and name-column number.
+Edit `family-data.json` directly, then run the tests below. There is no import or regeneration step. The original CSV, tree snapshot, source-specific merge scripts and merge report have been removed. Source labels, original-spelling records, row/column references and gender-source metadata are not stored or displayed.
 
-- `data/family-data.original.json` is an unchanged copy of the original checkout’s data.
-- All 65 original entries remain represented, including later descendants. Spouse entries combined after confirmation have `idRedirects` so their old links still work.
-- The placeholder root is named Aditya Ch. Banerjee and Smt. Sarla Debi from the register. It now connects branches A–G, including the formerly separate E entries.
-- Existing names and relationships take precedence over conflicting CSV records, except where the family has explicitly confirmed a correction or uncertainty.
-- The family confirmed that ordinary pairs sharing a code are generally spouses. That convention is applied except to the explicitly deferred question-12 groups and Tilak/Minakshi; those retain neutral grouping.
-- Shaymal and Rina are spouses, with Vaskar and Kunal as their children. Amal and Kalpna are spouses. Sankar, Bapi, Doli and Buri are the children of Bina and Barun (C/6); Mrinal is Doli’s spouse.
-- Daliip and Dalia are spouses, and Abhishek is their child.
-- In B/2, Amajit and Srabani Roychoudhury have son Orkojeet Banerjee. Avijit and Malabika Banerjee have Anushka and Arjit Banerjee. Arjit and Anusha Rajah have Jai and Maya Banerjee. These additions come from family confirmation, not fabricated CSV rows; current surnames are retained.
-- All entries now connect to the common roots. The former unattached C/6 entries retain their stable IDs and original blank CSV codes; no source codes were invented.
-- Family-line-first ordering follows the register and explicit family confirmations. Debankur, Shabarna, Srijata, Upasana, Bedatrayee and Somdev are confirmed as the descendants in their respective couples and appear before their spouses. Their children remain unchanged.
-- Current surnames only; existing spelling preferences remain, and proposed typo corrections await approval.
-- Upasana and Kaushik have no children, explicitly confirmed by the family. An empty child list elsewhere is not treated as that same confirmation.
+The schema-v3 JSON contains:
 
-**Questions are chat-only, never part of the page.** They are maintained locally in git-ignored `FOLLOW-UP-QUESTIONS.md`, not committed to this public repository, embedded in public JSON or linked from the HTML. The allowlisted LAN server does not serve this file or repository internals. [MERGE-REVIEW.md](MERGE-REVIEW.md) is a local implementation summary.
+- `rootId`, `unplacedIds` and `nodes` for the family graph.
+- Stable node IDs and `idRedirects` for merged entries. Keep existing IDs, including those beginning with `CSV_` or `UNPLACED_`, so links and relationships continue to work. These are identifiers, not embedded source records.
+- Each node's members, relationship type (`couple`, `individual` or `group`), child IDs, branch, register code and public notes.
+- Member names, nickname and alternate-name arrays, plus optional gender.
+- Optional `lineageMemberIndex` and `childrenStatus`. `childrenStatus: "none"` records an explicit statement of no children; an empty child list alone does not make that claim.
 
-### Make a correction
+Preserve established spellings, surnames and family-line-first member ordering unless a correction is confirmed. Do not merge namesakes automatically, infer gender from a name or partner, or change neutral groups into couples without confirmation. New entries need unique, stable IDs and must be connected to the graph or listed in `unplacedIds`.
 
-Edit category mappings in `scripts/merge_family.py` or family decisions in `scripts/family_confirmations.py`, then run:
-
-```sh
-python3 scripts/merge_family.py
-```
-
-Do not edit the original snapshot to resolve new questions. Avoid editing the generated JSON directly; the next merge would overwrite those edits. A newly received CSV should be reviewed before rerunning the importer because it may require additional category mappings.
-
-The generated schema-v3 data has stable IDs plus redirects for merged entries. Each node has members (primary name, confirmed nicknames and alternate names), relationship grouping, child IDs, branch/code, source records and public notes. Private question text and review references are excluded. The top summary counts individual member records, including spouses, rather than family-entry cards or CSV rows. Namesakes in different entries are not automatically merged. The explorer’s visibility message still counts cards, separately from the total-people counter.
+Private questions are kept locally in git-ignored `FOLLOW-UP-QUESTIONS.md`, never embedded in the public JSON or linked from the page. The preview server does not serve this file or repository internals.
 
 ## Tests
 
-Data tests need only Python:
+Data and preview-server tests need only Python:
 
 ```sh
-npm run test:data
-# Or: python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+# Or: npm run test:data
 ```
 
-For browser tests, install the development dependency:
+For browser tests, install the development dependencies:
 
 ```sh
 npm ci
@@ -80,6 +65,6 @@ npm test
 
 Browser tests use `/usr/bin/google-chrome` if available, otherwise Playwright Chromium. Set `CHROME_BIN` for another Chrome path. Tests launch a separate headless browser and a temporary loopback-only HTTP server; both close when the suite finishes.
 
-Checks cover source completeness, preservation of original descendants, graph integrity, deterministic merging, confirmed nicknames, uncertain relationships, search, branch filtering, expand/collapse, detail dialogs, deep links, keyboard controls, diagram gestures and load failures. Browser layouts are tested at 320, 390, 768 and 1440 CSS pixels, including touch taps, pinch simulation and orientation changes on the phone sizes. Axe checks run against the main page and detail dialog for WCAG A/AA issues. Screenshots are saved under ignored `test-results/`.
+Checks cover graph integrity, family relationships, nicknames, absence of source metadata, search, branch filtering, expand/collapse, every entry's detail dialog, deep links, keyboard controls, diagram gestures and load failures. Browser layouts are tested at 320, 390, 768 and 1440 CSS pixels, including touch taps, pinch simulation and orientation changes on phone sizes. Axe checks run against the main page and detail dialog for WCAG A/AA issues. Screenshots are saved under ignored `test-results/`.
 
 These are automated Chrome checks, not a claim of testing on physical iPhones or every mobile browser.

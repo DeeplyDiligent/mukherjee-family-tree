@@ -33,7 +33,7 @@ const server = createServer(async (req, res) => {
   }
 });
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
-const url = `http://127.0.0.1:${server.address().port}/family-tree.html`;
+const url = `http://127.0.0.1:${server.address().port}/`;
 await mkdir(resolve(root, "test-results"), { recursive: true });
 let browser;
 try {
@@ -306,9 +306,9 @@ try {
       await page.locator("#detail-content").innerText(),
       /“Keya” · nickname/,
     );
-    assert.match(
+    assert.doesNotMatch(
       await page.locator("#detail-content").innerText(),
-      /SMT\. KEYA CHATTERJEE/,
+      /SMT\. KEYA CHATTERJEE|Sources & original spellings|CSV row|Existing tree/,
     );
     await page.keyboard.press("Escape");
     assert.equal(
@@ -324,7 +324,7 @@ try {
       /No children\./,
     );
     await page.locator("#close-dialog").click();
-    // New family-supplied records are searchable with correct ancestry and sources.
+    // New family entries are searchable with correct ancestry.
     await page.locator("#search").fill("Orkojeet Banerjee");
     assert.equal(await page.locator(".results .family-card").count(), 1);
     assert.match(
@@ -334,7 +334,11 @@ try {
     await page.locator(".results .card-main").click();
     assert.match(
       await page.locator("#detail-content").innerText(),
-      /Added from family confirmation/,
+      /Orkojeet Banerjee/,
+    );
+    assert.doesNotMatch(
+      await page.locator("#detail-content").innerText(),
+      /Sources & original spellings|Added from family confirmation/,
     );
     await page.locator("#close-dialog").click();
     await page.locator("#search").fill("Arjit Banerjee");
@@ -588,7 +592,28 @@ try {
       `PASS ${width}px: search, nickname, preservation, expand/collapse, filtering, overflow, diagram, gestures, deep links, modal keyboard, no external requests`,
     );
   }
-  // Counters derive from the actual people and graph, not cached source totals
+  // Every entry opens without source fields, including entries with no gender.
+  const detailsPage = await browser.newPage();
+  await detailsPage.goto(`${url}index.html`);
+  await detailsPage.waitForSelector("#toolbar:not([hidden])");
+  const entriesChecked = await detailsPage.evaluate(async () => {
+    const data = await (await fetch("family-data.json")).json();
+    for (const node of data.nodes) {
+      openDetails(node.id);
+      const dialog = document.getElementById("person-dialog");
+      const content = document.getElementById("detail-content");
+      if (!dialog.open || content.querySelectorAll(".member").length !== node.members.length)
+        throw new Error(`Missing family details for ${node.id}`);
+      if (/Sources & original spellings|CSV row|name column|Existing tree|CSV register|Family confirmation/i.test(content.textContent))
+        throw new Error(`Source information remains for ${node.id}`);
+      dialog.close();
+    }
+    return data.nodes.length;
+  });
+  assert.equal(entriesChecked, 209);
+  await detailsPage.close();
+  console.log("PASS all 209 entries show family details without source information");
+  // Counters derive from the actual people and graph, not cached totals
   // or visible cards. A new generation adds one person, not their two aliases.
   const fixture = JSON.parse(
     await readFile(resolve(root, "family-data.json"), "utf8"),
@@ -609,8 +634,6 @@ try {
         alternateNames: ["Test alias"],
       },
     ],
-    sourceRecords: [],
-    sources: ["Test fixture"],
     notes: [],
   });
   const summaryPage = await browser.newPage();

@@ -2,10 +2,9 @@
   "name": "mukherjee-family-tree",
   "version": "2.0.0",
   "private": true,
-  "description": "A source-aware, mobile-friendly family register",
+  "description": "A mobile-friendly family register",
   "scripts": {
-    "serve": "python3 -m http.server 8000 --bind 127.0.0.1",
-    "merge": "python3 scripts/merge_family.py",
+    "serve": "python3 scripts/serve_lan.py",
     "test": "npm run test:data && npm run test:ui",
     "test:data": "python3 -m unittest discover -s tests -p 'test_*.py' -v",
     "test:ui": "node tests/browser.mjs"

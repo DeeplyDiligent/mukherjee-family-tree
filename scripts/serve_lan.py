@@ -9,8 +9,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = {
-    'index.html', 'family-tree.html', 'family-tree.css', 'family-tree.js',
-    'family-data.json', 'PKM SIR FAMILY TYPING.csv',
+    'index.html', 'family-tree.css', 'family-tree.js', 'family-data.json',
 }
 
 
@@ -48,7 +47,7 @@ def main():
     handler = partial(PreviewHandler, directory=str(ROOT))
     with ThreadingHTTPServer((args.host, args.port), handler) as server:
         server.allowed_networks = networks
-        print(f'Family tree preview: http://{args.host}:{args.port}/family-tree.html', flush=True)
+        print(f'Family tree preview: http://{args.host}:{args.port}/', flush=True)
         print('Allowed networks: ' + ', '.join(map(str, networks)), flush=True)
         try:
             server.serve_forever()
