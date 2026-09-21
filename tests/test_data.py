@@ -191,11 +191,9 @@ class FamilyDataTests(unittest.TestCase):
         self.assertEqual(self.person('G1_1', 'Amal Banerjee')['gender'], 'male')
         unsure = {
             'Mon Sarkar', 'Mitu Chatterjee', 'Viyomi Kurian', 'Piku Ghoshal',
-            'Daku Ghoshal', 'Suva Banerjee', 'Sanjhy Mukherjee',
-            'Tojo Bhattacherjee', 'Amiya Prana', 'Srya Sen',
-            'Krishnakal Banerjee', 'Santi Chatterjee', 'Bukun Chatterjee',
-            'Sonavia Mukherjee', 'Laxmi Mondal', 'Tintin Chakraborty',
-            'Rana Mukherjee', 'Biraj Mukherjee', 'Tulshi Mukherjee',
+            'Daku Ghoshal', 'Suva Banerjee', 'Tojo Bhattacherjee',
+            'Srya Sen', 'Krishnakal Banerjee', 'Bukun Chatterjee',
+            'Sonavia Mukherjee', 'Tintin Chakraborty', 'Rana Mukherjee',
             'Bhatu Banerjee', 'Mani Banerjee', 'Jai Banerjee',
         }
         unmarked = {
@@ -203,7 +201,14 @@ class FamilyDataTests(unittest.TestCase):
             if 'gender' not in m
         }
         self.assertEqual(unmarked, unsure)
-        self.assertEqual(sum('gender' not in m for n in self.nodes.values() for m in n['members']), 22)
+        self.assertEqual(sum('gender' not in m for n in self.nodes.values() for m in n['members']), 16)
+        for node in self.nodes.values():
+            if node['relationship'] == 'couple':
+                self.assertEqual(
+                    sorted(m.get('gender') for m in node['members']),
+                    ['female', 'male'],
+                    node['id'],
+                )
         self.assertEqual(self.nodes['F1_1a']['relationship'], 'group')
 
     def test_upasana_kaushik_have_no_children_as_confirmed(self):

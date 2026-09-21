@@ -1834,7 +1834,8 @@
         {
           "name": "Sanjhy Mukherjee",
           "nicknames": [],
-          "alternateNames": []
+          "alternateNames": [],
+          "gender": "male"
         },
         {
           "name": "Subha Mukherjee",
@@ -2036,7 +2037,8 @@
         {
           "name": "Amiya Prana",
           "nicknames": [],
-          "alternateNames": []
+          "alternateNames": [],
+          "gender": "male"
         }
       ],
       "relationship": "couple",
@@ -3094,7 +3096,8 @@
         {
           "name": "Santi Chatterjee",
           "nicknames": [],
-          "alternateNames": []
+          "alternateNames": [],
+          "gender": "male"
         }
       ],
       "relationship": "couple",
@@ -3237,7 +3240,8 @@
         {
           "name": "Laxmi Mondal",
           "nicknames": [],
-          "alternateNames": []
+          "alternateNames": [],
+          "gender": "male"
         }
       ],
       "relationship": "couple",
@@ -4020,12 +4024,14 @@
         {
           "name": "Biraj Mukherjee",
           "nicknames": [],
-          "alternateNames": []
+          "alternateNames": [],
+          "gender": "male"
         },
         {
           "name": "Tulshi Mukherjee",
           "nicknames": [],
-          "alternateNames": []
+          "alternateNames": [],
+          "gender": "female"
         }
       ],
       "relationship": "couple",
