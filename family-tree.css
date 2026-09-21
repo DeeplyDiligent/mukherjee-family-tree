@@ -652,6 +652,9 @@ footer span {
   padding: 40px;
   width: max-content;
   --map-row-gap: 22px;
+  --branch-color: #94a78e;
+  --branch-width: 2px;
+  --branch-radius: 14px;
 }
 .map-tree,
 .map-tree ul {
@@ -675,7 +678,7 @@ footer span {
   left: -40px;
   top: 50%;
   width: 40px;
-  border-top: 1px solid #94a78e;
+  border-top: var(--branch-width) solid var(--branch-color);
 }
 .map-tree li > ul > li::before {
   content: "";
@@ -683,7 +686,7 @@ footer span {
   left: -40px;
   top: 50%;
   width: 40px;
-  border-top: 1px solid #94a78e;
+  border-top: var(--branch-width) solid var(--branch-color);
 }
 /* Each sibling contributes only its portion of the vertical connector.
    End it at the outer children's horizontal lines, not their card edges.
@@ -695,14 +698,26 @@ footer span {
   top: calc(var(--map-row-gap) / -2);
   bottom: calc(var(--map-row-gap) / -2);
   width: 0;
-  border-left: 1px solid #94a78e;
+  border-left: var(--branch-width) solid var(--branch-color);
   pointer-events: none;
+}
+/* Round the two outer elbows where the sibling spine turns toward a card. */
+.map-tree li > ul > li:first-child:not(:last-child)::before,
+.map-tree li > ul > li:last-child:not(:first-child)::before {
+  left: calc(-40px + var(--branch-radius));
+  width: calc(40px - var(--branch-radius));
 }
 .map-tree li > ul > li:first-child::after {
   top: 50%;
+  width: var(--branch-radius);
+  border-top: var(--branch-width) solid var(--branch-color);
+  border-top-left-radius: var(--branch-radius);
 }
 .map-tree li > ul > li:last-child::after {
   bottom: 50%;
+  width: var(--branch-radius);
+  border-bottom: var(--branch-width) solid var(--branch-color);
+  border-bottom-left-radius: var(--branch-radius);
 }
 .map-tree li > ul > li:only-child::after {
   display: none;
