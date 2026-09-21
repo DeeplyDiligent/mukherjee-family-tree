@@ -10,9 +10,9 @@ No build or npm installation is needed to use the site. With Python 3 installed:
 python3 scripts/serve_lan.py
 ```
 
-Open <http://localhost:8000/>. `index.html` is the family-tree page. Opening it directly as a `file:` URL will not load the JSON in most browsers. `npm run serve` starts the same preview server.
+Open <http://localhost:8000/>. `index.html` is the family-tree page. Older `family-tree.html` links redirect to it while preserving query strings and entry hashes. Opening the page directly as a `file:` URL will not load the JSON in most browsers. `npm run serve` starts the same preview server.
 
-For hosting, publish only `index.html`, `family-tree.css`, `family-tree.js` and `family-data.json`. The reusable preview server enforces this allowlist and defaults to loopback-only access. There are no CDN scripts, analytics or external fonts. `_config.yml` excludes development files and local notes from GitHub Pages.
+For hosting, publish `index.html`, the `family-tree.html` redirect, `family-tree.css`, `family-tree.js` and `family-data.json`. The reusable preview server enforces this allowlist and defaults to loopback-only access. There are no CDN scripts, analytics or external fonts. `_config.yml` excludes development files and local notes from GitHub Pages.
 
 The JSON contains family names and relationships. Anyone with access to a hosted copy can download it. Choose the hosting audience before publishing.
 

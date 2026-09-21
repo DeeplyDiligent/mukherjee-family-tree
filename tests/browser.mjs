@@ -43,6 +43,15 @@ try {
       ? "/usr/bin/google-chrome"
       : undefined);
   browser = await chromium.launch({ headless: true, executablePath });
+  const redirectPage = await browser.newPage();
+  await redirectPage.goto(
+    `http://127.0.0.1:${server.address().port}/family-tree.html?from=legacy#entry=F4_1`,
+  );
+  await redirectPage.waitForURL(/\/index\.html\?from=legacy#entry=F4_1$/);
+  await redirectPage.waitForSelector("#person-dialog[open]");
+  assert.match(await redirectPage.locator("#detail-content").innerText(), /Sankar Chatterjee/);
+  await redirectPage.close();
+  console.log("PASS legacy family-tree.html redirect preserves query and entry hash");
   for (const width of [320, 390, 768, 1440]) {
     const mobile = width < 768;
     const context = await browser.newContext({

@@ -221,7 +221,7 @@ class FamilyDataTests(unittest.TestCase):
     def test_retired_inputs_and_importers_are_absent(self):
         for path in ('PKM SIR FAMILY TYPING.csv', 'data/family-data.original.json',
                      'scripts/merge_family.py', 'scripts/family_confirmations.py',
-                     'MERGE-REVIEW.md', 'family-tree.html'):
+                     'MERGE-REVIEW.md'):
             self.assertFalse((ROOT / path).exists(), path)
 
     def test_f5_people_remain_without_original_spellings(self):
