@@ -192,9 +192,11 @@ try {
             const firstHorizontal = parseFloat(
               getComputedStyle(first, "::before").top,
             );
+            const lastCurve = getComputedStyle(last, "::after");
             const end =
               parseFloat(getComputedStyle(last).height) -
-              parseFloat(getComputedStyle(last, "::after").bottom);
+              parseFloat(lastCurve.bottom) -
+              parseFloat(lastCurve.borderBottomWidth);
             const lastHorizontal = parseFloat(
               getComputedStyle(last, "::before").top,
             );

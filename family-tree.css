@@ -714,7 +714,7 @@ footer span {
   border-top-left-radius: var(--branch-radius);
 }
 .map-tree li > ul > li:last-child::after {
-  bottom: 50%;
+  bottom: calc(50% - var(--branch-width));
   width: var(--branch-radius);
   border-bottom: var(--branch-width) solid var(--branch-color);
   border-bottom-left-radius: var(--branch-radius);
