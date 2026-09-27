@@ -79,7 +79,7 @@ try {
       );
       assert.equal(
         await page.locator('#stats [data-metric="people"] strong').innerText(),
-        "322",
+        "325",
       );
       assert.equal(
         await page
@@ -112,7 +112,7 @@ try {
       7,
     );
     await page.locator("#expand-all").click();
-    assert.equal(await page.locator("#tree-content .family-card").count(), 209);
+    assert.equal(await page.locator("#tree-content .family-card").count(), 212);
     await checkSummary();
     await page.reload();
     await page.waitForSelector("#toolbar:not([hidden])");
@@ -336,7 +336,7 @@ try {
     await page.locator(".results .card-main").click();
     assert.match(
       await page.locator("#detail-content").innerText(),
-      /No children\./,
+      /Anahita Mitra/,
     );
     await page.locator("#close-dialog").click();
     // New family entries are searchable with correct ancestry.
@@ -384,7 +384,7 @@ try {
     // Expansion, branch isolation, names with alternate spellings, and no result state.
     await page.locator("#branch").selectOption("all");
     await page.locator("#expand-all").click();
-    assert.equal(await page.locator("#tree-content .family-card").count(), 209);
+    assert.equal(await page.locator("#tree-content .family-card").count(), 212);
     await noOverflow();
     await page.locator("#search").fill("Pinku");
     assert.equal(await page.locator(".results .family-card").count(), 1);
@@ -555,12 +555,26 @@ try {
       /Kalpna Banerjee/,
     );
     await page.locator("#close-dialog").click();
-    // Deferred relationships use neutral grouping, never questions or guessed marriages.
+    // Confirmed names and spouses remain searchable; deferred groups stay neutral.
+    await page.locator('#branch').selectOption('all');
+    for (const [query, expected] of [['Putul', 'Prabha Chatterjee'], ['Gautam', 'Gautam Chattopadhyay'], ['Bula', 'Bula Mukherjee'], ['Subhasish', 'Subhasish Sarkar'], ['Rinku', 'Papu Mukherjee'], ['Ranjan Chakraborty', 'Dola Chakraborty']]) {
+      await page.locator('#search').fill(query);
+      assert.match(await page.locator('.results').innerText(), new RegExp(expected));
+    }
+    await page.locator('#search').fill('Somnath Mukherjee');
+    await page.locator('.results .card-main').click();
+    assert.equal(await page.locator('#detail-content .detail-label').innerText(), 'Family entry');
+    await page.locator('#close-dialog').click();
+    await page.locator('#search').fill('Debjani Mukherjee');
+    await page.locator('.results [data-node-id="FAMILY_C_11_DEBJANI"] .card-main').click();
+    assert.equal(await page.locator('#detail-content .detail-label').innerText(), 'Individual');
+    await page.locator('#close-dialog').click();
+    // Confirmed marriage retains its stable entry link without private questions.
     await page.goto(url + "#entry=F1_1a");
     await page.waitForSelector("#person-dialog[open]");
     assert.equal(
       await page.locator("#detail-content .detail-label").innerText(),
-      "Family entry",
+      "Couple",
     );
     assert.match(
       await page.locator("#detail-content").innerText(),
@@ -625,9 +639,9 @@ try {
     }
     return data.nodes.length;
   });
-  assert.equal(entriesChecked, 209);
+  assert.equal(entriesChecked, 212);
   await detailsPage.close();
-  console.log("PASS all 209 entries show family details without source information");
+  console.log("PASS all 212 entries show family details without source information");
   // Counters derive from the actual people and graph, not cached totals
   // or visible cards. A new generation adds one person, not their two aliases.
   const fixture = JSON.parse(
@@ -664,7 +678,7 @@ try {
     await summaryPage
       .locator('#stats [data-metric="people"] strong')
       .innerText(),
-    "323",
+    "326",
   );
   assert.equal(
     await summaryPage

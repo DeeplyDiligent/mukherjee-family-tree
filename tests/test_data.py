@@ -57,7 +57,8 @@ class FamilyDataTests(unittest.TestCase):
         for nid, name, nickname in [
             ('F4_1', 'Smt. Sumita Chatterjee', 'Keya'),
             ('F1_1', 'Debesh Mukherjee', 'Debu'),
-            ('F1_1', 'Smt. Bulla Mukherjee', 'Buli'),
+            ('F1_1', 'Bula Mukherjee', 'Buli'),
+            ('F5', 'Prabha Chatterjee', 'Putul'),
             ('F1_4b', 'Smt. Elora Chakraborty', 'Pinku'),
             ('F2_3', 'Jayanta Mukherjee', 'Totan'),
             ('G1_1', 'Kalpna Banerjee', 'Ruby'),
@@ -82,7 +83,7 @@ class FamilyDataTests(unittest.TestCase):
         self.assertEqual(self.nodes['CSV_E_2_4_ABHISHEK']['members'][0]['name'], 'Abhishek Mukherjee')
 
     def test_deferred_relationships_are_not_overwritten_by_general_rule(self):
-        for nid in ('F1_1a', 'CSV_C_1_1', 'CSV_C_5_1', 'CSV_C_10_1', 'CSV_C_11_1', 'CSV_D_3_1', 'CSV_D_4_1', 'CSV_D_5_1', 'CSV_E_2_1_1', 'CSV_E_2_1_2', 'CSV_G_3_1'):
+        for nid in ('CSV_C_10_1', 'CSV_D_3_1', 'CSV_D_4_1', 'CSV_D_5_1', 'CSV_E_2_1_1', 'CSV_E_2_1_2', 'CSV_G_3_1'):
             self.assertEqual(self.nodes[nid]['relationship'], 'group')
         self.assertEqual(self.nodes['CSV_A_1']['relationship'], 'couple')
         self.assertIn('CSV_E_2_5_1_EXTRA', self.nodes['E2_V']['children'])
@@ -126,8 +127,8 @@ class FamilyDataTests(unittest.TestCase):
         self.assertNotIn('gender', self.nodes['FAMILY_B_2_1_ARJIT_JAI']['members'][0])
         self.assertEqual(self.nodes['FAMILY_B_2_1_ARJIT_MAYA']['members'][0]['gender'], 'female')
         self.assertEqual(self.nodes['FAMILY_B_2_1_ANUSHKA']['members'][0]['gender'], 'female')
-        self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 322)
-        self.assertEqual(len(self.nodes), 209)
+        self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 325)
+        self.assertEqual(len(self.nodes), 212)
         # The new Malabika is not merged with the namesake married to Bibek.
         self.assertIn('Malabika Banerjee', [m['name'] for m in self.nodes['CSV_A_1_2']['members']])
 
@@ -140,7 +141,7 @@ class FamilyDataTests(unittest.TestCase):
             ('F1_1b', 'F1_1', ['Debankur Mukherjee', 'Swagata Mukherjee'], ['F1_1b1']),
             ('F2_1a', 'F2_1', ['Shabarna Mukherjee', 'Supriyo Mukherjee'], ['F2_1a1']),
             ('F2_1b', 'F2_1', ['Srijata Chowdhury', 'Arijit Chowdhury'], ['F2_1b1', 'F2_1b2']),
-            ('F2_2a', 'F2_2', ['Upasana Mitra', 'Kaushik Mitra'], []),
+            ('F2_2a', 'F2_2', ['Upasana Mitra', 'Kaushik Mitra'], ['FAMILY_F2_2a_ANAHITA']),
             ('F2_3a', 'F2_3', ['Bedatrayee Kurian', 'Nitin Kurian'], ['F2_3a1']),
             ('F4_1a', 'F4_1', ['Somdev Chattopadhyay', 'Priyanka Chattopadhyay'], ['F4_1a1']),
         ]
@@ -209,14 +210,61 @@ class FamilyDataTests(unittest.TestCase):
                     ['female', 'male'],
                     node['id'],
                 )
-        self.assertEqual(self.nodes['F1_1a']['relationship'], 'group')
+        self.assertEqual(self.nodes['F1_1a']['relationship'], 'couple')
 
-    def test_upasana_kaushik_have_no_children_as_confirmed(self):
-        self.assertEqual(self.nodes['F2_2a']['children'], [])
-        self.assertEqual(self.nodes['F2_2a']['childrenStatus'], 'none')
-        self.assertEqual([nid for nid, n in self.nodes.items() if n.get('childrenStatus') == 'none'], ['F2_2a'])
+    def test_latest_confirmed_names_marriages_and_siblings(self):
+        self.assertEqual(self.nodes['F5']['members'][0]['name'], 'Prabha Chatterjee')
+        self.assertEqual(self.nodes['F5']['members'][0]['nicknames'], ['Putul'])
+        self.assertEqual(self.nodes['F5_1']['members'][0]['name'], 'Gautam Chattopadhyay')
+        self.assertEqual(self.nodes['F5_1']['members'][1]['name'], 'Suparna Chatterjee')
+        self.assertEqual(self.nodes['F5_1']['children'], ['F5_1a'])
+        self.assertEqual(self.nodes['F1_2a']['members'][0]['name'], 'Subhasish Sarkar')
+        for nid in ('F1_1a', 'CSV_C_1_1', 'F4_4a', 'F4_4b'):
+            self.assertEqual(self.nodes[nid]['relationship'], 'couple')
+            self.assertEqual(len(self.nodes[nid]['members']), 2)
+        for parent, children in [
+            ('CSV_C_11', ['CSV_C_11_1', 'FAMILY_C_11_DEBJANI']),
+            ('E2_V', ['E2_Va', 'CSV_E_2_5_1_EXTRA']),
+            ('F4_4', ['F4_4a', 'F4_4b']),
+        ]:
+            self.assertEqual(self.nodes[parent]['children'], children)
+        self.assertEqual(self.nodes['CSV_C_11_1']['members'][0]['name'], 'Debjit Mukherjee')
+        self.assertEqual(self.nodes['FAMILY_C_11_DEBJANI']['members'][0]['name'], 'Debjani Mukherjee')
+        self.assertEqual(self.nodes['CSV_C_11_1']['relationship'], 'individual')
+        self.assertEqual(self.nodes['FAMILY_C_11_DEBJANI']['relationship'], 'individual')
+        self.assertEqual([m['name'] for m in self.nodes['F4_4a']['members']], ['Papu Mukherjee', 'Rinku Mukherjee'])
+        self.assertEqual([m['name'] for m in self.nodes['F4_4b']['members']], ['Dola Chakraborty', 'Ranjan Chakraborty'])
+        for nid in ('F4_4a', 'F4_4b'):
+            self.assertEqual(self.nodes[nid]['lineageMemberIndex'], 0)
+            self.assertEqual(self.nodes[nid]['children'], [])
+        self.assertEqual([m['gender'] for m in self.nodes['CSV_E_2_1_2']['members']], ['female', 'female'])
+        self.assertEqual(self.nodes['CSV_E_2_1_2']['relationship'], 'group')
+        names = [m['name'] for n in self.nodes.values() for m in n['members']]
+        for old in ['Putul Chatterjee', 'Goutam Chatterjee', 'Bulla Mukherjee', 'Somnath Sarkar', 'Dola Mukherjee']:
+            self.assertNotIn(old, names)
+
+    def test_upasana_kaushik_daughter_replaces_previous_no_children_statement(self):
+        self.assertEqual(self.nodes['F2_2a']['children'], ['FAMILY_F2_2a_ANAHITA'])
+        self.assertNotIn('childrenStatus', self.nodes['F2_2a'])
+        daughter = self.nodes['FAMILY_F2_2a_ANAHITA']
+        self.assertEqual(daughter['members'][0]['name'], 'Anahita Mitra')
+        self.assertEqual(daughter['members'][0]['gender'], 'female')
+        self.assertEqual(daughter['branch'], 'F')
+        self.assertEqual(daughter['relationship'], 'individual')
+        self.assertEqual(daughter['children'], [])
         for nid in ['F1_1b', 'F2_1a', 'F2_1b', 'F2_3a', 'F4_1a']:
             self.assertTrue(self.nodes[nid]['children'])
+
+    def test_c5_siblings_follow_requested_placement_without_public_question(self):
+        ids = ['CSV_C_5_1', 'FAMILY_C_5_SIBANI']
+        self.assertEqual(self.nodes['CSV_C_5']['children'], ids)
+        for nid, name in zip(ids, ['Uma Sankar Mukherjee', 'Sibani Mukherjee']):
+            self.assertEqual(self.nodes[nid]['relationship'], 'individual')
+            self.assertEqual([m['name'] for m in self.nodes[nid]['members']], [name])
+            self.assertEqual(self.nodes[nid]['notes'], [])
+        note = ROOT / 'FOLLOW-UP-QUESTIONS.md'
+        if note.exists():
+            self.assertIn('can the sibling relationship be confirmed?', note.read_text())
 
     def test_retired_inputs_and_importers_are_absent(self):
         for path in ('PKM SIR FAMILY TYPING.csv', 'data/family-data.original.json',
@@ -226,7 +274,7 @@ class FamilyDataTests(unittest.TestCase):
 
     def test_f5_people_remain_without_original_spellings(self):
         self.assertEqual([m['name'] for m in self.nodes['F5']['members']],
-                         ['Putul Chatterjee', 'Durga Prasad Chatterjee'])
+                         ['Prabha Chatterjee', 'Durga Prasad Chatterjee'])
         self.assertEqual(self.nodes['F5']['code'], 'F/5')
         self.assertEqual(self.nodes['F5']['children'], ['F5_1', 'F5_2'])
 
