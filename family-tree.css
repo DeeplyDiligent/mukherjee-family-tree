@@ -1033,22 +1033,34 @@ body.chart-fullscreen { overflow: hidden; }
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  background: var(--paper);
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  background: #f1f3eb;
   overflow: hidden;
 }
-#chart-panel.fullscreen-fallback { position: fixed; inset: 0; z-index: 100; }
-#chart-panel:fullscreen .map-controls,
-#chart-panel.fullscreen-fallback .map-controls { flex-shrink: 0; flex-wrap: wrap; }
-#chart-panel:fullscreen .status,
-#chart-panel.fullscreen-fallback .status { flex-shrink: 0; }
+#chart-panel::backdrop { background: #f1f3eb; }
+#chart-panel.fullscreen-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  height: 100vh;
+  height: 100dvh;
+}
+/* No toolbars, status text, padding or safe-area strip around the diagram. */
+#chart-panel:fullscreen > :not(#tree-content):not(dialog),
+#chart-panel.fullscreen-fallback > :not(#tree-content):not(dialog) { display: none !important; }
 #chart-panel:fullscreen .tree-content,
 #chart-panel.fullscreen-fallback .tree-content {
   flex: 1;
   height: auto;
   min-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
   border-radius: 0;
 }
 @media print {

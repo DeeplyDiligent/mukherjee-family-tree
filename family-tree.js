@@ -269,7 +269,7 @@ function render() {
   container.setAttribute(
     "aria-label",
     diagram
-      ? "Family diagram. Drag to pan, pinch or Control plus wheel to zoom. Arrow keys pan; plus and minus zoom; zero fits."
+      ? "Family diagram. Drag to pan, pinch or Control plus wheel to zoom. Arrow keys pan; plus and minus zoom; zero fits. In fullscreen, Escape or double-tap empty background to exit."
       : "Family entries",
   );
   $("map-controls").hidden = !diagram;
@@ -656,64 +656,106 @@ function setupPanZoom() {
   }).observe(c);
 }
 function setupFullscreen() {
-  const panel = $("chart-panel"), button = $("fullscreen-map");
-  // Keep the native dialog inside the fullscreen subtree as well.
+  const panel = $("chart-panel"), button = $("fullscreen-map"), chart = $("tree-content");
+  const theme = document.querySelector('meta[name="theme-color"]');
+  const normalTheme = theme?.content;
+  // Details remain available on demand, not visible until a person is tapped.
   panel.append($("person-dialog"));
-  let fallback = false, busy = false, previousScroll = null;
+  let fallback = false, busy = false, previousScroll = null, lastTap = null;
+  let historyToken = null;
   const active = () => fallback || document.fullscreenElement === panel;
   function sync() {
     const expanded = active();
     button.setAttribute("aria-pressed", String(expanded));
     button.setAttribute("aria-label", expanded ? "Exit fullscreen" : "Enter fullscreen");
     button.title = expanded ? "Exit fullscreen (Escape)" : "Enter fullscreen";
-    requestAnimationFrame(fitMap);
+    document.body.classList.toggle("chart-fullscreen", expanded);
+    if (theme) theme.content = expanded ? "#f1f3eb" : normalTheme;
+    requestAnimationFrame(() => {
+      fitMap();
+      if (expanded && !$("person-dialog").open) chart.focus({ preventScroll: true });
+    });
   }
   function setFallback(enabled) {
     fallback = enabled;
     panel.classList.toggle("fullscreen-fallback", enabled);
-    document.body.classList.toggle("chart-fullscreen", enabled);
-    // Restrict keyboard navigation to the expanded chart, like native fullscreen.
     for (const node of document.querySelectorAll('.masthead, .overview, .skip-link, footer, #explorer > :not(#chart-panel)')) {
       node.inert = enabled;
     }
+    if (enabled) {
+      // Browser Back exits the full-window fallback rather than leaving the tree.
+      historyToken = `family-chart-${Date.now()}`;
+      try { history.pushState({ familyChartFullscreen: historyToken }, "", location.href); }
+      catch { historyToken = null; }
+    }
   }
   function finishExit() {
+    lastTap = null;
     sync();
     button.focus({ preventScroll: true });
     if (previousScroll) window.scrollTo(...previousScroll);
     previousScroll = null;
   }
-  button.addEventListener("click", async () => {
-    if (busy) return;
+  async function exit() {
+    if (busy || !active()) return;
     busy = true;
     try {
       if (fallback) {
+        const removeHistoryEntry = historyToken && history.state?.familyChartFullscreen === historyToken;
+        historyToken = null;
         setFallback(false);
         finishExit();
-      } else if (document.fullscreenElement === panel) {
-        await document.exitFullscreen();
-      } else {
-        previousScroll = [window.scrollX, window.scrollY];
-        if (panel.requestFullscreen && document.fullscreenEnabled) {
-          try { await panel.requestFullscreen(); }
-          catch { setFallback(true); }
-        } else setFallback(true);
-        sync();
-        button.focus({ preventScroll: true });
-      }
+        if (removeHistoryEntry) history.back();
+      } else await document.exitFullscreen();
     } catch {
-      $("status").textContent = "Use Escape or your browser’s fullscreen control to exit.";
+      // The browser may refuse an exit during a native transition; its Back or
+      // Escape control remains available, and another gesture can retry.
+      chart.focus({ preventScroll: true });
+    } finally { busy = false; }
+  }
+  button.addEventListener("click", async () => {
+    if (active()) { await exit(); return; }
+    if (busy) return;
+    busy = true;
+    previousScroll = [window.scrollX, window.scrollY];
+    lastTap = null;
+    try {
+      if (panel.requestFullscreen && document.fullscreenEnabled) {
+        // Ask Android browsers to remove navigation UI rather than reserving a bar.
+        try { await panel.requestFullscreen({ navigationUI: "hide" }); }
+        catch { setFallback(true); }
+      } else setFallback(true);
+      sync();
     } finally { busy = false; }
   });
   document.addEventListener("fullscreenchange", () => {
     if (active()) sync(); else finishExit();
   });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && fallback && !$("person-dialog").open) {
-      event.preventDefault();
+  window.addEventListener("popstate", () => {
+    if (fallback) {
+      historyToken = null;
       setFallback(false);
       finishExit();
     }
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && active() && !$("person-dialog").open) {
+      event.preventDefault();
+      void exit();
+    }
+  });
+  chart.addEventListener("click", event => {
+    // The pan/zoom handler suppresses drag-generated clicks before this runs.
+    // Two real taps/clicks on empty canvas provide a chrome-free touch exit.
+    if (!active() || $("person-dialog").open || event.target.closest('.family-card') || !event.detail) {
+      lastTap = null;
+      return;
+    }
+    const tap = { time: Date.now(), x: event.clientX, y: event.clientY };
+    if (lastTap && tap.time - lastTap.time < 400 && Math.hypot(tap.x - lastTap.x, tap.y - lastTap.y) < 24) {
+      lastTap = null;
+      void exit();
+    } else lastTap = tap;
   });
 }
 function followHash() {

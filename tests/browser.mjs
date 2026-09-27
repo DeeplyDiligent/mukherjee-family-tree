@@ -442,21 +442,32 @@ try {
       path: resolve(root, `test-results/list-${width}.png`),
       fullPage: true,
     });
-    // Fullscreen retains controls, chart gestures, and member dialogs.
+    // Fullscreen contains only the diagram, edge-to-edge, but retains gestures.
     await page.locator('#map-view').click();
     await page.locator('#fullscreen-map').click();
     await page.waitForFunction(() => document.querySelector('#fullscreen-map').getAttribute('aria-pressed') === 'true');
-    assert(await page.locator('#fullscreen-map').isVisible());
-    assert(await page.locator('#fit-map').isVisible());
-    await page.locator('#reset-map').click();
+    assert.equal(await page.locator('#map-controls').isVisible(), false);
+    assert.equal(await page.locator('#status').isVisible(), false);
+    const fullBounds = await page.locator('#tree-content').boundingBox();
+    const viewport = await page.evaluate(() => ({ width: innerWidth, height: innerHeight }));
+    assert(Math.abs(fullBounds.x) < 1 && Math.abs(fullBounds.y) < 1);
+    assert(Math.abs(fullBounds.width - viewport.width) < 1 && Math.abs(fullBounds.height - viewport.height) < 1);
+    assert.equal(await page.locator('meta[name="theme-color"]').getAttribute('content'), '#f1f3eb');
     await page.locator('#tree-content').focus();
     await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('+');
     await checkGrid();
-    await page.locator('#fit-map').click();
+    await page.keyboard.press('0');
     await page.screenshot({ path: resolve(root, `test-results/fullscreen-${width}.png`) });
-    await page.locator('#fullscreen-map').click();
+    if (mobile) {
+      await page.touchscreen.tap(10, 10);
+      await page.touchscreen.tap(10, 10);
+    } else await page.mouse.dblclick(10, 10);
     await page.waitForFunction(() => document.querySelector('#fullscreen-map').getAttribute('aria-pressed') === 'false');
     assert.equal(await page.evaluate(() => document.fullscreenElement), null);
+    assert(await page.locator('#map-controls').isVisible());
+    assert(await page.locator('#status').isVisible());
+    assert.equal(await page.locator('meta[name="theme-color"]').getAttribute('content'), '#234d40');
     await noOverflow();
     // Diagram fit, zoom buttons, reset, keyboard and actual pointer gestures.
     await page.locator("#map-view").click();
@@ -737,7 +748,10 @@ try {
     const fallbackPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await fallbackPage.addInitScript(mode => {
       Object.defineProperty(document, 'fullscreenEnabled', { configurable: true, get: () => mode !== 'unavailable' });
-      Element.prototype.requestFullscreen = () => Promise.reject(new Error('Fullscreen denied'));
+      Element.prototype.requestFullscreen = options => {
+        window.fullscreenOptions = options;
+        return Promise.reject(new Error('Fullscreen denied'));
+      };
     }, mode);
     await fallbackPage.goto(url);
     await fallbackPage.waitForSelector('#toolbar:not([hidden])');
@@ -745,8 +759,10 @@ try {
     await fallbackPage.waitForSelector('#chart-panel.fullscreen-fallback');
     assert.equal(await fallbackPage.locator('#fullscreen-map').getAttribute('aria-label'), 'Exit fullscreen');
     assert.equal(await fallbackPage.locator('#search').evaluate(n => n.closest('[inert]') !== null), true);
+    assert.equal(await fallbackPage.locator('#map-controls').isVisible(), false);
+    assert.equal(await fallbackPage.locator('#status').isVisible(), false);
+    if (mode === 'rejected') assert.deepEqual(await fallbackPage.evaluate(() => window.fullscreenOptions), { navigationUI: 'hide' });
     // Focus a root card at readable scale so a detail dialog can be used in fullscreen.
-    await fallbackPage.locator('#reset-map').click();
     await fallbackPage.evaluate(() => {
       const card = document.querySelector('[data-node-id="PARENT"]');
       centerCard(card);
@@ -760,6 +776,13 @@ try {
     assert.equal(await fallbackPage.locator('#fullscreen-map').getAttribute('aria-pressed'), 'false');
     assert.equal(await fallbackPage.locator('#search').evaluate(n => n.closest('[inert]') !== null), false);
     assert.equal(await fallbackPage.locator('body').evaluate(n => n.classList.contains('chart-fullscreen')), false);
+    await fallbackPage.waitForFunction(() => !history.state?.familyChartFullscreen);
+    await fallbackPage.locator('#fullscreen-map').click();
+    await fallbackPage.waitForSelector('#chart-panel.fullscreen-fallback');
+    await fallbackPage.goBack();
+    await fallbackPage.waitForFunction(() => document.querySelector('#fullscreen-map').getAttribute('aria-pressed') === 'false');
+    assert(await fallbackPage.locator('#map-controls').isVisible());
+    assert.equal(await fallbackPage.locator('meta[name="theme-color"]').getAttribute('content'), '#234d40');
     await fallbackPage.close();
   }
   console.log('PASS fullscreen fallback, denied API recovery, dialogs, Escape, and focus restoration');
