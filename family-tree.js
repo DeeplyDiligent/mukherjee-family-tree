@@ -15,6 +15,7 @@ const state = {
   branch: "all",
   query: "",
   view: "map",
+  fullscreen: false,
   selected: null,
   zoom: 1,
   x: 30,
@@ -259,6 +260,17 @@ function matches() {
     return words.every((word) => n.searchText.includes(word));
   });
 }
+function updateChartChrome() {
+  const diagram = state.view === "map" && !state.query.trim();
+  for (const [id, hidden] of [["map-controls", state.fullscreen || !diagram], ["status", state.fullscreen]]) {
+    const element = $(id);
+    element.hidden = hidden;
+    // An inline important rule also defeats an older cached stylesheet which
+    // explicitly displays these elements, including after a branch rerender.
+    if (hidden) element.style.setProperty("display", "none", "important");
+    else element.style.removeProperty("display");
+  }
+}
 function render() {
   const container = $("tree-content");
   const searching = state.query.trim().length > 0,
@@ -272,7 +284,7 @@ function render() {
       ? "Family diagram. Drag to pan, pinch or Control plus wheel to zoom. Arrow keys pan; plus and minus zoom; zero fits. In fullscreen, Escape or double-tap empty background to exit."
       : "Family entries",
   );
-  $("map-controls").hidden = !diagram;
+  updateChartChrome();
   $("tree-actions").hidden = searching;
   $("list-view").setAttribute("aria-pressed", String(state.view === "list"));
   $("map-view").setAttribute("aria-pressed", String(state.view === "map"));
@@ -666,6 +678,9 @@ function setupFullscreen() {
   const active = () => fallback || document.fullscreenElement === panel;
   function sync() {
     const expanded = active();
+    state.fullscreen = expanded;
+    panel.classList.toggle("fullscreen-active", expanded);
+    updateChartChrome();
     button.setAttribute("aria-pressed", String(expanded));
     button.setAttribute("aria-label", expanded ? "Exit fullscreen" : "Enter fullscreen");
     button.title = expanded ? "Exit fullscreen (Escape)" : "Enter fullscreen";

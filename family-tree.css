@@ -1029,6 +1029,7 @@ dialog::backdrop {
 #fullscreen-map[aria-pressed="true"] .fullscreen-exit { display: block; }
 body.chart-fullscreen { overflow: hidden; }
 #chart-panel:fullscreen,
+#chart-panel.fullscreen-active,
 #chart-panel.fullscreen-fallback {
   display: flex;
   flex-direction: column;
@@ -1051,8 +1052,10 @@ body.chart-fullscreen { overflow: hidden; }
 }
 /* No toolbars, status text, padding or safe-area strip around the diagram. */
 #chart-panel:fullscreen > :not(#tree-content):not(dialog),
+#chart-panel.fullscreen-active > :not(#tree-content):not(dialog),
 #chart-panel.fullscreen-fallback > :not(#tree-content):not(dialog) { display: none !important; }
 #chart-panel:fullscreen .tree-content,
+#chart-panel.fullscreen-active .tree-content,
 #chart-panel.fullscreen-fallback .tree-content {
   flex: 1;
   height: auto;

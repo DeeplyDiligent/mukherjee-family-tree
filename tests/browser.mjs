@@ -70,6 +70,8 @@ try {
     });
     await page.goto(url);
     await page.waitForSelector("#toolbar:not([hidden])");
+    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=fullscreen-clean-2$/);
+    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=fullscreen-clean-2$/);
     async function checkSummary() {
       assert.equal(
         await page
@@ -442,10 +444,19 @@ try {
       path: resolve(root, `test-results/list-${width}.png`),
       fullPage: true,
     });
+    // A stale/overriding stylesheet must not expose the controls or status.
+    const staleStyle = await page.addStyleTag({content: '#chart-panel #map-controls, #chart-panel #status { display: flex !important; }'});
     // Fullscreen contains only the diagram, edge-to-edge, but retains gestures.
     await page.locator('#map-view').click();
     await page.locator('#fullscreen-map').click();
     await page.waitForFunction(() => document.querySelector('#fullscreen-map').getAttribute('aria-pressed') === 'true');
+    assert.equal(await page.locator('#map-controls').isVisible(), false);
+    assert.equal(await page.locator('#status').isVisible(), false);
+    for (const id of ['map-controls', 'status']) {
+      assert(await page.locator('#' + id).evaluate(node => node.hidden && node.style.getPropertyValue('display') === 'none' && node.style.getPropertyPriority('display') === 'important'));
+    }
+    // Expanding/collapsing a card rebuilds the diagram; chrome must stay hidden.
+    await page.evaluate(() => { state.expanded.add('F2'); render(); });
     assert.equal(await page.locator('#map-controls').isVisible(), false);
     assert.equal(await page.locator('#status').isVisible(), false);
     const fullBounds = await page.locator('#tree-content').boundingBox();
@@ -468,6 +479,7 @@ try {
     assert(await page.locator('#map-controls').isVisible());
     assert(await page.locator('#status').isVisible());
     assert.equal(await page.locator('meta[name="theme-color"]').getAttribute('content'), '#234d40');
+    await staleStyle.evaluate(node => node.remove());
     await noOverflow();
     // Diagram fit, zoom buttons, reset, keyboard and actual pointer gestures.
     await page.locator("#map-view").click();
@@ -755,8 +767,10 @@ try {
     }, mode);
     await fallbackPage.goto(url);
     await fallbackPage.waitForSelector('#toolbar:not([hidden])');
+    await fallbackPage.addStyleTag({content: '#chart-panel #map-controls, #chart-panel #status { display: flex !important; }'});
     await fallbackPage.locator('#fullscreen-map').click();
     await fallbackPage.waitForSelector('#chart-panel.fullscreen-fallback');
+    await fallbackPage.evaluate(() => render());
     assert.equal(await fallbackPage.locator('#fullscreen-map').getAttribute('aria-label'), 'Exit fullscreen');
     assert.equal(await fallbackPage.locator('#search').evaluate(n => n.closest('[inert]') !== null), true);
     assert.equal(await fallbackPage.locator('#map-controls').isVisible(), false);
