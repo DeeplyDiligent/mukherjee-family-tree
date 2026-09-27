@@ -442,6 +442,22 @@ try {
       path: resolve(root, `test-results/list-${width}.png`),
       fullPage: true,
     });
+    // Fullscreen retains controls, chart gestures, and member dialogs.
+    await page.locator('#map-view').click();
+    await page.locator('#fullscreen-map').click();
+    await page.waitForFunction(() => document.querySelector('#fullscreen-map').getAttribute('aria-pressed') === 'true');
+    assert(await page.locator('#fullscreen-map').isVisible());
+    assert(await page.locator('#fit-map').isVisible());
+    await page.locator('#reset-map').click();
+    await page.locator('#tree-content').focus();
+    await page.keyboard.press('ArrowRight');
+    await checkGrid();
+    await page.locator('#fit-map').click();
+    await page.screenshot({ path: resolve(root, `test-results/fullscreen-${width}.png`) });
+    await page.locator('#fullscreen-map').click();
+    await page.waitForFunction(() => document.querySelector('#fullscreen-map').getAttribute('aria-pressed') === 'false');
+    assert.equal(await page.evaluate(() => document.fullscreenElement), null);
+    await noOverflow();
     // Diagram fit, zoom buttons, reset, keyboard and actual pointer gestures.
     await page.locator("#map-view").click();
     await page.waitForTimeout(100);
@@ -717,6 +733,36 @@ try {
   console.log(
     "PASS people and maximum-generation counters follow data changes, excluding aliases",
   );
+  for (const mode of ['unavailable', 'rejected']) {
+    const fallbackPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await fallbackPage.addInitScript(mode => {
+      Object.defineProperty(document, 'fullscreenEnabled', { configurable: true, get: () => mode !== 'unavailable' });
+      Element.prototype.requestFullscreen = () => Promise.reject(new Error('Fullscreen denied'));
+    }, mode);
+    await fallbackPage.goto(url);
+    await fallbackPage.waitForSelector('#toolbar:not([hidden])');
+    await fallbackPage.locator('#fullscreen-map').click();
+    await fallbackPage.waitForSelector('#chart-panel.fullscreen-fallback');
+    assert.equal(await fallbackPage.locator('#fullscreen-map').getAttribute('aria-label'), 'Exit fullscreen');
+    assert.equal(await fallbackPage.locator('#search').evaluate(n => n.closest('[inert]') !== null), true);
+    // Focus a root card at readable scale so a detail dialog can be used in fullscreen.
+    await fallbackPage.locator('#reset-map').click();
+    await fallbackPage.evaluate(() => {
+      const card = document.querySelector('[data-node-id="PARENT"]');
+      centerCard(card);
+    });
+    await fallbackPage.locator('[data-node-id="PARENT"] .card-main').click();
+    assert(await fallbackPage.locator('#person-dialog').evaluate(d => d.open));
+    await fallbackPage.keyboard.press('Escape');
+    assert.equal(await fallbackPage.locator('#person-dialog').evaluate(d => d.open), false);
+    assert.equal(await fallbackPage.locator('#fullscreen-map').getAttribute('aria-pressed'), 'true');
+    await fallbackPage.keyboard.press('Escape');
+    assert.equal(await fallbackPage.locator('#fullscreen-map').getAttribute('aria-pressed'), 'false');
+    assert.equal(await fallbackPage.locator('#search').evaluate(n => n.closest('[inert]') !== null), false);
+    assert.equal(await fallbackPage.locator('body').evaluate(n => n.classList.contains('chart-fullscreen')), false);
+    await fallbackPage.close();
+  }
+  console.log('PASS fullscreen fallback, denied API recovery, dialogs, Escape, and focus restoration');
   // Both HTTP and invalid-graph failures should be actionable, not a blank screen.
   for (const mode of ["http", "invalid-data"]) {
     const page = await browser.newPage();

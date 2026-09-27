@@ -24,6 +24,7 @@ The JSON contains family names and relationships. Anyone with access to a hosted
 - Tap a name card to see family details, the path to the roots and children. Dialogs support keyboard navigation and Escape.
 - The **Diagram** is the default on phones and desktops, starting with the common roots and all seven branch heads visible. Open individual branches, use **Expand all**, select a branch, or search for a person. **List** remains available for easy reading.
 - The diagram supports background dragging, touch panning, two-finger pinch zoom, zoom buttons, Fit and Reset. Control + mouse wheel zooms around the pointer. Focus the diagram background and use arrow keys to pan, `+` / `-` to zoom, or `0` to fit. Regular wheel scrolling still scrolls the page. The dotted background moves and scales with the chart.
+- The fullscreen icon beside **Fit** and **Reset** expands the chart with its controls. Press it again or Escape to exit. Browsers without native fullscreen use a full-window layout; the browser’s own address bar may remain visible. Family details still open within the expanded chart.
 - Search results offer **Show in tree**. Detail panels can copy a link such as `index.html#entry=F4_1`.
 - Unattached entries appear under **Other family entries** and remain searchable. They are not attached to guessed parents.
 

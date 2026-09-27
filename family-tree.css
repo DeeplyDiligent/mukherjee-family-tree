@@ -1018,6 +1018,39 @@ dialog::backdrop {
       border-color 0.15s;
   }
 }
+#fullscreen-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.fullscreen-exit,
+#fullscreen-map[aria-pressed="true"] .fullscreen-enter { display: none; }
+#fullscreen-map[aria-pressed="true"] .fullscreen-exit { display: block; }
+body.chart-fullscreen { overflow: hidden; }
+#chart-panel:fullscreen,
+#chart-panel.fullscreen-fallback {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: var(--paper);
+  overflow: hidden;
+}
+#chart-panel.fullscreen-fallback { position: fixed; inset: 0; z-index: 100; }
+#chart-panel:fullscreen .map-controls,
+#chart-panel.fullscreen-fallback .map-controls { flex-shrink: 0; flex-wrap: wrap; }
+#chart-panel:fullscreen .status,
+#chart-panel.fullscreen-fallback .status { flex-shrink: 0; }
+#chart-panel:fullscreen .tree-content,
+#chart-panel.fullscreen-fallback .tree-content {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  border-radius: 0;
+}
 @media print {
   .toolbar,
   .tree-actions,

@@ -79,6 +79,7 @@
             Open a branch with +. Tap a name card for family details.
           </p>
         </div>
+        <div id="chart-panel">
         <div
           id="map-controls"
           class="map-controls"
@@ -91,6 +92,12 @@
           ><button id="zoom-in" aria-label="Zoom in">+</button
           ><button id="fit-map">Fit</button
           ><button id="reset-map">Reset</button>
+          <button id="fullscreen-map" type="button" aria-label="Enter fullscreen" title="Enter fullscreen" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+              <path class="fullscreen-enter" d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" />
+              <path class="fullscreen-exit" d="M3 8h5V3m8 0v5h5M8 21v-5H3m18 0h-5v5" />
+            </svg>
+          </button>
           <span
             >Drag the background to pan · Pinch to zoom · Arrow keys to
             move</span
@@ -110,6 +117,7 @@
             available in <a href="family-data.json">family-data.json</a>.
           </p></noscript
         >
+        </div>
         <div class="tree-footnote">
           <span class="legend-dot"></span>
           <p>

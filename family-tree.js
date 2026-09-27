@@ -655,6 +655,67 @@ function setupPanZoom() {
     }
   }).observe(c);
 }
+function setupFullscreen() {
+  const panel = $("chart-panel"), button = $("fullscreen-map");
+  // Keep the native dialog inside the fullscreen subtree as well.
+  panel.append($("person-dialog"));
+  let fallback = false, busy = false, previousScroll = null;
+  const active = () => fallback || document.fullscreenElement === panel;
+  function sync() {
+    const expanded = active();
+    button.setAttribute("aria-pressed", String(expanded));
+    button.setAttribute("aria-label", expanded ? "Exit fullscreen" : "Enter fullscreen");
+    button.title = expanded ? "Exit fullscreen (Escape)" : "Enter fullscreen";
+    requestAnimationFrame(fitMap);
+  }
+  function setFallback(enabled) {
+    fallback = enabled;
+    panel.classList.toggle("fullscreen-fallback", enabled);
+    document.body.classList.toggle("chart-fullscreen", enabled);
+    // Restrict keyboard navigation to the expanded chart, like native fullscreen.
+    for (const node of document.querySelectorAll('.masthead, .overview, .skip-link, footer, #explorer > :not(#chart-panel)')) {
+      node.inert = enabled;
+    }
+  }
+  function finishExit() {
+    sync();
+    button.focus({ preventScroll: true });
+    if (previousScroll) window.scrollTo(...previousScroll);
+    previousScroll = null;
+  }
+  button.addEventListener("click", async () => {
+    if (busy) return;
+    busy = true;
+    try {
+      if (fallback) {
+        setFallback(false);
+        finishExit();
+      } else if (document.fullscreenElement === panel) {
+        await document.exitFullscreen();
+      } else {
+        previousScroll = [window.scrollX, window.scrollY];
+        if (panel.requestFullscreen && document.fullscreenEnabled) {
+          try { await panel.requestFullscreen(); }
+          catch { setFallback(true); }
+        } else setFallback(true);
+        sync();
+        button.focus({ preventScroll: true });
+      }
+    } catch {
+      $("status").textContent = "Use Escape or your browser’s fullscreen control to exit.";
+    } finally { busy = false; }
+  });
+  document.addEventListener("fullscreenchange", () => {
+    if (active()) sync(); else finishExit();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && fallback && !$("person-dialog").open) {
+      event.preventDefault();
+      setFallback(false);
+      finishExit();
+    }
+  });
+}
 function followHash() {
   if (!location.hash.startsWith("#entry=")) return;
   let id;
@@ -818,6 +879,7 @@ async function start() {
     });
     window.addEventListener("hashchange", followHash);
     setupPanZoom();
+    setupFullscreen();
     render();
     fitMap();
     followHash();
