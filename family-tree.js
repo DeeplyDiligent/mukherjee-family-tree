@@ -100,8 +100,8 @@ function memberView(m, showGenderLabel = false) {
   const out = el("span", "member");
   const name = el("span", "member-name", m.name);
   const gender = {
-    male: { symbol: "🚹", label: "Male" },
-    female: { symbol: "🚺", label: "Female" },
+    male: { symbol: "\uf183", label: "Male" },
+    female: { symbol: "\uf182", label: "Female" },
   }[m.gender];
   if (gender) {
     const badge = el("span", "gender-badge", gender.symbol);

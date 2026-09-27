@@ -10,7 +10,8 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = {
     'index.html', 'family-tree.html', 'family-tree.css', 'family-tree.js',
-    'family-data.json',
+    'family-data.json', 'assets/fonts/fa-solid-900.woff2',
+    'assets/fonts/LICENSE-FONT-AWESOME.txt',
 }
 
 
