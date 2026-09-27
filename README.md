@@ -12,7 +12,7 @@ python3 scripts/serve_lan.py
 
 Open <http://localhost:8000/>. `index.html` is the family-tree page. Older `family-tree.html` links redirect to it while preserving query strings and entry hashes. Opening the page directly as a `file:` URL will not load the JSON in most browsers. `npm run serve` starts the same preview server.
 
-For hosting, publish `index.html`, the `family-tree.html` redirect, `family-tree.css`, `family-tree.js`, `family-data.json` and `assets/fonts/`. The reusable preview server enforces this allowlist and defaults to loopback-only access. There are no CDN scripts, analytics or third-party font requests. The icon font is hosted with the site. `_config.yml` excludes development files and local notes from GitHub Pages.
+For hosting, publish `index.html`, the `family-tree.html` redirect, `family-tree.css`, `family-tree.js` and `family-data.json`. The reusable preview server enforces this allowlist and defaults to loopback-only access. There are no CDN scripts, analytics or external font requests. `_config.yml` excludes development files and local notes from GitHub Pages.
 
 The JSON contains family names and relationships. Anyone with access to a hosted copy can download it. Choose the hosting audience before publishing.
 
@@ -28,7 +28,7 @@ The JSON contains family names and relationships. Anyone with access to a hosted
 - Search results offer **Show in tree**. Detail panels can copy a link such as `index.html#entry=F4_1`.
 - Unattached entries appear under **Other family entries** and remain searchable. They are not attached to guessed parents.
 
-Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards and detail panels use monochrome man/woman restroom icon-font glyphs before the name, with accessible labels; detail panels also show Male/Female. These are not emojis: they use the locally hosted Font Awesome Free 7.3.1 solid font (person U+F183 and person-dress U+F182), coloured with the site's forest-green text colour. The unmodified font and its SIL OFL 1.1 license are in `assets/fonts/`. The current data includes family-recorded markers and reviewed best-guess markers based on names and family context. The 15 ambiguous names remain unmarked and have no badge.
+Nicknames appear in smaller italic text below the name. Alternate names remain distinct from nicknames. Cards and detail panels use monochrome ♂/♀ symbols inside circular badges before each name, with accessible labels; detail panels also show Male/Female. Symbols use the system font with explicit text presentation rather than coloured emoji, and the site’s forest-green colour. No icon-font download is needed. The current data includes family-recorded markers and reviewed best-guess markers based on names and family context. The 15 ambiguous names remain unmarked and have no badge.
 
 ## Maintaining the data
 

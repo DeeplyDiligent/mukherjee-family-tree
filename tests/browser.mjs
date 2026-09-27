@@ -71,12 +71,9 @@ try {
     });
     await page.goto(url);
     await page.waitForSelector("#toolbar:not([hidden])");
-    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=restroom-font-1$/);
-    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=restroom-font-1$/);
-    assert(await page.evaluate(async () => {
-      const faces = await document.fonts.load('900 16px "Family Restroom Icons"', '\uf183\uf182');
-      return faces.length === 1 && faces[0].status === 'loaded';
-    }), 'Local restroom icon font must load successfully');
+    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=circled-symbols-1$/);
+    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=circled-symbols-1$/);
+    assert.equal(await page.locator('link[as="font"]').count(), 0);
     async function checkSummary() {
       assert.equal(
         await page
@@ -317,14 +314,14 @@ try {
       ["Male", "Female"],
     );
     for (const scope of ['.results', '#detail-content']) {
-      assert.deepEqual(await page.locator(scope + ' .gender-badge').allTextContents(), ['\uf183', '\uf182']);
-      assert.deepEqual(await page.locator(scope + ' .member-name').allTextContents(), ['\uf183Sankar Chatterjee', '\uf182Sumita Chatterjee']);
+      assert.deepEqual(await page.locator(scope + ' .gender-badge').allTextContents(), ['♂\ufe0e', '♀\ufe0e']);
+      assert.deepEqual(await page.locator(scope + ' .member-name').allTextContents(), ['♂\ufe0eSankar Chatterjee', '♀\ufe0eSumita Chatterjee']);
       assert(await page.locator(scope + ' .member-name').evaluateAll(names => names.every(name => name.firstChild.classList?.contains('gender-badge'))));
       assert(await page.locator(scope + ' .gender-badge').evaluateAll(badges => badges.every(badge => {
         const style = getComputedStyle(badge);
-        return style.fontFamily.includes('Family Restroom Icons') && style.fontWeight === '900' && style.color === 'rgb(35, 77, 64)';
+        return style.fontFamily.includes('system-ui') && style.fontWeight === '600' && style.color === 'rgb(35, 77, 64)' && style.borderRadius === '50%' && style.borderTopWidth === '1px' && style.width === style.height && style.backgroundColor === 'rgb(237, 242, 233)' && parseFloat(style.marginInlineEnd) > 0;
       })));
-      assert.doesNotMatch(await page.locator(scope).innerText(), /🚹|🚺|♂|♀/);
+      assert.doesNotMatch(await page.locator(scope).innerText(), /🚹|🚺|\uf183|\uf182/);
     }
     await page.screenshot({
       path: resolve(root, `test-results/gender-details-${width}.png`),
@@ -615,7 +612,7 @@ try {
     await page.locator('#expand-all').click();
     assert.deepEqual(await page.locator('#children-CSV_B_2 > li > .family-card').evaluateAll(cards => cards.map(card => card.dataset.nodeId)), ['CSV_B_2_4', 'CSV_B_2_1', 'CSV_B_2_5', 'CSV_B_2_2', 'CSV_B_2_3']);
     assert.deepEqual(await page.locator('#children-CSV_B_2_1 > li > .family-card').evaluateAll(cards => cards.map(card => card.dataset.nodeId)), ['FAMILY_B_2_1_ARJIT', 'FAMILY_B_2_1_ANUSHKA']);
-    assert.deepEqual(await page.locator('#children-CSV_B_2_4 > li > .family-card .member-name').allTextContents(), ['\uf182Sreya Sen', '\uf183Atri Sen']);
+    assert.deepEqual(await page.locator('#children-CSV_B_2_4 > li > .family-card .member-name').allTextContents(), ['♀\ufe0eSreya Sen', '♂\ufe0eAtri Sen']);
     await page.locator('#branch').selectOption('all');
     for (const query of ['Sunayana', 'Suchetana']) {
       await page.locator('#search').fill(query);

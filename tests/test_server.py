@@ -46,14 +46,6 @@ class PreviewTests(unittest.TestCase):
                     self.assertIn('url=index.html', html)
                     self.assertIn('location.search + location.hash', html)
 
-    def test_icon_font_and_license_are_served(self):
-        with self.client.open(self.base + '/assets/fonts/fa-solid-900.woff2') as response:
-            self.assertEqual(response.status, 200)
-            self.assertEqual(response.headers.get_content_type(), 'font/woff2')
-            self.assertEqual(response.read()[:4], b'wOF2')
-        with self.client.open(self.base + '/assets/fonts/LICENSE-FONT-AWESOME.txt') as response:
-            self.assertIn('SIL OPEN FONT LICENSE', response.read().decode())
-
     def test_questions_and_repository_files_cannot_be_downloaded(self):
         for path in ('/FOLLOW-UP-QUESTIONS.md', '/MERGE-REVIEW.md', '/.git/config', '/data/family-data.original.json', '/PKM%20SIR%20FAMILY%20TYPING.csv', '/scripts/serve_lan.py', '/node_modules/', '/%46OLLOW-UP-QUESTIONS.md', '/../FOLLOW-UP-QUESTIONS.md'):
             with self.assertRaises(urllib.error.HTTPError) as error:
