@@ -100,8 +100,8 @@ function memberView(m, showGenderLabel = false) {
   const out = el("span", "member");
   const name = el("span", "member-name", m.name);
   const gender = {
-    male: { symbol: "♂", label: "Male" },
-    female: { symbol: "♀", label: "Female" },
+    male: { symbol: "🚹", label: "Male" },
+    female: { symbol: "🚺", label: "Female" },
   }[m.gender];
   if (gender) {
     const badge = el("span", "gender-badge", gender.symbol);
@@ -111,7 +111,7 @@ function memberView(m, showGenderLabel = false) {
       badge.setAttribute("role", "img");
       badge.setAttribute("aria-label", gender.label);
     }
-    name.append(badge);
+    name.prepend(badge);
   }
   out.append(name);
   m.nicknames.forEach((name) =>

@@ -427,16 +427,13 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  vertical-align: 0.05em;
-  margin-inline-start: 0.4em;
-  width: 1.5em;
-  height: 1.5em;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: #edf2e9;
+  vertical-align: -0.05em;
+  margin-inline-end: 0.4em;
+  width: 1.25em;
+  height: 1.25em;
   color: var(--forest);
-  font-family: system-ui, sans-serif;
-  font-size: 0.72em;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", system-ui, sans-serif;
+  font-size: 0.95em;
   font-weight: 600;
   line-height: 1;
 }

@@ -70,8 +70,8 @@ try {
     });
     await page.goto(url);
     await page.waitForSelector("#toolbar:not([hidden])");
-    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=fullscreen-clean-2$/);
-    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=fullscreen-clean-2$/);
+    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=restroom-icons-1$/);
+    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=restroom-icons-1$/);
     async function checkSummary() {
       assert.equal(
         await page
@@ -311,6 +311,11 @@ try {
       await page.locator("#detail-content .gender-label").allTextContents(),
       ["Male", "Female"],
     );
+    for (const scope of ['.results', '#detail-content']) {
+      assert.deepEqual(await page.locator(scope + ' .gender-badge').allTextContents(), ['🚹', '🚺']);
+      assert.deepEqual(await page.locator(scope + ' .member-name').allTextContents(), ['🚹Sankar Chatterjee', '🚺Sumita Chatterjee']);
+      assert(await page.locator(scope + ' .member-name').evaluateAll(names => names.every(name => name.firstChild.classList?.contains('gender-badge'))));
+    }
     await page.screenshot({
       path: resolve(root, `test-results/gender-details-${width}.png`),
     });
@@ -600,7 +605,7 @@ try {
     await page.locator('#expand-all').click();
     assert.deepEqual(await page.locator('#children-CSV_B_2 > li > .family-card').evaluateAll(cards => cards.map(card => card.dataset.nodeId)), ['CSV_B_2_4', 'CSV_B_2_1', 'CSV_B_2_5', 'CSV_B_2_2', 'CSV_B_2_3']);
     assert.deepEqual(await page.locator('#children-CSV_B_2_1 > li > .family-card').evaluateAll(cards => cards.map(card => card.dataset.nodeId)), ['FAMILY_B_2_1_ARJIT', 'FAMILY_B_2_1_ANUSHKA']);
-    assert.deepEqual(await page.locator('#children-CSV_B_2_4 > li > .family-card .member-name').allTextContents(), ['Sreya Sen♀', 'Atri Sen♂']);
+    assert.deepEqual(await page.locator('#children-CSV_B_2_4 > li > .family-card .member-name').allTextContents(), ['🚺Sreya Sen', '🚹Atri Sen']);
     await page.locator('#branch').selectOption('all');
     for (const query of ['Sunayana', 'Suchetana']) {
       await page.locator('#search').fill(query);
