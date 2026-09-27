@@ -442,6 +442,13 @@ select {
   font-style: normal;
   line-height: 1;
 }
+/* Centre the visible glyph rather than the system font's line box.
+   Keep this optical correction separate from the circular badge geometry. */
+.gender-symbol {
+  display: block;
+  line-height: 1;
+  transform: translateY(0.1em);
+}
 .gender-label {
   display: block;
   color: var(--muted);

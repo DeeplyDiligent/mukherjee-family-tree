@@ -71,8 +71,8 @@ try {
     });
     await page.goto(url);
     await page.waitForSelector("#toolbar:not([hidden])");
-    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=circled-symbols-1$/);
-    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=circled-symbols-1$/);
+    assert.match(await page.locator('link[rel="stylesheet"]').getAttribute('href'), /\?v=circled-symbols-2$/);
+    assert.match(await page.locator('script[src]').getAttribute('src'), /\?v=circled-symbols-2$/);
     assert.equal(await page.locator('link[as="font"]').count(), 0);
     async function checkSummary() {
       assert.equal(
@@ -320,6 +320,11 @@ try {
       assert(await page.locator(scope + ' .gender-badge').evaluateAll(badges => badges.every(badge => {
         const style = getComputedStyle(badge);
         return style.fontFamily.includes('system-ui') && style.fontWeight === '600' && style.color === 'rgb(35, 77, 64)' && style.borderRadius === '50%' && style.borderTopWidth === '1px' && style.width === style.height && style.backgroundColor === 'rgb(237, 242, 233)' && parseFloat(style.marginInlineEnd) > 0;
+      })));
+      assert(await page.locator(scope + ' .gender-symbol').evaluateAll(symbols => symbols.every(symbol => {
+        const style = getComputedStyle(symbol);
+        const matrix = new DOMMatrix(style.transform);
+        return matrix.e === 0 && Math.abs(matrix.f - parseFloat(style.fontSize) * .1) < .01;
       })));
       assert.doesNotMatch(await page.locator(scope).innerText(), /🚹|🚺|\uf183|\uf182/);
     }

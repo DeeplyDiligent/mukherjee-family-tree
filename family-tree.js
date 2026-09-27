@@ -104,7 +104,8 @@ function memberView(m, showGenderLabel = false) {
     female: { symbol: "♀\ufe0e", label: "Female" },
   }[m.gender];
   if (gender) {
-    const badge = el("span", "gender-badge", gender.symbol);
+    const badge = el("span", "gender-badge");
+    badge.append(el("span", "gender-symbol", gender.symbol));
     badge.title = gender.label;
     if (showGenderLabel) badge.setAttribute("aria-hidden", "true");
     else {
