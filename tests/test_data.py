@@ -127,8 +127,8 @@ class FamilyDataTests(unittest.TestCase):
         self.assertNotIn('gender', self.nodes['FAMILY_B_2_1_ARJIT_JAI']['members'][0])
         self.assertEqual(self.nodes['FAMILY_B_2_1_ARJIT_MAYA']['members'][0]['gender'], 'female')
         self.assertEqual(self.nodes['FAMILY_B_2_1_ANUSHKA']['members'][0]['gender'], 'female')
-        self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 329)
-        self.assertEqual(len(self.nodes), 216)
+        self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 330)
+        self.assertEqual(len(self.nodes), 217)
         # The new Malabika is not merged with the namesake married to Bibek.
         self.assertIn('Malabika Banerjee', [m['name'] for m in self.nodes['CSV_A_1_2']['members']])
 
@@ -148,6 +148,17 @@ class FamilyDataTests(unittest.TestCase):
         self.assertEqual(babai['relationship'], 'individual')
         self.assertEqual(babai['children'], [])
         self.assertNotIn('gender', self.nodes['CSV_B_2_5']['members'][0])
+
+    def test_adwiti_is_anujits_daughter(self):
+        daughter_id = 'FAMILY_B_2_2_ADWITI'
+        self.assertEqual(self.nodes['CSV_B_2_2']['children'], [daughter_id])
+        daughter = self.nodes[daughter_id]
+        self.assertEqual(daughter['members'][0]['name'], 'Adwiti Banerjee')
+        self.assertEqual(daughter['members'][0]['gender'], 'female')
+        self.assertEqual(daughter['relationship'], 'individual')
+        self.assertEqual(daughter['branch'], 'B')
+        self.assertEqual(daughter['code'], '')
+        self.assertEqual(daughter['children'], [])
 
     def test_araja_is_sreyas_daughter_not_atris_child(self):
         daughter_id = 'FAMILY_B_2_4_1_ARAJA'

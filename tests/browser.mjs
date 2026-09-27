@@ -79,7 +79,7 @@ try {
       );
       assert.equal(
         await page.locator('#stats [data-metric="people"] strong').innerText(),
-        "329",
+        "330",
       );
       assert.equal(
         await page
@@ -112,7 +112,7 @@ try {
       7,
     );
     await page.locator("#expand-all").click();
-    assert.equal(await page.locator("#tree-content .family-card").count(), 216);
+    assert.equal(await page.locator("#tree-content .family-card").count(), 217);
     await checkSummary();
     await page.reload();
     await page.waitForSelector("#toolbar:not([hidden])");
@@ -384,7 +384,7 @@ try {
     // Expansion, branch isolation, names with alternate spellings, and no result state.
     await page.locator("#branch").selectOption("all");
     await page.locator("#expand-all").click();
-    assert.equal(await page.locator("#tree-content .family-card").count(), 216);
+    assert.equal(await page.locator("#tree-content .family-card").count(), 217);
     await noOverflow();
     await page.locator("#search").fill("Pinku");
     assert.equal(await page.locator(".results .family-card").count(), 1);
@@ -575,6 +575,9 @@ try {
     assert.equal(await page.locator('.results .family-card').count(), 1);
     assert.match(await page.locator('.result-path').innerText(), /Sreya Sen/);
     assert.doesNotMatch(await page.locator('.result-path').innerText(), /Atri Sen/);
+    await page.locator('#search').fill('Adwiti Banerjee');
+    assert.equal(await page.locator('.results .family-card').count(), 1);
+    assert.match(await page.locator('.result-path').innerText(), /Anujit Banerjee/);
     // Confirmed names and spouses remain searchable; deferred groups stay neutral.
     await page.locator('#branch').selectOption('all');
     for (const [query, expected] of [['Putul', 'Prabha Chatterjee'], ['Gautam', 'Gautam Chattopadhyay'], ['Bula', 'Bula Mukherjee'], ['Subhasis', 'Subhasis Sarkar'], ['Rinku', 'Papu Mukherjee'], ['Ranjan Chakraborty', 'Dola Chakraborty']]) {
@@ -659,9 +662,9 @@ try {
     }
     return data.nodes.length;
   });
-  assert.equal(entriesChecked, 216);
+  assert.equal(entriesChecked, 217);
   await detailsPage.close();
-  console.log("PASS all 216 entries show family details without source information");
+  console.log("PASS all 217 entries show family details without source information");
   // Counters derive from the actual people and graph, not cached totals
   // or visible cards. A new generation adds one person, not their two aliases.
   const fixture = JSON.parse(
@@ -698,7 +701,7 @@ try {
     await summaryPage
       .locator('#stats [data-metric="people"] strong')
       .innerText(),
-    "330",
+    "331",
   );
   assert.equal(
     await summaryPage

@@ -2367,6 +2367,24 @@
         }
       ],
       "relationship": "individual",
+      "children": [
+        "FAMILY_B_2_2_ADWITI"
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "FAMILY_B_2_2_ADWITI",
+      "code": "",
+      "members": [
+        {
+          "name": "Adwiti Banerjee",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female"
+        }
+      ],
+      "relationship": "individual",
       "children": [],
       "notes": [],
       "branch": "B"
