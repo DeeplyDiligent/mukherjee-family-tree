@@ -1,6 +1,6 @@
 # Mukherjee & Banerjee family tree
 
-An expandable family register covering branches A–G, with 328 people in 215 family entries. `family-data.json` is the sole maintained family dataset.
+An expandable family register covering branches A–G, with 329 people in 216 family entries. `family-data.json` is the sole maintained family dataset.
 
 ## Open locally
 

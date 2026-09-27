@@ -2433,6 +2433,24 @@
         }
       ],
       "relationship": "individual",
+      "children": [
+        "FAMILY_B_2_4_1_ARAJA"
+      ],
+      "notes": [],
+      "branch": "B"
+    },
+    {
+      "id": "FAMILY_B_2_4_1_ARAJA",
+      "code": "",
+      "members": [
+        {
+          "name": "Araja Sen",
+          "nicknames": [],
+          "alternateNames": [],
+          "gender": "female"
+        }
+      ],
+      "relationship": "individual",
       "children": [],
       "notes": [],
       "branch": "B"
@@ -2442,8 +2460,10 @@
       "code": "",
       "members": [
         {
-          "name": "Babai Sen",
-          "nicknames": [],
+          "name": "Atri Sen",
+          "nicknames": [
+            "Babai"
+          ],
           "alternateNames": [],
           "gender": "male"
         }

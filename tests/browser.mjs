@@ -79,7 +79,7 @@ try {
       );
       assert.equal(
         await page.locator('#stats [data-metric="people"] strong').innerText(),
-        "328",
+        "329",
       );
       assert.equal(
         await page
@@ -112,7 +112,7 @@ try {
       7,
     );
     await page.locator("#expand-all").click();
-    assert.equal(await page.locator("#tree-content .family-card").count(), 215);
+    assert.equal(await page.locator("#tree-content .family-card").count(), 216);
     await checkSummary();
     await page.reload();
     await page.waitForSelector("#toolbar:not([hidden])");
@@ -384,7 +384,7 @@ try {
     // Expansion, branch isolation, names with alternate spellings, and no result state.
     await page.locator("#branch").selectOption("all");
     await page.locator("#expand-all").click();
-    assert.equal(await page.locator("#tree-content .family-card").count(), 215);
+    assert.equal(await page.locator("#tree-content .family-card").count(), 216);
     await noOverflow();
     await page.locator("#search").fill("Pinku");
     assert.equal(await page.locator(".results .family-card").count(), 1);
@@ -561,12 +561,20 @@ try {
     await page.locator('#expand-all').click();
     assert.deepEqual(await page.locator('#children-CSV_B_2 > li > .family-card').evaluateAll(cards => cards.map(card => card.dataset.nodeId)), ['CSV_B_2_4', 'CSV_B_2_1', 'CSV_B_2_5', 'CSV_B_2_2', 'CSV_B_2_3']);
     assert.deepEqual(await page.locator('#children-CSV_B_2_1 > li > .family-card').evaluateAll(cards => cards.map(card => card.dataset.nodeId)), ['FAMILY_B_2_1_ARJIT', 'FAMILY_B_2_1_ANUSHKA']);
-    assert.deepEqual(await page.locator('#children-CSV_B_2_4 > li > .family-card .member-name').allTextContents(), ['Sreya Sen♀', 'Babai Sen♂']);
+    assert.deepEqual(await page.locator('#children-CSV_B_2_4 > li > .family-card .member-name').allTextContents(), ['Sreya Sen♀', 'Atri Sen♂']);
     await page.locator('#branch').selectOption('all');
     for (const query of ['Sunayana', 'Suchetana']) {
       await page.locator('#search').fill(query);
       assert.match(await page.locator('.result-path').innerText(), /Subhasis Sarkar/);
     }
+    await page.locator('#search').fill('Babai');
+    assert.equal(await page.locator('.results .family-card').count(), 1);
+    assert.match(await page.locator('.results').innerText(), /Atri Sen/);
+    assert.match(await page.locator('.results .nickname').innerText(), /“Babai” · nickname/);
+    await page.locator('#search').fill('Araja Sen');
+    assert.equal(await page.locator('.results .family-card').count(), 1);
+    assert.match(await page.locator('.result-path').innerText(), /Sreya Sen/);
+    assert.doesNotMatch(await page.locator('.result-path').innerText(), /Atri Sen/);
     // Confirmed names and spouses remain searchable; deferred groups stay neutral.
     await page.locator('#branch').selectOption('all');
     for (const [query, expected] of [['Putul', 'Prabha Chatterjee'], ['Gautam', 'Gautam Chattopadhyay'], ['Bula', 'Bula Mukherjee'], ['Subhasis', 'Subhasis Sarkar'], ['Rinku', 'Papu Mukherjee'], ['Ranjan Chakraborty', 'Dola Chakraborty']]) {
@@ -651,9 +659,9 @@ try {
     }
     return data.nodes.length;
   });
-  assert.equal(entriesChecked, 215);
+  assert.equal(entriesChecked, 216);
   await detailsPage.close();
-  console.log("PASS all 215 entries show family details without source information");
+  console.log("PASS all 216 entries show family details without source information");
   // Counters derive from the actual people and graph, not cached totals
   // or visible cards. A new generation adds one person, not their two aliases.
   const fixture = JSON.parse(
@@ -690,7 +698,7 @@ try {
     await summaryPage
       .locator('#stats [data-metric="people"] strong')
       .innerText(),
-    "329",
+    "330",
   );
   assert.equal(
     await summaryPage

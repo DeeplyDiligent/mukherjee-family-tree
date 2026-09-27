@@ -127,8 +127,8 @@ class FamilyDataTests(unittest.TestCase):
         self.assertNotIn('gender', self.nodes['FAMILY_B_2_1_ARJIT_JAI']['members'][0])
         self.assertEqual(self.nodes['FAMILY_B_2_1_ARJIT_MAYA']['members'][0]['gender'], 'female')
         self.assertEqual(self.nodes['FAMILY_B_2_1_ANUSHKA']['members'][0]['gender'], 'female')
-        self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 328)
-        self.assertEqual(len(self.nodes), 215)
+        self.assertEqual(sum(len(n['members']) for n in self.nodes.values()), 329)
+        self.assertEqual(len(self.nodes), 216)
         # The new Malabika is not merged with the namesake married to Bibek.
         self.assertIn('Malabika Banerjee', [m['name'] for m in self.nodes['CSV_A_1_2']['members']])
 
@@ -140,13 +140,28 @@ class FamilyDataTests(unittest.TestCase):
         self.assertEqual(self.nodes['CSV_B_2_4_1']['members'][0]['name'], 'Sreya Sen')
         self.assertEqual(self.nodes['CSV_B_2_4_1']['members'][0]['gender'], 'female')
         babai = self.nodes['FAMILY_B_2_4_BABAI']
-        self.assertEqual(babai['members'][0]['name'], 'Babai Sen')
+        self.assertEqual(babai['members'][0]['name'], 'Atri Sen')
+        self.assertEqual(babai['members'][0]['nicknames'], ['Babai'])
         self.assertEqual(babai['members'][0]['gender'], 'male')
         self.assertEqual(babai['branch'], 'B')
         self.assertEqual(babai['code'], '')
         self.assertEqual(babai['relationship'], 'individual')
         self.assertEqual(babai['children'], [])
         self.assertNotIn('gender', self.nodes['CSV_B_2_5']['members'][0])
+
+    def test_araja_is_sreyas_daughter_not_atris_child(self):
+        daughter_id = 'FAMILY_B_2_4_1_ARAJA'
+        self.assertEqual(self.nodes['CSV_B_2_4_1']['children'], [daughter_id])
+        self.assertEqual(self.nodes['FAMILY_B_2_4_BABAI']['children'], [])
+        daughter = self.nodes[daughter_id]
+        self.assertEqual(daughter['members'][0]['name'], 'Araja Sen')
+        self.assertEqual(daughter['members'][0]['gender'], 'female')
+        self.assertEqual(daughter['branch'], 'B')
+        self.assertEqual(daughter['code'], '')
+        self.assertEqual(daughter['relationship'], 'individual')
+        self.assertEqual(daughter['children'], [])
+        self.assertEqual(sum(m['name'] == 'Atri Sen' for n in self.nodes.values() for m in n['members']), 1)
+        self.assertFalse(any(m['name'] == 'Babai Sen' for n in self.nodes.values() for m in n['members']))
 
     def test_subhasis_daughters(self):
         ids = ['FAMILY_F1_2a_SUNAYANA', 'FAMILY_F1_2a_SUCHETANA']
